@@ -11,6 +11,35 @@ public class VetManager {
     private ArrayList<Doctor> doctorList;
     private ArrayList<Medicine> medicinesList;
 
+    public VetManager() {
+
+    }
+
+    /**
+     * Metodo que nos retorna la cantidad total de mascotas registradas
+     * @return Total pets
+     */
+    public int getTotalPets(){
+        int totalPets = 0;
+        for (int i = 0; i < ownerList.size(); i++) {
+            totalPets += ownerList.get(i).getPetList().size();
+        }
+        return totalPets;
+    }
+
+    /**
+     * Establece el ID no repetidos para las mascotas
+     */
+    public void setIdPets(){
+        int idPet = 1;
+        for (int i = 0; i < ownerList.size(); i++) {
+            ArrayList<Pet> pets = ownerList.get(i).getPetList();
+            for (int j = 0; j < pets.size(); j++) {
+                pets.get(j).setId((idPet++));
+            }
+        }
+    }
+
     public String getNameVet() {
         return nameVet;
     }

@@ -2,11 +2,20 @@ package model;
 
 public class Pet {
 
+    public static final int NUMBER_INITIAL_PETS_ID = 1;
+
     private int id;
     private String name;
     private Size size;
     private Gender gender;
     private int age;
+
+    public Pet(String name, Size size, Gender gender, int age) {
+        this.name = name;
+        this.size = size;
+        this.gender = gender;
+        this.age = age;
+    }
 
     public int getId() {
         return id;

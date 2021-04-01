@@ -9,8 +9,26 @@ public class Owner {
     private String lastName;
     private ArrayList<Pet> petList;
 
-    public Owner(){
+    public Owner(String id, String name, String lastName, ArrayList<Pet> petList) {
+        this.id = id;
+        this.name = name;
+        this.lastName = lastName;
+        this.petList = petList;
+    }
 
+    //Falta probar
+    public void addPet(Pet pet){
+        pet.setId(petList.size()+1);
+        petList.add(pet);
+    }
+
+    public void delete(int id){
+        for (int i = 0; i < petList.size(); i++) {
+            Pet temp = petList.get(i);
+            if (temp.getId() == id){
+                petList.remove(i);
+            }
+        }
     }
 
     public String getId() {

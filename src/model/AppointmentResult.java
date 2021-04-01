@@ -8,6 +8,12 @@ public class AppointmentResult {
     private LocalDate dateOfResult;
     private int qualification;
 
+    public AppointmentResult(String medicalObservation, LocalDate dateOfResult, int qualification) {
+        this.medicalObservation = medicalObservation;
+        this.dateOfResult = dateOfResult;
+        this.qualification = qualification;
+    }
+
     public String getMedicalObservation() {
         return medicalObservation;
     }

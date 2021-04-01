@@ -10,6 +10,14 @@ public class Doctor {
     private LocalDate birthday;
     private CategoryEspeciality categoryEspeciality;
 
+    public Doctor(String id, String name, String lastName, LocalDate birthday, CategoryEspeciality categoryEspeciality) {
+        this.id = id;
+        this.name = name;
+        this.lastName = lastName;
+        this.birthday = birthday;
+        this.categoryEspeciality = categoryEspeciality;
+    }
+
     public String getId() {
         return id;
     }

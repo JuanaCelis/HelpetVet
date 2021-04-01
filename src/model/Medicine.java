@@ -4,8 +4,15 @@ public class Medicine {
 
     private String name;
     private double price;
-    private double amout;
+    private double amount;
     private CategoryMedicine categoryMedicine;
+
+    public Medicine(String name, double price, double amout, CategoryMedicine categoryMedicine) {
+        this.name = name;
+        this.price = price;
+        this.amount = amout;
+        this.categoryMedicine = categoryMedicine;
+    }
 
     public String getName() {
         return name;
@@ -23,12 +30,12 @@ public class Medicine {
         this.price = price;
     }
 
-    public double getAmout() {
-        return amout;
+    public double getAmount() {
+        return amount;
     }
 
-    public void setAmout(double amout) {
-        this.amout = amout;
+    public void setAmount(double amount) {
+        this.amount = amount;
     }
 
     public CategoryMedicine getCategoryMedicine() {

@@ -16,6 +16,19 @@ public class Appointment {
     private LocalDate dateAppointment;
     private ArrayList<AppointmentResult> resultAppointmentList;
 
+    public Appointment(int idAppointment, String idDoctor, String nameDoctor, String idOwner, String nameOwner, int idPet, String namePet, CategoryEspeciality category, LocalDate dateAppointment, ArrayList<AppointmentResult> resultAppointmentList) {
+        this.idAppointment = idAppointment;
+        this.idDoctor = idDoctor;
+        this.nameDoctor = nameDoctor;
+        this.idOwner = idOwner;
+        this.nameOwner = nameOwner;
+        this.idPet = idPet;
+        this.namePet = namePet;
+        this.category = category;
+        this.dateAppointment = dateAppointment;
+        this.resultAppointmentList = resultAppointmentList;
+    }
+
     public int getIdAppointment() {
         return idAppointment;
     }
