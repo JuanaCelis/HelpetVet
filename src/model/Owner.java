@@ -16,21 +16,6 @@ public class Owner {
         this.petList = petList;
     }
 
-    //Falta probar
-    public void addPet(Pet pet){
-        pet.setId(petList.size()+1);
-        petList.add(pet);
-    }
-
-    public void delete(int id){
-        for (int i = 0; i < petList.size(); i++) {
-            Pet temp = petList.get(i);
-            if (temp.getId() == id){
-                petList.remove(i);
-            }
-        }
-    }
-
     public String getId() {
         return id;
     }

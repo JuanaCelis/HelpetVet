@@ -6,25 +6,14 @@ public class VetManager {
 
     private String nameVet;
     private String country;
-    private ArrayList<Owner> ownerList;
-    private ArrayList<Appointment> appointmentList;
-    private ArrayList<Doctor> doctorList;
+    private OwnerManager ownerManager;
+    private AppointmentManager appointmentManager;
     private ArrayList<Medicine> medicinesList;
 
-    public VetManager() {
+    public VetManager(ArrayList<Owner> ownerManager, ArrayList<Appointment> doctorList) {
+        this.ownerManager = new OwnerManager(ownerManager);
+        appointmentManager = new AppointmentManager(doctorList);
 
-    }
-
-    /**
-     * Metodo que nos retorna la cantidad total de mascotas registradas
-     * @return Total pets
-     */
-    public int getTotalPets(){
-        int totalPets = 0;
-        for (int i = 0; i < ownerList.size(); i++) {
-            totalPets += ownerList.get(i).getPetList().size();
-        }
-        return totalPets;
     }
 
     /**
@@ -32,8 +21,8 @@ public class VetManager {
      */
     public void setIdPets(){
         int idPet = 1;
-        for (int i = 0; i < ownerList.size(); i++) {
-            ArrayList<Pet> pets = ownerList.get(i).getPetList();
+        for (int i = 0; i < ownerManager.getOwnerList().size(); i++) {
+            ArrayList<Pet> pets = ownerManager.getOwnerList().get(i).getPetList();
             for (int j = 0; j < pets.size(); j++) {
                 pets.get(j).setId((idPet++));
             }
@@ -56,28 +45,24 @@ public class VetManager {
         this.country = country;
     }
 
-    public ArrayList<Owner> getOwnerList() {
-        return ownerList;
+    public ArrayList<Owner> ownersList() {
+        return ownerManager.getOwnerList();
     }
 
-    public void setOwnerList(ArrayList<Owner> ownerList) {
-        this.ownerList = ownerList;
+    public OwnerManager getOwnerManager() {
+        return ownerManager;
     }
 
-    public ArrayList<Appointment> getAppointmentList() {
-        return appointmentList;
+    public AppointmentManager appointmentManager() {
+        return appointmentManager;
     }
 
-    public void setAppointmentList(ArrayList<Appointment> appointmentList) {
-        this.appointmentList = appointmentList;
+    public ArrayList<Appointment> appointmentList(){
+        return appointmentManager.getAppointmentList();
     }
 
-    public ArrayList<Doctor> getDoctorList() {
-        return doctorList;
-    }
-
-    public void setDoctorList(ArrayList<Doctor> doctorList) {
-        this.doctorList = doctorList;
+    public ArrayList<Appointment> getDoctorList() {
+        return appointmentManager.getAppointmentList();
     }
 
     public ArrayList<Medicine> getMedicinesList() {

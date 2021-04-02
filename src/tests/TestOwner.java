@@ -6,13 +6,11 @@ import model.*;
 import java.util.ArrayList;
 import java.util.HashSet;
 
-public class TestApp {
+public class TestOwner {
 
-    private VetManager vetManager;
     private ArrayList<Owner> ownerList;
 
-    public TestApp() {
-        vetManager = new VetManager();
+    public TestOwner() {
         ownerList = new ArrayList<>();
         owners();
     }
@@ -67,25 +65,11 @@ public class TestApp {
         return (int)(Math.random() * size + 1);
     }
 
-    public void addOwners(){
-        vetManager.setOwnerList(ownerList);
-    }
-
-    public void print(){
-        addOwners();
-        vetManager.setIdPets();
-        ArrayList<Owner> temp = vetManager.getOwnerList();
-        for (int i = 0; i < temp.size(); i++) {
-            System.out.println(temp.get(i).getName());
-            ArrayList<Pet> pets = temp.get(i).getPetList();
-            for (int j = 0; j < pets.size(); j++) {
-                System.out.print("Mascotas: " + pets.get(j).getName() + " " + pets.get(j).getId() + "\n");
-            }
-        }
-        System.out.println(vetManager.getTotalPets());
-    }
-
-    public static void main(String[] args) {
-        new TestApp().print();
+    /**
+     * Retorna la lista de Dueños
+     * @return Dueños
+     */
+    public ArrayList<Owner> getOwnerList() {
+        return ownerList;
     }
 }

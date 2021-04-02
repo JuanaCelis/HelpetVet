@@ -12,7 +12,7 @@ public class Presenter {
     private JFrameMainWindow mainWindow;
 
     public Presenter(){
-        vetManager = new VetManager();
+        //vetManager = new VetManager();
         mainWindow = new JFrameMainWindow(this);
     }
 
