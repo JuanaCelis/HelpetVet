@@ -9,6 +9,7 @@ public class Doctor {
     private String lastName;
     private LocalDate birthday;
     private CategoryEspeciality categoryEspeciality;
+    private Appointment appointment;
 
     public Doctor(String id, String name, String lastName, LocalDate birthday, CategoryEspeciality categoryEspeciality) {
         this.id = id;
@@ -38,16 +39,28 @@ public class Doctor {
         return lastName;
     }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
     public LocalDate getBirthday() {
         return birthday;
     }
 
+    /**
+     * Recibe la cita asignada al doctor
+     * @param Cita del doctor
+     */
+    public void setIdAppointment(Appointment appointment) {
+        this.appointment = appointment;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
     public void setBirthday(LocalDate birthday) {
         this.birthday = birthday;
+    }
+
+    public Appointment getAppointment() {
+        return appointment;
     }
 
     public CategoryEspeciality getCategoryEspeciality() {

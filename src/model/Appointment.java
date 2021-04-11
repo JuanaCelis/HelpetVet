@@ -1,32 +1,26 @@
 package model;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
 
 public class Appointment {
 
     private int idAppointment;
-    private String idDoctor;
-    private String nameDoctor;
     private String idOwner;
     private String nameOwner;
     private int idPet;
     private String namePet;
     private CategoryEspeciality category;
     private LocalDate dateAppointment;
-    private ArrayList<AppointmentResult> resultAppointmentList;
-
-    public Appointment(int idAppointment, String idDoctor, String nameDoctor, String idOwner, String nameOwner, int idPet, String namePet, CategoryEspeciality category, LocalDate dateAppointment, ArrayList<AppointmentResult> resultAppointmentList) {
+    private Doctor doctor;
+    
+    public Appointment(int idAppointment, String idOwner, String nameOwner, int idPet, String namePet, CategoryEspeciality category, LocalDate dateAppointment) {
         this.idAppointment = idAppointment;
-        this.idDoctor = idDoctor;
-        this.nameDoctor = nameDoctor;
         this.idOwner = idOwner;
         this.nameOwner = nameOwner;
         this.idPet = idPet;
         this.namePet = namePet;
         this.category = category;
         this.dateAppointment = dateAppointment;
-        this.resultAppointmentList = resultAppointmentList;
     }
 
     public int getIdAppointment() {
@@ -37,20 +31,12 @@ public class Appointment {
         this.idAppointment = idAppointment;
     }
 
-    public String getIdDoctor() {
-        return idDoctor;
+    public void setDoctor(Doctor doctor){
+        this.doctor = doctor;
     }
 
-    public void setIdDoctor(String idDoctor) {
-        this.idDoctor = idDoctor;
-    }
-
-    public String getNameDoctor() {
-        return nameDoctor;
-    }
-
-    public void setNameDoctor(String nameDoctor) {
-        this.nameDoctor = nameDoctor;
+    public Doctor getDoctor() {
+        return doctor;
     }
 
     public String getIdOwner() {
@@ -99,13 +85,5 @@ public class Appointment {
 
     public void setDateAppointment(LocalDate dateAppointment) {
         this.dateAppointment = dateAppointment;
-    }
-
-    public ArrayList<AppointmentResult> getResultAppointmentList() {
-        return resultAppointmentList;
-    }
-
-    public void setResultAppointmentList(ArrayList<AppointmentResult> resultAppointmentList) {
-        this.resultAppointmentList = resultAppointmentList;
     }
 }

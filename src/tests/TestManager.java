@@ -13,14 +13,16 @@ public class TestManager {
     public TestManager(){
         testOwner = new TestOwner();
         testAppointment = new TestAppointment();
-        vetManager = new VetManager(testOwner.getOwnerList(), testAppointment.appointmentsList());
+        vetManager = new VetManager(testOwner.getOwnerList());
+        vetManager.setIdPets();
         init();
     }
 
     public void init(){
-        vetManager.setIdPets();
-        testAddNewPet();
+        // testAddNewPet();
         printOwnersAndPets();
+        setDoctorsList();
+        printAppointments();
     }
 
     /**
@@ -43,6 +45,25 @@ public class TestManager {
      */
     public void testAddNewPet(){
         vetManager.getOwnerManager().addNewPet("32012",new Pet("Miel", Size.MEDIUM, Gender.MALE,2));
+    }
+
+    public void printAppointments(){
+        for (int i = 0; i < vetManager.getDoctors().size(); i++) {
+            Doctor doctorTest = vetManager.getDoctors().get(i);
+            doctorTest.setIdAppointment(testAppointment.appointmentsList().get(0));
+            if (doctorTest.getAppointment() != null) {
+                System.out.println(doctorTest.getName() +" "+ doctorTest.getCategoryEspeciality()+" "+ doctorTest.getAppointment().getNamePet() +" Dueño:"+ doctorTest.getAppointment().getNameOwner());
+            }
+        }
+    }
+
+    /**
+     * Agregar lista de Doctores
+     * @param args
+     */
+    public void setDoctorsList(){
+        // vetManager.appointmentManager().getDoctorManager().setDoctors(testAppointment.getDoctorList());
+        vetManager.getDoctorManager().setDoctors(testAppointment.getDoctorList());
     }
 
     public static void main(String[] args) {

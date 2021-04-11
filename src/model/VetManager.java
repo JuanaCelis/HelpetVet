@@ -7,13 +7,13 @@ public class VetManager {
     private String nameVet;
     private String country;
     private OwnerManager ownerManager;
-    private AppointmentManager appointmentManager;
+    private DoctorManager doctorManager;
+    // private AppointmentManager appointmentManager;
     private ArrayList<Medicine> medicinesList;
 
-    public VetManager(ArrayList<Owner> ownerManager, ArrayList<Appointment> doctorList) {
+    public VetManager(ArrayList<Owner> ownerManager) {
         this.ownerManager = new OwnerManager(ownerManager);
-        appointmentManager = new AppointmentManager(doctorList);
-
+        this.doctorManager = new DoctorManager();
     }
 
     /**
@@ -53,16 +53,16 @@ public class VetManager {
         return ownerManager;
     }
 
-    public AppointmentManager appointmentManager() {
-        return appointmentManager;
+    public void setDoctorsList(ArrayList<Doctor> doctors){
+        doctorManager.setDoctors(doctors);
     }
 
-    public ArrayList<Appointment> appointmentList(){
-        return appointmentManager.getAppointmentList();
+    public ArrayList<Doctor> getDoctors(){
+        return doctorManager.getDoctors();
     }
 
-    public ArrayList<Appointment> getDoctorList() {
-        return appointmentManager.getAppointmentList();
+    public DoctorManager getDoctorManager() {
+        return doctorManager;
     }
 
     public ArrayList<Medicine> getMedicinesList() {
