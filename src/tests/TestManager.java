@@ -19,7 +19,7 @@ public class TestManager {
     }
 
     public void init(){
-        // testAddNewPet();
+        testAddNewPet();
         printOwnersAndPets();
         setDoctorsList();
         printAppointments();
