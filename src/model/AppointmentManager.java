@@ -59,6 +59,10 @@ public class AppointmentManager {
     }
     
 
+    public void registerNewAppointment(Appointment appointment){
+        
+    }
+
     public ArrayList<Appointment> getAppointmentList() {
         return appointmentList;
     }

@@ -34,4 +34,9 @@ public class JPMainPanel extends JPanel {
         add(jpcontainerFooter, BorderLayout.PAGE_END);
 
     }
+
+    public void changeLanguage() {
+        jpcontainerHeader.changeLanguage();
+        jpcontainerBody.changeLanguage();
+    }
 }

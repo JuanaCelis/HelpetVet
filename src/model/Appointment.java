@@ -7,16 +7,38 @@ public class Appointment {
     private int idAppointment;
     private String idOwner;
     private String nameOwner;
+    private String lastNameOwner;
     private int idPet;
     private String namePet;
     private CategoryEspeciality category;
     private LocalDate dateAppointment;
     private Doctor doctor;
     
+    public Appointment(int idAppointment, String idOwner,  String nameOwner, String lastNameOwner, int idPet, String namePet, CategoryEspeciality category, LocalDate dateAppointment) {
+        this.idAppointment = idAppointment;
+        this.idOwner = idOwner;
+        this.nameOwner = nameOwner;
+        this.lastNameOwner = lastNameOwner;
+        this.idPet = idPet;
+        this.namePet = namePet;
+        this.category = category;
+        this.dateAppointment = dateAppointment;
+    }
+
+    public Appointment(String idOwner, String lastNameOwner, String nameOwner,String namePet, CategoryEspeciality category, LocalDate dateAppointment) {
+        this.idOwner = idOwner;
+        this.nameOwner = nameOwner;
+        this.lastNameOwner = lastNameOwner;
+        this.namePet = namePet;
+        this.category = category;
+        this.dateAppointment = dateAppointment;
+    }
+
     public Appointment(int idAppointment, String idOwner, String nameOwner, int idPet, String namePet, CategoryEspeciality category, LocalDate dateAppointment) {
         this.idAppointment = idAppointment;
         this.idOwner = idOwner;
         this.nameOwner = nameOwner;
+        this.lastNameOwner = lastNameOwner;
         this.idPet = idPet;
         this.namePet = namePet;
         this.category = category;
