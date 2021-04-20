@@ -74,8 +74,6 @@ public class JDScheduleAppointment extends JDialog {
         cancelAction.addActionListener(myPresenter);
         jPanelDialogContainer.add(cancelAction);
 
-
-
         add(jPanelDialogContainer, BorderLayout.CENTER);
     }
 
