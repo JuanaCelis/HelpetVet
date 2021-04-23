@@ -1,6 +1,7 @@
 package view;
 
 import model.Doctor;
+import model.Medicine;
 import presenter.Presenter;
 import view.body.JPContainerBody;
 import view.footer.JPContainerFooter;
@@ -8,6 +9,7 @@ import view.header.JPContainerHeader;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.ArrayList;
 
 public class JPMainPanel extends JPanel {
 
@@ -34,6 +36,27 @@ public class JPMainPanel extends JPanel {
         jpcontainerFooter = new JPContainerFooter(myPresenter);
         add(jpcontainerFooter, BorderLayout.PAGE_END);
 
+    }
+
+    public void showPanelGraphics(){
+        jpcontainerBody.showPanelGraphics();
+    }
+
+    public void showPanelButtonsReportsTable(){
+        jpcontainerBody.showPanelButtonsReportsTable();
+    }
+
+    public void showPanelTable(){
+        jpcontainerBody.showPanelTable();
+    }
+
+    public void showListOfDoctors(ArrayList<Doctor> doctorList){
+        jpcontainerBody.showListOfDoctors(doctorList);
+    }
+
+
+    public void showMedicineRaresTable(ArrayList<Medicine> medicineList){
+        jpcontainerBody.showMedicineRaresTable(medicineList);
     }
 
 

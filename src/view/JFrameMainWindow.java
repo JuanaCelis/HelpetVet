@@ -1,8 +1,11 @@
 package view;
+import model.Doctor;
+import model.Medicine;
 import persistence.HandlerLanguage;
 import presenter.Presenter;
 
 import javax.swing.*;
+import java.util.ArrayList;
 
 public class JFrameMainWindow extends JFrame {
 
@@ -26,6 +29,26 @@ public class JFrameMainWindow extends JFrame {
         jsPMainPanel.setViewportView(mainPanel);
         jsPMainPanel.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
         add(jsPMainPanel);
+    }
+
+    public void showPanelGraphics(){
+        mainPanel.showPanelGraphics();
+    }
+
+    public void showPanelButtonsReportsTable(){
+        mainPanel.showPanelButtonsReportsTable();
+    }
+
+    public void showPanelTable(){
+        mainPanel.showPanelTable();
+    }
+
+    public void showListOfDoctors(ArrayList<Doctor> doctorList){
+        mainPanel.showListOfDoctors(doctorList);
+    }
+
+    public void showMedicineRaresTable(ArrayList<Medicine> medicineList){
+        mainPanel.showMedicineRaresTable(medicineList);
     }
 
     public void changeLanguage() {

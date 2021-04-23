@@ -11,7 +11,7 @@ import java.awt.*;
 
 public class JPButtonsHeader extends JPanel {
 
-    public JButton jlIconHelpet,jbNewUser, jbNewDoctor, jbNewAppointment, jbReports;
+    public JButton jlIconHelpet,jbNewUser, jbNewDoctor, jbNewAppointment, jbReports, jbTables;
 
     private Presenter myPresenter;
 
@@ -31,7 +31,7 @@ public class JPButtonsHeader extends JPanel {
     private void addIconHelpVet() {
         jlIconHelpet = new JButton();
         ImageIcon temp = new ImageIcon(new ImageIcon(getClass().getResource(ConstantGUI.LOGO_HELPET)).getImage());
-        MyUtilities.setMainElementsButton(jlIconHelpet,temp,0,50,20,90);
+        MyUtilities.setMainElementsButton(jlIconHelpet,temp,0,50,20,10);
         this.add(jlIconHelpet);
     }
 
@@ -60,9 +60,16 @@ public class JPButtonsHeader extends JPanel {
         jbReports = new JButton();
         ImageIcon tempReports = new ImageIcon(new ImageIcon(getClass().getResource(ConstantGUI.BUTTON_GENERAL_REPORTS)).getImage());
         MyUtilities.setTextAndIconButtons(jbReports, HandlerLanguage.languageProperties.getProperty(ConstantGUI.T_BUTTON_SHOW_REPORTS), tempReports, 0,0,0,0);
-        //jbReports.addActionListener(myPresenter);
-        //jbReports.setActionCommand(EVENTS.C_SCHEDULE_APPOINTMENT.toString());
+        jbReports.addActionListener(myPresenter);
+        jbReports.setActionCommand(EVENTS.C_SHOW_PANEL_GRAPHICS.toString());
         this.add(jbReports);
+
+        jbTables = new JButton();
+        ImageIcon tempTables = new ImageIcon(new ImageIcon(getClass().getResource(ConstantGUI.BUTTON_SHOW_TABLES)).getImage());
+        MyUtilities.setTextAndIconButtons(jbTables, HandlerLanguage.languageProperties.getProperty(ConstantGUI.T_BUTTON_SHOW_TABLES), tempTables, 0,0,0,0);
+        jbTables.addActionListener(myPresenter);
+        jbTables.setActionCommand(EVENTS.C_SHOW_PANEL_TABLES.toString());
+        this.add(jbTables);
 
     }
 
@@ -71,5 +78,6 @@ public class JPButtonsHeader extends JPanel {
         jbNewDoctor.setText(HandlerLanguage.languageProperties.getProperty(ConstantGUI.T_BUTTON_NEW_DOCTOR));
         jbNewAppointment.setText(HandlerLanguage.languageProperties.getProperty(ConstantGUI.T_BUTTON_NEW_APPOINTMENT));
         jbReports.setText(HandlerLanguage.languageProperties.getProperty(ConstantGUI.T_BUTTON_SHOW_REPORTS));
+        jbTables.setText(HandlerLanguage.languageProperties.getProperty(ConstantGUI.T_BUTTON_SHOW_TABLES));
     }
 }

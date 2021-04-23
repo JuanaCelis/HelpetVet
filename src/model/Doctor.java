@@ -19,6 +19,7 @@ public class Doctor {
         this.categoryEspeciality = categoryEspeciality;
     }
 
+
     public String getId() {
         return id;
     }

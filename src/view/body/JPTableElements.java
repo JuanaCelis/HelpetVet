@@ -1,7 +1,11 @@
 package view.body;
 
 import model.Appointment;
+import model.Doctor;
+import model.Medicine;
 import model.Owner;
+import persistence.HandlerLanguage;
+import view.ConstantGUI;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
@@ -27,7 +31,7 @@ public class JPTableElements extends JPanel {
         tableElements = new JTable();
         tableElements.setModel(defaultTable);
         tableElements.getTableHeader().setReorderingAllowed(false);
-        tableElements.getTableHeader().setBackground(new Color(120, 120, 120));
+        tableElements.getTableHeader().setBackground(Color.decode(ConstantGUI.COLOR_DARK_BLUE));
 
         //setSize
 
@@ -49,6 +53,31 @@ public class JPTableElements extends JPanel {
         defaultTable.setColumnIdentifiers(headers);
         loadAppointmentToList(listAppointment);
     }
+
+    public void showTableMedicines(ArrayList<Medicine> medicineArrayList){
+        clearTable();
+        String [] headers = {HandlerLanguage.languageProperties.getProperty( ConstantGUI.T_HEADER_PRODUCT_DESCRIPTION),
+                HandlerLanguage.languageProperties.getProperty( ConstantGUI.T_HEADER_MEDICINE_CLASS),
+                HandlerLanguage.languageProperties.getProperty( ConstantGUI.T_HEADER_PRESENTATION_MEDICINE),
+                HandlerLanguage.languageProperties.getProperty( ConstantGUI.T_HEADER_SPECIE_MEDICINE)};
+
+        defaultTable.setColumnIdentifiers(headers);
+
+    }
+
+    public void showTableDoctors(ArrayList<Doctor> doctorsList){
+        clearTable();
+        String [] headers = {HandlerLanguage.languageProperties.getProperty( ConstantGUI.T_JD_GET_ID),
+                HandlerLanguage.languageProperties.getProperty( ConstantGUI.T_JD_GET_NAME),
+                HandlerLanguage.languageProperties.getProperty( ConstantGUI.T_JD_GET_LASTNAME),
+                HandlerLanguage.languageProperties.getProperty( ConstantGUI.T_JD_GET_BIRTHDATE),
+                HandlerLanguage.languageProperties.getProperty( ConstantGUI.T_JD_GET_CATEGORY)};
+
+        defaultTable.setColumnIdentifiers(headers);
+
+    }
+
+
 
     private void loadAppointmentToList(ArrayList<Appointment> appointmentsList){
         for (Appointment appointment: appointmentsList) {

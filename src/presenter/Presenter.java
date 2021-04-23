@@ -4,6 +4,7 @@ import dialogs.JDRegisterDoctor;
 import dialogs.JDRegisterPet;
 import dialogs.JDScheduleAppointment;
 import model.Doctor;
+import model.Medicine;
 import model.VetManager;
 import persistence.HandlerLanguage;
 import view.JFrameMainWindow;
@@ -12,6 +13,7 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class Presenter implements ActionListener {
 
@@ -86,6 +88,8 @@ public class Presenter implements ActionListener {
         loadLanguage();
     }
 
+
+
     public void changeToSpanish() throws IOException{
         HandlerLanguage.language = SPANISH_PATH;
         saveConfig();
@@ -94,6 +98,19 @@ public class Presenter implements ActionListener {
 
     private void manageChangeLanguage(){
         mainWindow.changeLanguage();
+    }
+
+    public void showPanelTable(){
+        mainWindow.showPanelTable();
+        showListOfDoctors(vetManager.getDoctorManager().getDoctors());
+    }
+
+    public void showMedicineRaresTable(ArrayList<Medicine> medicineList){
+        mainWindow.showMedicineRaresTable(medicineList);
+    }
+
+    public void showListOfDoctors(ArrayList<Doctor> doctorList){
+        mainWindow.showListOfDoctors(doctorList);
     }
 
     /**
@@ -132,6 +149,22 @@ public class Presenter implements ActionListener {
 
             case C_SCHEDULE_APPOINTMENT:
                 jdScheduleAppointment = new JDScheduleAppointment(this);
+                break;
+
+            case C_SHOW_PANEL_GRAPHICS:
+                mainWindow.showPanelGraphics();
+                break;
+
+            case C_SHOW_PANEL_TABLES:
+                mainWindow.showPanelButtonsReportsTable();
+                break;
+
+            case C_SHOW_TABLE_MEDICINE_RARE:
+                //showPanelTable();
+                break;
+
+            case C_SHOW_LIST_OF_DOCTORS:
+                showPanelTable();
                 break;
         }
 

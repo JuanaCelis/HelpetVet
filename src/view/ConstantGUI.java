@@ -9,8 +9,17 @@ public class ConstantGUI {
     public static final String NEW_DOCTOR = "/img/new_doctor.png";
     public static final String NEW_APPOINTMENT = "/img/new_date.png";
     public static final String BUTTON_GENERAL_REPORTS = "/img/reportes.png";
+    public static final String BUTTON_SHOW_TABLES = "/img/frecuencia.png";
     public static final String BUTTON_SPANISH = "/img/boton_espanol.png";
     public static final String BUTTON_ENGLISH = "/img/boton_ingles.png";
+
+
+    //Imagenes botones reportes tablas
+    public static final String BUTTON_MEDICINE_TABLE = "/img/medicamento.png";
+    public static final String BUTTON_PETS_OWNER_TABLE = "/img/perro.png";
+    public static final String BUTTON_APPOINTMENT_BY_CATEGORY_TABLE = "/img/cita-medica.png";
+    public static final String BUTTON_APPOINTMENT_BY_DAY_TABLE = "/img/calendario_tablas.png";
+
 
     //Colores
     public static final String COLOR_DARK_BLUE = "#094f71";
@@ -24,6 +33,7 @@ public class ConstantGUI {
     public static final String T_BUTTON_NEW_DOCTOR = "Register_new_Doctor";
     public static final String T_BUTTON_NEW_APPOINTMENT = "Register_new_appointment";
     public static final String T_BUTTON_SHOW_REPORTS = "Show_Reports";
+    public static final String T_BUTTON_SHOW_TABLES = "Show_tables";
     public static final String T_JLABEL_TITTLE_GRAPHIC_REPORTS = "JLabel_Graphic_Reports_Tittle";
     public static final String T_BUTTON_AVERAGE_CATEGORY = "Button_RG_Average_Category";
     public static final String T_BUTTON_DOCS_BY_CATEGORY = "Button_RG_Docs_category";
@@ -57,4 +67,18 @@ public class ConstantGUI {
     public static final String T_GET_CATEGORY = "JD_get_category_appointment";
     public static final String T_DATE_APPOINTMENT = "JD_get_date_appointment";
     public static final String T_JD_REGISTER_APPOINTMENT = "JB_Register_new_appointment";
+
+    //Header tabla medicamentos
+    public static final String T_HEADER_PRODUCT_DESCRIPTION = "header_description_medicine";
+    public static final String T_HEADER_MEDICINE_CLASS = "header_medicine_class";
+    public static final String T_HEADER_PRESENTATION_MEDICINE = "header_presentation_medicine";
+    public static final String T_HEADER_SPECIE_MEDICINE = "header_specie_medicine";
+    //Llaves lenguaje botones tablas
+    public static final String T_JLABEL_TITTLE_TABLE_REPORT = "Reports_in_table";
+    public static final String T_BUTTON_REPORT_MEDICINE_TABLE = "Report_medicine_table";
+    public static final String T_BUTTON_PETS_OWNER_TABLE = "Report_Pet_Owner_Table";
+    public static final String T_BUTTON_APPOINTMENT_BY_CATEGORY_TABLE = "Report_Appointment_category_table";
+    public static final String T_BUTTON_SHOW_LIST_OF_DOCTOR_TABLE = "Report_list_of_doctor_table";
+
+
 }
