@@ -7,9 +7,6 @@ public class DoctorManager {
     private AppointmentManager appointmentManager;
     private ArrayList<Doctor> doctors;
 
-    /**
-     * Crear Clase sin parametros, ingreso de datos por metodos sets
-     */
     public DoctorManager(){
         doctors = new ArrayList<>();
     }
@@ -33,7 +30,7 @@ public class DoctorManager {
     /**
      * Agrega un doctor a la lista
      */
-    public void addDoctors(Doctor doctor){
+    public void addDoctor(Doctor doctor){
         doctors.add(doctor);
     }
 

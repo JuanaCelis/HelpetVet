@@ -11,8 +11,8 @@ public class VetManager {
     // private AppointmentManager appointmentManager;
     private ArrayList<Medicine> medicinesList;
 
-    public VetManager(ArrayList<Owner> ownerManager) {
-        this.ownerManager = new OwnerManager(ownerManager);
+    public VetManager(/*ArrayList<Owner> ownerManager*/) {
+        //this.ownerManager = new OwnerManager(ownerManager);
         this.doctorManager = new DoctorManager();
     }
 

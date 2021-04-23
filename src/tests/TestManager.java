@@ -13,7 +13,7 @@ public class TestManager {
     public TestManager(){
         testOwner = new TestOwner();
         testAppointment = new TestAppointment();
-        vetManager = new VetManager(testOwner.getOwnerList());
+        //vetManager = new VetManager(testOwner.getOwnerList());
         vetManager.setIdPets();
         init();
     }

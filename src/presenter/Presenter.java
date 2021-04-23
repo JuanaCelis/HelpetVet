@@ -3,6 +3,7 @@ package presenter;
 import dialogs.JDRegisterDoctor;
 import dialogs.JDRegisterPet;
 import dialogs.JDScheduleAppointment;
+import model.Doctor;
 import model.VetManager;
 import persistence.HandlerLanguage;
 import view.JFrameMainWindow;
@@ -27,7 +28,7 @@ public class Presenter implements ActionListener {
     private HandlerLanguage config;
 
     public Presenter(){
-        //vetManager = new VetManager();
+        vetManager = new VetManager();
         loadConfiguration();
         mainWindow = new JFrameMainWindow(this);
 
@@ -95,6 +96,13 @@ public class Presenter implements ActionListener {
         mainWindow.changeLanguage();
     }
 
+    /**
+     * crea un Doctor conlos datos obtenidos por el Dialogo Register Doct
+     * @return Doctor nuevo
+     */
+    public void createDoctor(){
+        vetManager.getDoctorManager().addDoctor(jdRegisterDoc.createDoctor());
+    }
 
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -115,6 +123,11 @@ public class Presenter implements ActionListener {
 
             case C_DIALOG_REGISTER_DOC:
                 jdRegisterDoc = new JDRegisterDoctor(this);
+                break;
+
+            case C_ADD_DOCTOR:
+                createDoctor();
+                jdRegisterDoc.dispose();
                 break;
 
             case C_SCHEDULE_APPOINTMENT:

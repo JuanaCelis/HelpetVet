@@ -1,5 +1,6 @@
 package view;
 
+import model.Doctor;
 import presenter.Presenter;
 import view.body.JPContainerBody;
 import view.footer.JPContainerFooter;
@@ -34,6 +35,7 @@ public class JPMainPanel extends JPanel {
         add(jpcontainerFooter, BorderLayout.PAGE_END);
 
     }
+
 
     public void changeLanguage() {
         jpcontainerHeader.changeLanguage();
