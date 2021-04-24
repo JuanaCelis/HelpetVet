@@ -1,5 +1,4 @@
 package dialogs;
-//import com.toedter.calendar.JDateChooser;
 import com.toedter.calendar.JDateChooser;
 import model.CategoryEspeciality;
 import model.Doctor;
@@ -58,12 +57,12 @@ public class JDRegisterDoctor extends JDialog {
         jPanelDialogContainer.add(jDBirthDate);
 
         jcCategory = new JComboBox<>(CategoryEspeciality.values());
-        jcCategory.setBorder(BorderFactory.createTitledBorder(HandlerLanguage.languageProperties.getProperty( ConstantGUI.T_JD_GET_CATEGORY )));
+        jcCategory.setBorder(BorderFactory.createTitledBorder(MyUtilities.setRepairLetter(HandlerLanguage.languageProperties.getProperty( ConstantGUI.T_JD_GET_CATEGORY ))));
         jcCategory.setBackground(Color.white);
         jPanelDialogContainer.add(jcCategory);
 
         buttonAddDoctor = new JButton();
-        buttonAddDoctor = new view.RoundedJButton(15, 15, HandlerLanguage.languageProperties.getProperty( ConstantGUI.T_JD_ADD_DOCTOR), Color.decode("#337AB7"), Color.WHITE, EVENTS.C_ADD_NEW_DOCTOR.toString(), myPresenter);
+        buttonAddDoctor = new view.RoundedJButton(15, 15, MyUtilities.setRepairLetter(HandlerLanguage.languageProperties.getProperty( ConstantGUI.T_JD_ADD_DOCTOR)), Color.decode("#337AB7"), Color.WHITE, EVENTS.C_ADD_NEW_DOCTOR.toString(), myPresenter);
         buttonAddDoctor.setActionCommand(EVENTS.C_ADD_DOCTOR.toString());
         buttonAddDoctor.addActionListener(myPresenter);
         jPanelDialogContainer.add(buttonAddDoctor);

@@ -66,14 +66,14 @@ public class JPButtonsReportsTable extends JPanel {
 
         jbReportPetsAndOwner = new JButton();
         ImageIcon tempPetsAndOwner = new ImageIcon(new ImageIcon(getClass().getResource(ConstantGUI.BUTTON_PETS_OWNER_TABLE)).getImage());
-        MyUtilities.setTextAndIconButtons(jbReportPetsAndOwner, HandlerLanguage.languageProperties.getProperty(ConstantGUI.T_BUTTON_PETS_OWNER_TABLE), tempPetsAndOwner, 0,0,0,0);
+        MyUtilities.setTextAndIconButtons(jbReportPetsAndOwner, MyUtilities.setRepairLetter(HandlerLanguage.languageProperties.getProperty(ConstantGUI.T_BUTTON_PETS_OWNER_TABLE)), tempPetsAndOwner, 0,0,0,0);
         //jbAverageCategory.addActionListener(myPresenter);
         //jbAverageCategory.setActionCommand(EVENTS.C_DIALOG_REGISTER_DOC.toString());
         panelButtonsRepTables.add(jbReportPetsAndOwner);
 
         jbAppointmentByCategory = new JButton();
         ImageIcon tempAppointmentByCategory = new ImageIcon(new ImageIcon(getClass().getResource(ConstantGUI.BUTTON_APPOINTMENT_BY_CATEGORY_TABLE)).getImage());
-        MyUtilities.setTextAndIconButtons(jbAppointmentByCategory, HandlerLanguage.languageProperties.getProperty(ConstantGUI.T_BUTTON_APPOINTMENT_BY_CATEGORY_TABLE), tempAppointmentByCategory, 0,0,0,0);
+        MyUtilities.setTextAndIconButtons(jbAppointmentByCategory, MyUtilities.setRepairLetter(HandlerLanguage.languageProperties.getProperty(ConstantGUI.T_BUTTON_APPOINTMENT_BY_CATEGORY_TABLE)), tempAppointmentByCategory, 0,0,0,0);
         //jbAverageCategory.addActionListener(myPresenter);
         //jbAverageCategory.setActionCommand(EVENTS.C_DIALOG_REGISTER_DOC.toString());
         panelButtonsRepTables.add(jbAppointmentByCategory);

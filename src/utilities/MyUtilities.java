@@ -1,17 +1,19 @@
 package utilities;
 
+import sun.nio.cs.ISO_8859_2;
 import view.ConstantGUI;
 
+import static java.nio.charset.StandardCharsets.ISO_8859_1;
+import static java.nio.charset.StandardCharsets.UTF_8;
 import javax.swing.*;
 import java.awt.*;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
+import java.nio.charset.Charset;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.Date;
 import java.util.Properties;
+
 
 public class MyUtilities {
 
@@ -71,6 +73,17 @@ public class MyUtilities {
         properties.store(output,null);
         output.close();
 
+    }
+
+    /**
+     * Arregla problemas de la Ñ y tildes
+     * @param string
+     * @return
+     */
+    public static String setRepairLetter(String string) {
+        byte [] ptext = string.getBytes(ISO_8859_1);
+        String value = new String(ptext, UTF_8);
+        return  value;
     }
 
 

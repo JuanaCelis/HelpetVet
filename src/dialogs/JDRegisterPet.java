@@ -6,6 +6,7 @@ import model.Size;
 import persistence.HandlerLanguage;
 import presenter.EVENTS;
 import presenter.Presenter;
+import utilities.MyUtilities;
 import view.ConstantGUI;
 
 import javax.swing.*;
@@ -52,7 +53,7 @@ public class JDRegisterPet extends JDialog {
         jPanelDialogContainer.add(jcGender);
 
         jcSize = new JComboBox<>(Size.values());
-        jcSize.setBorder(BorderFactory.createTitledBorder(HandlerLanguage.languageProperties.getProperty( ConstantGUI.T_JD_SIZE_PET )));
+        jcSize.setBorder(BorderFactory.createTitledBorder(MyUtilities.setRepairLetter(HandlerLanguage.languageProperties.getProperty( ConstantGUI.T_JD_SIZE_PET ))));
         jcSize.setBackground(Color.WHITE);
         jPanelDialogContainer.add(jcSize);
 

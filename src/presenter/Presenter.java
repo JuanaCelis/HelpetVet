@@ -114,7 +114,7 @@ public class Presenter implements ActionListener {
     }
 
     /**
-     * crea un Doctor conlos datos obtenidos por el Dialogo Register Doct
+     * crea un Doctor con los datos obtenidos por el Dialog Register Doct
      * @return Doctor nuevo
      */
     public void createDoctor(){

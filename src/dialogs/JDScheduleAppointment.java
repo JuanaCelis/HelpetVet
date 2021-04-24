@@ -5,6 +5,7 @@ import model.CategoryEspeciality;
 import persistence.HandlerLanguage;
 import presenter.EVENTS;
 import presenter.Presenter;
+import utilities.MyUtilities;
 import view.ConstantGUI;
 
 import javax.swing.*;
@@ -40,15 +41,15 @@ public class JDScheduleAppointment extends JDialog {
         jPanelDialogContainer.setLayout(gridLayout);
 
         jtfIdOwner = new JTextField();
-        jtfIdOwner.setBorder(BorderFactory.createTitledBorder(HandlerLanguage.languageProperties.getProperty( ConstantGUI.T_GET_ID_OWNER )));
+        jtfIdOwner.setBorder(BorderFactory.createTitledBorder(MyUtilities.setRepairLetter(HandlerLanguage.languageProperties.getProperty( ConstantGUI.T_GET_ID_OWNER ))));
         jPanelDialogContainer.add(jtfIdOwner);
 
         jtfNameOwner = new JTextField();
-        jtfNameOwner.setBorder(BorderFactory.createTitledBorder(HandlerLanguage.languageProperties.getProperty( ConstantGUI.T_GET_NAME_OWNER )));
+        jtfNameOwner.setBorder(BorderFactory.createTitledBorder(MyUtilities.setRepairLetter(HandlerLanguage.languageProperties.getProperty( ConstantGUI.T_GET_NAME_OWNER ))));
         jPanelDialogContainer.add(jtfNameOwner);
 
         jtfLastNameOwner = new JTextField();
-        jtfLastNameOwner.setBorder(BorderFactory.createTitledBorder(HandlerLanguage.languageProperties.getProperty( ConstantGUI.T_GET_LASTNAME_OWNER )));
+        jtfLastNameOwner.setBorder(BorderFactory.createTitledBorder(MyUtilities.setRepairLetter(HandlerLanguage.languageProperties.getProperty( ConstantGUI.T_GET_LASTNAME_OWNER ))));
         jPanelDialogContainer.add(jtfLastNameOwner);
 
         jtfNamePet = new JTextField();
@@ -61,7 +62,7 @@ public class JDScheduleAppointment extends JDialog {
         jPanelDialogContainer.add(category);
 
         jDateAppointment = new JDateChooser();
-        jDateAppointment.setBorder(BorderFactory.createTitledBorder(HandlerLanguage.languageProperties.getProperty( ConstantGUI.T_DATE_APPOINTMENT )));
+        jDateAppointment.setBorder(BorderFactory.createTitledBorder(MyUtilities.setRepairLetter(HandlerLanguage.languageProperties.getProperty( ConstantGUI.T_DATE_APPOINTMENT ))));
         jPanelDialogContainer.add(jDateAppointment);
 
         buttonRegisterAppointment = new JButton();
