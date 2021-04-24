@@ -88,6 +88,7 @@ public class JPButtonsReportsTable extends JPanel {
 
         this.add(panelButtonsRepTables);
     }
+
     public void changeLanguage(){
         jlTittleTableReports.setText(HandlerLanguage.languageProperties.getProperty(ConstantGUI.T_JLABEL_TITTLE_TABLE_REPORT));
         jbReportMedicine.setText(HandlerLanguage.languageProperties.getProperty(ConstantGUI.T_BUTTON_REPORT_MEDICINE_TABLE));

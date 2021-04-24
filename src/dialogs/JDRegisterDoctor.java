@@ -77,8 +77,6 @@ public class JDRegisterDoctor extends JDialog {
 
     }
 
-
-
     public Doctor createDoctor(){
         setVisible(false);
         return new Doctor(jtId.getText(),

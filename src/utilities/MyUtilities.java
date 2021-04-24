@@ -75,6 +75,7 @@ public class MyUtilities {
 
     }
 
+
     /**
      * Arregla problemas de la Ñ y tildes
      * @param string
