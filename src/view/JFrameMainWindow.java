@@ -1,4 +1,5 @@
 package view;
+import model.Appointment;
 import model.Doctor;
 import model.Medicine;
 import persistence.HandlerLanguage;
@@ -49,6 +50,10 @@ public class JFrameMainWindow extends JFrame {
 
     public void showMedicineRaresTable(ArrayList<Medicine> medicineList){
         mainPanel.showMedicineRaresTable(medicineList);
+    }
+
+    public void showTableOfAppoinmentAssingnedByDate(ArrayList<Appointment>appointentList){
+        mainPanel.showTableOfAppoinmentAssingnedByDate(appointentList);
     }
 
     public void changeLanguage() {

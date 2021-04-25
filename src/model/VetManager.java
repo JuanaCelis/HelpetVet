@@ -8,7 +8,7 @@ public class VetManager {
     private String country;
     private OwnerManager ownerManager;
     private DoctorManager doctorManager;
-    // private AppointmentManager appointmentManager;
+    //private AppointmentManager appointmentManager;
     private ArrayList<Medicine> medicinesList;
 
     public VetManager(/*ArrayList<Owner> ownerManager*/) {
@@ -72,4 +72,5 @@ public class VetManager {
     public void setMedicinesList(ArrayList<Medicine> medicinesList) {
         this.medicinesList = medicinesList;
     }
+
 }

@@ -3,7 +3,7 @@ package view.body;
 import persistence.HandlerLanguage;
 import presenter.EVENTS;
 import presenter.Presenter;
-import utilities.MyUtilities;
+import utilities.*;
 import view.ConstantGUI;
 
 import javax.swing.*;

@@ -1,5 +1,6 @@
 package view.body;
 
+import model.Appointment;
 import model.Doctor;
 import model.Medicine;
 import persistence.HandlerLanguage;
@@ -63,7 +64,12 @@ public class JPContainerBody extends JPanel {
         jpTableElements.showTableDoctors(doctorList);
     }
 
+    public void showTableOfAppoinmentAssingnedByDate(ArrayList<Appointment>appointentList){
+        jpTableElements.showTableOfAppoinmentAssingnedByDate(appointentList);
+    }
+
     public void changeLanguage(){
         jpButtonsReportsGraphics.changeLanguage();
+        jpTableElements.changeLanguage();
     }
 }

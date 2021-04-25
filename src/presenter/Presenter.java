@@ -3,6 +3,7 @@ package presenter;
 import dialogs.JDRegisterDoctor;
 import dialogs.JDRegisterPet;
 import dialogs.JDScheduleAppointment;
+import model.Appointment;
 import model.Doctor;
 import model.Medicine;
 import model.VetManager;
@@ -100,9 +101,14 @@ public class Presenter implements ActionListener {
         mainWindow.changeLanguage();
     }
 
-    public void showPanelTable(){
+    public void showTableDoctor(){
         mainWindow.showPanelTable();
         showListOfDoctors(vetManager.getDoctorManager().getDoctors());
+    }
+
+    public void showTableMedicine(){
+        mainWindow.showPanelTable();
+        showMedicineRaresTable(vetManager.getMedicinesList());
     }
 
     public void showMedicineRaresTable(ArrayList<Medicine> medicineList){
@@ -160,12 +166,13 @@ public class Presenter implements ActionListener {
                 break;
 
             case C_SHOW_TABLE_MEDICINE_RARE:
-                //showPanelTable();
+                showTableMedicine();
                 break;
 
             case C_SHOW_LIST_OF_DOCTORS:
-                showPanelTable();
+                showTableDoctor();
                 break;
+
         }
 
     }
