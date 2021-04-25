@@ -3,10 +3,8 @@ package presenter;
 import dialogs.JDRegisterDoctor;
 import dialogs.JDRegisterPet;
 import dialogs.JDScheduleAppointment;
-import model.Appointment;
-import model.Doctor;
-import model.Medicine;
-import model.VetManager;
+import model.*;
+import persistence.FileManager;
 import persistence.HandlerLanguage;
 import view.JFrameMainWindow;
 
@@ -14,6 +12,7 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class Presenter implements ActionListener {
@@ -21,17 +20,22 @@ public class Presenter implements ActionListener {
     private static final String ENGLISH_PATH = "resources/languages/languageUS.properties";
     private static final String SPANISH_PATH = "resources/languages/languageES.properties";
     private static final String NAME_FILE_CONFIG = "resources/config/config.init";
+    private static final String PATH_FILE = "resources/archives/Doctors.vet";
 
     private VetManager vetManager;
     private JFrameMainWindow mainWindow;
     private JDRegisterPet jdRegisterPet;
     private JDRegisterDoctor jdRegisterDoc;
     private JDScheduleAppointment jdScheduleAppointment;
+    private FileManager fileManager;
 
     private HandlerLanguage config;
 
-    public Presenter(){
+    public Presenter() throws IOException {
         vetManager = new VetManager();
+        fileManager = new FileManager();
+        readFile();
+        test();
         loadConfiguration();
         mainWindow = new JFrameMainWindow(this);
 
@@ -89,8 +93,6 @@ public class Presenter implements ActionListener {
         loadLanguage();
     }
 
-
-
     public void changeToSpanish() throws IOException{
         HandlerLanguage.language = SPANISH_PATH;
         saveConfig();
@@ -125,6 +127,30 @@ public class Presenter implements ActionListener {
      */
     public void createDoctor(){
         vetManager.getDoctorManager().addDoctor(jdRegisterDoc.createDoctor());
+    }
+
+    public void readFile() throws IOException {
+       ArrayList tempDoctors = fileManager.readFile(PATH_FILE);
+        splitLines(tempDoctors);
+    }
+
+    public void splitLines(ArrayList<String> lines){
+        for (String line : lines) {
+            String temp [] = line.split(";");
+            vetManager.getDoctorManager().addDoctor(new Doctor(temp[0],temp[1],temp[2], splitDate(temp[3]), CategoryEspeciality.valueOf(temp[4])));
+        }
+    }
+
+    public LocalDate splitDate(String date){
+        String tempData [] = date.split(",");
+        return LocalDate.of(Integer.parseInt(tempData[0]),Integer.parseInt(tempData[1]),Integer.parseInt(tempData[2]));
+    }
+
+    public void test(){
+        ArrayList<Doctor> doctors = vetManager.getDoctors();
+        for (int i = 0; i < doctors.size(); i++) {
+            System.out.println(doctors.get(i).getId() + " " + doctors.get(i).getName());
+        }
     }
 
     @Override
