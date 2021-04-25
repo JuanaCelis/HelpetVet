@@ -1,5 +1,6 @@
 package view;
 
+import model.Appointment;
 import model.Doctor;
 import model.Medicine;
 import presenter.Presenter;
@@ -57,6 +58,10 @@ public class JPMainPanel extends JPanel {
 
     public void showMedicineRaresTable(ArrayList<Medicine> medicineList){
         jpcontainerBody.showMedicineRaresTable(medicineList);
+    }
+
+    public void showTableOfAppoinmentAssingnedByDate(ArrayList<Appointment>appointentList){
+        jpcontainerBody.showTableOfAppoinmentAssingnedByDate(appointentList);
     }
 
 

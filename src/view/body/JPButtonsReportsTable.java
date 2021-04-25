@@ -3,7 +3,7 @@ package view.body;
 import persistence.HandlerLanguage;
 import presenter.EVENTS;
 import presenter.Presenter;
-import utilities.MyUtilities;
+import utilities.*;
 import view.ConstantGUI;
 
 import javax.swing.*;
@@ -67,8 +67,8 @@ public class JPButtonsReportsTable extends JPanel {
         jbReportPetsAndOwner = new JButton();
         ImageIcon tempPetsAndOwner = new ImageIcon(new ImageIcon(getClass().getResource(ConstantGUI.BUTTON_PETS_OWNER_TABLE)).getImage());
         MyUtilities.setTextAndIconButtons(jbReportPetsAndOwner, MyUtilities.setRepairLetter(HandlerLanguage.languageProperties.getProperty(ConstantGUI.T_BUTTON_PETS_OWNER_TABLE)), tempPetsAndOwner, 0,0,0,0);
-        //jbAverageCategory.addActionListener(myPresenter);
-        //jbAverageCategory.setActionCommand(EVENTS.C_DIALOG_REGISTER_DOC.toString());
+        jbReportPetsAndOwner.addActionListener(myPresenter);
+        jbReportPetsAndOwner.setActionCommand(EVENTS.C_SHOW_LIST_APPOINTMENT.toString());
         panelButtonsRepTables.add(jbReportPetsAndOwner);
 
         jbAppointmentByCategory = new JButton();

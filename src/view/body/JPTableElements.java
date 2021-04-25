@@ -3,7 +3,8 @@ package view.body;
 import model.Appointment;
 import model.Doctor;
 import model.Medicine;
-import model.Owner;
+
+import utilities.*;
 import persistence.HandlerLanguage;
 import view.ConstantGUI;
 
@@ -17,6 +18,7 @@ public class JPTableElements extends JPanel {
     private DefaultTableModel defaultTable;
     private JTable tableElements;
     private JScrollPane scrollTable;
+    private String [] headersMedicine,headersAppointment,headerDoctors;
 
     public JPTableElements(){
         this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
@@ -49,31 +51,30 @@ public class JPTableElements extends JPanel {
 
     public void showTableOfAppoinmentAssingnedByDate(ArrayList<Appointment> listAppointment){
         clearTable();
-        String [] headers = {};
-        defaultTable.setColumnIdentifiers(headers);
+        headersAppointment = new String[]{};
         loadAppointmentToList(listAppointment);
     }
 
     public void showTableMedicines(ArrayList<Medicine> medicineArrayList){
         clearTable();
-        String [] headers = {HandlerLanguage.languageProperties.getProperty( ConstantGUI.T_HEADER_PRODUCT_DESCRIPTION),
-                HandlerLanguage.languageProperties.getProperty( ConstantGUI.T_HEADER_MEDICINE_CLASS),
-                HandlerLanguage.languageProperties.getProperty( ConstantGUI.T_HEADER_PRESENTATION_MEDICINE),
-                HandlerLanguage.languageProperties.getProperty( ConstantGUI.T_HEADER_SPECIE_MEDICINE)};
+        headersMedicine = new String[]{MyUtilities.setRepairLetter(HandlerLanguage.languageProperties.getProperty( ConstantGUI.T_HEADER_PRODUCT_DESCRIPTION)),
+                MyUtilities.setRepairLetter(HandlerLanguage.languageProperties.getProperty( ConstantGUI.T_HEADER_MEDICINE_CLASS)),
+                MyUtilities.setRepairLetter(HandlerLanguage.languageProperties.getProperty( ConstantGUI.T_HEADER_PRESENTATION_MEDICINE)),
+                MyUtilities.setRepairLetter(HandlerLanguage.languageProperties.getProperty( ConstantGUI.T_HEADER_SPECIE_MEDICINE))};
 
-        defaultTable.setColumnIdentifiers(headers);
+        defaultTable.setColumnIdentifiers(headersMedicine);
 
     }
 
     public void showTableDoctors(ArrayList<Doctor> doctorsList){
         clearTable();
-        String [] headers = {HandlerLanguage.languageProperties.getProperty( ConstantGUI.T_JD_GET_ID),
-                HandlerLanguage.languageProperties.getProperty( ConstantGUI.T_JD_GET_NAME),
-                HandlerLanguage.languageProperties.getProperty( ConstantGUI.T_JD_GET_LASTNAME),
-                HandlerLanguage.languageProperties.getProperty( ConstantGUI.T_JD_GET_BIRTHDATE),
-                HandlerLanguage.languageProperties.getProperty( ConstantGUI.T_JD_GET_CATEGORY)};
+        headerDoctors = new String[]{MyUtilities.setRepairLetter(HandlerLanguage.languageProperties.getProperty( ConstantGUI.T_JD_GET_ID)),
+                MyUtilities.setRepairLetter(HandlerLanguage.languageProperties.getProperty( ConstantGUI.T_JD_GET_NAME)),
+                MyUtilities.setRepairLetter(HandlerLanguage.languageProperties.getProperty( ConstantGUI.T_JD_GET_LASTNAME)),
+                MyUtilities.setRepairLetter(HandlerLanguage.languageProperties.getProperty( ConstantGUI.T_JD_GET_BIRTHDATE)),
+                MyUtilities.setRepairLetter(HandlerLanguage.languageProperties.getProperty( ConstantGUI.T_JD_GET_CATEGORY))};
 
-        defaultTable.setColumnIdentifiers(headers);
+        defaultTable.setColumnIdentifiers(headerDoctors);
 
     }
 
@@ -87,6 +88,19 @@ public class JPTableElements extends JPanel {
 
     private void clearTable() {
         defaultTable.setRowCount(0);
+    }
+
+    public void changeLanguage(){
+        headersMedicine = new String[]{MyUtilities.setRepairLetter(HandlerLanguage.languageProperties.getProperty( ConstantGUI.T_HEADER_PRODUCT_DESCRIPTION)),
+                MyUtilities.setRepairLetter(HandlerLanguage.languageProperties.getProperty( ConstantGUI.T_HEADER_MEDICINE_CLASS)),
+                MyUtilities.setRepairLetter(HandlerLanguage.languageProperties.getProperty( ConstantGUI.T_HEADER_PRESENTATION_MEDICINE)),
+                MyUtilities.setRepairLetter(HandlerLanguage.languageProperties.getProperty( ConstantGUI.T_HEADER_SPECIE_MEDICINE))};
+
+        headerDoctors = new String[]{MyUtilities.setRepairLetter(HandlerLanguage.languageProperties.getProperty( ConstantGUI.T_JD_GET_ID)),
+                MyUtilities.setRepairLetter(HandlerLanguage.languageProperties.getProperty( ConstantGUI.T_JD_GET_NAME)),
+                MyUtilities.setRepairLetter(HandlerLanguage.languageProperties.getProperty( ConstantGUI.T_JD_GET_LASTNAME)),
+                MyUtilities.setRepairLetter(HandlerLanguage.languageProperties.getProperty( ConstantGUI.T_JD_GET_BIRTHDATE)),
+                MyUtilities.setRepairLetter(HandlerLanguage.languageProperties.getProperty( ConstantGUI.T_JD_GET_CATEGORY))};
     }
 
 }

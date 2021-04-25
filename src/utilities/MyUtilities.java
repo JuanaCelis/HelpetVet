@@ -1,6 +1,5 @@
 package utilities;
 
-import sun.nio.cs.ISO_8859_2;
 import view.ConstantGUI;
 
 import static java.nio.charset.StandardCharsets.ISO_8859_1;
@@ -8,7 +7,6 @@ import static java.nio.charset.StandardCharsets.UTF_8;
 import javax.swing.*;
 import java.awt.*;
 import java.io.*;
-import java.nio.charset.Charset;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.Date;
