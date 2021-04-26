@@ -3,10 +3,8 @@ package presenter;
 import dialogs.JDRegisterDoctor;
 import dialogs.JDRegisterPet;
 import dialogs.JDScheduleAppointment;
-import model.Appointment;
-import model.Doctor;
-import model.Medicine;
-import model.VetManager;
+import model.*;
+import persistence.FileManager;
 import persistence.HandlerLanguage;
 import view.JFrameMainWindow;
 
@@ -33,7 +31,7 @@ public class Presenter implements ActionListener {
 
     private HandlerLanguage config;
 
-    public Presenter(){
+    public Presenter() throws IOException {
         vetManager = new VetManager();
         fileManager = new FileManager();
         readFile();
@@ -201,6 +199,17 @@ public class Presenter implements ActionListener {
 
             case C_SHOW_LIST_OF_DOCTORS:
                 showPanelTable();
+                break;
+
+            case C_SHOW_HOMEPAGE:
+                mainWindow.showHomePage();
+
+            case C_NEXT_IMAGE_BANNER:
+                mainWindow.changeImageBannerNext();
+                break;
+
+            case C_BACK_IMAGE_BANNER:
+                mainWindow.changeImageBannerBack();
                 break;
 
         }
