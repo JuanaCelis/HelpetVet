@@ -35,7 +35,6 @@ public class Presenter implements ActionListener {
         vetManager = new VetManager();
         fileManager = new FileManager();
         readFile();
-        test();
         loadConfiguration();
         mainWindow = new JFrameMainWindow(this);
 
@@ -108,6 +107,13 @@ public class Presenter implements ActionListener {
         showListOfDoctors(vetManager.getDoctorManager().getDoctors());
     }
 
+    public void showDoctors(){
+        ArrayList<Doctor> doctorTemp = vetManager.getDoctorManager().getDoctors();
+        for (int i = 0; i < doctorTemp.size(); i++) {
+            mainWindow.addToTable(doctorTemp.get(i).toObjectVector());
+        }
+    }
+
     public void showTableMedicine(){
         mainWindow.showPanelTable();
         showMedicineRaresTable(vetManager.getMedicinesList());
@@ -129,6 +135,23 @@ public class Presenter implements ActionListener {
         vetManager.getDoctorManager().addDoctor(jdRegisterDoc.createDoctor());
     }
 
+    public void createPet(){
+//        vetManager.getPetManager().getPetsList().add(jdRegisterPet.createNewPet());
+        vetManager.getPetManager().addPet(jdRegisterPet.createNewPet());
+    }
+
+    public void testPets(){
+        for (int i = 0; i < vetManager.getPetManager().getPetsList().size(); i++) {
+            System.out.println( vetManager.getPetManager().getPetsList().get(i).getId() + vetManager.getPetManager().getPetsList().get(i).getName());
+            System.out.println(vetManager.getPetManager().getPetsList().get(i));
+        }
+        System.out.println(vetManager.getPetManager().getTotalPets());
+    }
+
+    /**
+     * Lee el archivo de Doctor.vet
+     * @throws IOException
+     */
     public void readFile() throws IOException {
        ArrayList tempDoctors = fileManager.readFile(PATH_FILE);
         splitLines(tempDoctors);
@@ -144,13 +167,6 @@ public class Presenter implements ActionListener {
     public LocalDate splitDate(String date){
         String tempData [] = date.split(",");
         return LocalDate.of(Integer.parseInt(tempData[0]),Integer.parseInt(tempData[1]),Integer.parseInt(tempData[2]));
-    }
-
-    public void test(){
-        ArrayList<Doctor> doctors = vetManager.getDoctors();
-        for (int i = 0; i < doctors.size(); i++) {
-            System.out.println(doctors.get(i).getId() + " " + doctors.get(i).getName());
-        }
     }
 
     @Override
@@ -170,13 +186,20 @@ public class Presenter implements ActionListener {
                 jdRegisterPet = new JDRegisterPet(this);
                 break;
 
+            case C_ADD_NEW_PET:
+                createPet();
+                testPets();
+                vetManager.getPetManager().setIdPets();
+                break;
+
             case C_DIALOG_REGISTER_DOC:
                 jdRegisterDoc = new JDRegisterDoctor(this);
                 break;
 
-            case C_ADD_DOCTOR:
+            case C_ADD_NEW_DOCTOR:
                 createDoctor();
                 jdRegisterDoc.dispose();
+
                 break;
 
             case C_SCHEDULE_APPOINTMENT:
@@ -197,6 +220,8 @@ public class Presenter implements ActionListener {
 
             case C_SHOW_LIST_OF_DOCTORS:
                 showTableDoctor();
+                //showListOfDoctors(vetManager.getDoctors());
+                showDoctors();
                 break;
 
         }

@@ -69,4 +69,8 @@ public class JPMainPanel extends JPanel {
         jpcontainerHeader.changeLanguage();
         jpcontainerBody.changeLanguage();
     }
+
+    public void addToTable(Object [] cyclist){
+        jpcontainerBody.addToTable(cyclist);
+    }
 }

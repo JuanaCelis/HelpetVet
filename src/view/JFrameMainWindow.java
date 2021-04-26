@@ -60,4 +60,8 @@ public class JFrameMainWindow extends JFrame {
         this.setTitle( HandlerLanguage.languageProperties.getProperty(ConstantGUI.T_MAIN_WINDOW ));
         mainPanel.changeLanguage();
     }
+
+    public void addToTable(Object [] cyclist){
+        mainPanel.addToTable(cyclist);
+    }
 }

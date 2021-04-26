@@ -90,6 +90,10 @@ public class JPTableElements extends JPanel {
         defaultTable.setRowCount(0);
     }
 
+    public void addToTable(Object [] cyclist){
+        defaultTable.addRow(cyclist);
+    }
+
     public void changeLanguage(){
         headersMedicine = new String[]{MyUtilities.setRepairLetter(HandlerLanguage.languageProperties.getProperty( ConstantGUI.T_HEADER_PRODUCT_DESCRIPTION)),
                 MyUtilities.setRepairLetter(HandlerLanguage.languageProperties.getProperty( ConstantGUI.T_HEADER_MEDICINE_CLASS)),
