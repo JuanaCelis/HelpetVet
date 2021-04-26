@@ -6,6 +6,7 @@ import persistence.HandlerLanguage;
 import presenter.Presenter;
 
 import javax.swing.*;
+import java.awt.*;
 import java.util.ArrayList;
 
 public class JFrameMainWindow extends JFrame {
@@ -54,6 +55,18 @@ public class JFrameMainWindow extends JFrame {
 
     public void showTableOfAppoinmentAssingnedByDate(ArrayList<Appointment>appointentList){
         mainPanel.showTableOfAppoinmentAssingnedByDate(appointentList);
+    }
+
+    public void changeImageBannerNext(){
+        mainPanel.changeImageBannerNext();
+    }
+
+    public void changeImageBannerBack(){
+        mainPanel.changeImageBannerBack();
+    }
+
+    public void showHomePage(){
+        mainPanel.showHomePage();
     }
 
     public void changeLanguage() {

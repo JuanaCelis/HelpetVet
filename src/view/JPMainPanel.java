@@ -64,6 +64,18 @@ public class JPMainPanel extends JPanel {
         jpcontainerBody.showTableOfAppoinmentAssingnedByDate(appointentList);
     }
 
+    public void changeImageBannerNext(){
+        jpcontainerHeader.changeImageBannerNext();
+    }
+
+    public void changeImageBannerBack(){
+        jpcontainerHeader.changeImageBannerBack();
+    }
+
+    public void showHomePage(){
+        jpcontainerBody.showHomePage();
+    }
+
 
     public void changeLanguage() {
         jpcontainerHeader.changeLanguage();

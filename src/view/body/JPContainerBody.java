@@ -17,6 +17,7 @@ public class JPContainerBody extends JPanel {
     private JPButtonsReportsGraphics jpButtonsReportsGraphics;
     private JPButtonsReportsTable jpButtonsReportsTable;
     private JPTableElements jpTableElements;
+    private JPHelpetServices jpHelpetServices;
 
     public JPContainerBody(Presenter presenter) {
         this.setLayout(new BorderLayout());
@@ -29,12 +30,20 @@ public class JPContainerBody extends JPanel {
         jpTableElements = new JPTableElements();
         jpButtonsReportsGraphics = new JPButtonsReportsGraphics(myPresenter);
         jpButtonsReportsTable = new JPButtonsReportsTable(myPresenter);
-        //this.add(jpTableElements,BorderLayout.CENTER);
+        jpHelpetServices = new JPHelpetServices(myPresenter);
+
+        this.add(jpHelpetServices,BorderLayout.PAGE_START);
 
         //this.add(jpButtonsReportsGraphics,BorderLayout.PAGE_START);
         //jpTableElements = new JPTableElements();
     }
 
+    public void showHomePage(){
+        this.removeAll();
+        this.repaint();
+        this.add(jpHelpetServices,BorderLayout.PAGE_START);
+        revalidate();
+    }
     public void showPanelGraphics(){
         this.removeAll();
         this.repaint();
@@ -71,5 +80,7 @@ public class JPContainerBody extends JPanel {
     public void changeLanguage(){
         jpButtonsReportsGraphics.changeLanguage();
         jpTableElements.changeLanguage();
+        jpButtonsReportsTable.changeLanguage();
+        jpHelpetServices.changeLanguage();
     }
 }

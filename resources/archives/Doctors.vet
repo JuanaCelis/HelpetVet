@@ -1,8 +1,8 @@
-"0101" "Julian" "Ardila" 1994,4,3 surgery
-"0201" "Raul" "Camargo" 1991,5,11 phisiotherapy
-"0102" "Camila" "Mondragon" 1995,8,16 surgery
-"0301" "Miguel" "Rubio" 1996,9,2 oncology
-"0401" "Juana" "Celis" 1998,3,26 rehabilitation
-"0501" "Roberto" "Garcia" 1993,5,21 imaging
-"0302" "Isabella" "Ruiz" 1995,8,25 oncology
-"0103" "Maria" "Rodriguez" 1996,6,2 surgery
+0101;Julian;Ardila;1994,4,3;SURGERY
+0201;Raul;Camargo;1991,5,11;PHISIOTHERAPY
+0102;Camila;Mondragon;1995,8,16;SURGERY
+0301;Miguel;Rubio;1996,9,2;ONCOLOGY
+0401;Juana;Celis;1998,3,26;REHABILITATION
+0501;Roberto;Garcia;1993,5,21;IMAGING
+0302;Isabella;Ruiz;1995,8,25;ONCOLOGY
+0103;Maria;Rodriguez;1996,6,2;SURGERY
