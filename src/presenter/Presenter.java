@@ -35,7 +35,7 @@ public class Presenter implements ActionListener {
         vetManager = new VetManager();
         fileManager = new FileManager();
         readFile();
-        test();
+        testDoctors();
         loadConfiguration();
         mainWindow = new JFrameMainWindow(this);
 
@@ -110,6 +110,18 @@ public class Presenter implements ActionListener {
         showListOfDoctors(vetManager.getDoctorManager().getDoctors());
     }
 
+    public void showDoctors(){
+        clearTable();
+        ArrayList<Doctor> doctorTemp = vetManager.getDoctorManager().getDoctors();
+        for (int i = 0; i < doctorTemp.size(); i++) {
+            mainWindow.addToTable(doctorTemp.get(i).toObjectVector());
+        }
+    }
+
+    public void clearTable() {
+        mainWindow.clearTable();
+    }
+
     public void showTableMedicine(){
         mainWindow.showPanelTable();
         showMedicineRaresTable(vetManager.getMedicinesList());
@@ -123,14 +135,23 @@ public class Presenter implements ActionListener {
         mainWindow.showListOfDoctors(doctorList);
     }
 
-    /**
-     * crea un Doctor con los datos obtenidos por el Dialog Register Doct
-     * @return Doctor nuevo
-     */
-    public void createDoctor(){
-        vetManager.getDoctorManager().addDoctor(jdRegisterDoc.createDoctor());
+    public void createPet(){
+//        vetManager.getPetManager().getPetsList().add(jdRegisterPet.createNewPet());
+        vetManager.getPetManager().addPet(jdRegisterPet.createNewPet());
     }
 
+    public void testPets(){
+        for (int i = 0; i < vetManager.getPetManager().getPetsList().size(); i++) {
+            System.out.println( vetManager.getPetManager().getPetsList().get(i).getId() + vetManager.getPetManager().getPetsList().get(i).getName());
+            System.out.println(vetManager.getPetManager().getPetsList().get(i));
+        }
+        System.out.println(vetManager.getPetManager().getTotalPets());
+    }
+
+    /**
+     * Lee el archivo de Doctor.vet
+     * @throws IOException
+     */
     public void readFile() throws IOException {
        ArrayList tempDoctors = fileManager.readFile(PATH_FILE);
         splitLines(tempDoctors);
@@ -148,11 +169,11 @@ public class Presenter implements ActionListener {
         return LocalDate.of(Integer.parseInt(tempData[0]),Integer.parseInt(tempData[1]),Integer.parseInt(tempData[2]));
     }
 
-    public void test(){
-        ArrayList<Doctor> doctors = vetManager.getDoctors();
-        for (int i = 0; i < doctors.size(); i++) {
-            System.out.println(doctors.get(i).getId() + " " + doctors.get(i).getName());
+    public void testDoctors(){
+        for (int i = 0; i < vetManager.getDoctorManager().getDoctors().size(); i++) {
+            System.out.println(vetManager.getDoctorManager().getDoctors().get(i).getName() +" ");
         }
+        System.out.println("==========================");
     }
 
     @Override
@@ -172,13 +193,20 @@ public class Presenter implements ActionListener {
                 jdRegisterPet = new JDRegisterPet(this);
                 break;
 
+            case C_ADD_NEW_PET:
+                createPet();
+                testPets();
+                vetManager.getPetManager().setIdPets();
+                break;
+
             case C_DIALOG_REGISTER_DOC:
                 jdRegisterDoc = new JDRegisterDoctor(this);
                 break;
 
-            case C_ADD_DOCTOR:
-                createDoctor();
+            case C_ADD_NEW_DOCTOR:
+                vetManager.getDoctorManager().addDoctor(jdRegisterDoc.createDoctor());
                 jdRegisterDoc.dispose();
+                testDoctors();
                 break;
 
             case C_SCHEDULE_APPOINTMENT:
@@ -194,11 +222,14 @@ public class Presenter implements ActionListener {
                 break;
 
             case C_SHOW_TABLE_MEDICINE_RARE:
-                //showPanelTable();
+                showPanelTable();
                 break;
 
             case C_SHOW_LIST_OF_DOCTORS:
                 showPanelTable();
+                //showListOfDoctors(vetManager.getDoctors());
+                showDoctors();
+//                showPanelTable();
                 break;
 
             case C_SHOW_HOMEPAGE:

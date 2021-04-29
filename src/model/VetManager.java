@@ -6,27 +6,26 @@ public class VetManager {
 
     private String nameVet;
     private String country;
-    private OwnerManager ownerManager;
+    private PetManager petManager;
     private DoctorManager doctorManager;
     //private AppointmentManager appointmentManager;
     private ArrayList<Medicine> medicinesList;
 
-    public VetManager(/*ArrayList<Owner> ownerManager*/) {
-        //this.ownerManager = new OwnerManager(ownerManager);
+    public VetManager() {
         this.doctorManager = new DoctorManager();
+        this.petManager = new PetManager();
     }
 
-    /**
-     * Establece el ID no repetidos para las mascotas
-     */
-    public void setIdPets(){
-        int idPet = 1;
-        for (int i = 0; i < ownerManager.getOwnerList().size(); i++) {
-            ArrayList<Pet> pets = ownerManager.getOwnerList().get(i).getPetList();
-            for (int j = 0; j < pets.size(); j++) {
-                pets.get(j).setId((idPet++));
-            }
-        }
+
+
+
+
+    public PetManager getPetManager() {
+        return petManager;
+    }
+
+    public ArrayList<Pet> getPetsList(){
+        return petManager.getPetsList();
     }
 
     public String getNameVet() {
@@ -41,22 +40,6 @@ public class VetManager {
         return country;
     }
 
-    public void setCountry(String country) {
-        this.country = country;
-    }
-
-    public ArrayList<Owner> ownersList() {
-        return ownerManager.getOwnerList();
-    }
-
-    public OwnerManager getOwnerManager() {
-        return ownerManager;
-    }
-
-    public void setDoctorsList(ArrayList<Doctor> doctors){
-        doctorManager.setDoctors(doctors);
-    }
-
     public ArrayList<Doctor> getDoctors(){
         return doctorManager.getDoctors();
     }
@@ -69,8 +52,15 @@ public class VetManager {
         return medicinesList;
     }
 
+    public void setCountry(String country) {
+        this.country = country;
+    }
+
+    public void setDoctorsList(ArrayList<Doctor> doctors){
+        doctorManager.setDoctors(doctors);
+    }
+
     public void setMedicinesList(ArrayList<Medicine> medicinesList) {
         this.medicinesList = medicinesList;
     }
-
 }

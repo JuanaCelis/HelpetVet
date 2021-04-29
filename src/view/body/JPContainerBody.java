@@ -3,9 +3,7 @@ package view.body;
 import model.Appointment;
 import model.Doctor;
 import model.Medicine;
-import persistence.HandlerLanguage;
 import presenter.Presenter;
-import view.ConstantGUI;
 
 import javax.swing.*;
 import java.awt.*;
@@ -82,5 +80,13 @@ public class JPContainerBody extends JPanel {
         jpTableElements.changeLanguage();
         jpButtonsReportsTable.changeLanguage();
         jpHelpetServices.changeLanguage();
+    }
+
+    public void addToTable(Object [] cyclist){
+        jpTableElements.addToTable(cyclist);
+    }
+
+    public void clearTable() {
+        jpTableElements.clearTable();
     }
 }

@@ -16,7 +16,7 @@ import java.awt.*;
 public class JDRegisterPet extends JDialog {
 
     private JPanel jPanelDialogContainer;
-    private JTextField jtfName;
+    private JTextField jtfName,jtfIdOwner,jtfNameOwner, jtfNumberContact;
     private JComboBox<Gender> jcGender;
     private JComboBox<Size> jcSize;
     private JSpinner jsAge;
@@ -38,8 +38,8 @@ public class JDRegisterPet extends JDialog {
 
     private void initComponents() {
         jPanelDialogContainer = new JPanel();
-        GridLayout gridLayout = new GridLayout(7,1);
-        gridLayout.setVgap(15);
+        GridLayout gridLayout = new GridLayout(10,1);
+        gridLayout.setVgap(12);
         jPanelDialogContainer.setBorder(new EmptyBorder(20,20,20,20));
         jPanelDialogContainer.setLayout(gridLayout);
 
@@ -62,6 +62,18 @@ public class JDRegisterPet extends JDialog {
         jsAge.setBackground(Color.WHITE);
         jPanelDialogContainer.add(jsAge);
 
+        jtfIdOwner = new JTextField();
+        jtfIdOwner.setBorder(BorderFactory.createTitledBorder(MyUtilities.setRepairLetter(HandlerLanguage.languageProperties.getProperty( ConstantGUI.T_GET_ID_OWNER))));
+        jPanelDialogContainer.add(jtfIdOwner);
+
+        jtfNameOwner = new JTextField();
+        jtfNameOwner.setBorder(BorderFactory.createTitledBorder(MyUtilities.setRepairLetter(HandlerLanguage.languageProperties.getProperty( ConstantGUI.T_GET_NAME_OWNER))));
+        jPanelDialogContainer.add(jtfNameOwner);
+
+        jtfNumberContact = new JTextField();
+        jtfNumberContact.setBorder(BorderFactory.createTitledBorder(MyUtilities.setRepairLetter(HandlerLanguage.languageProperties.getProperty( ConstantGUI.T_JD_NUMBER_CONTACT))));
+        jPanelDialogContainer.add(jtfNumberContact);
+
         buttonRegisterPet = new JButton();
         buttonRegisterPet = new view.RoundedJButton(15, 15, HandlerLanguage.languageProperties.getProperty( ConstantGUI.T_JD_REGISTER_PET ), Color.decode("#337AB7"), Color.WHITE, EVENTS.C_ADD_NEW_PET.toString(), myPresenter);
         buttonRegisterPet.addActionListener(myPresenter);
@@ -73,15 +85,13 @@ public class JDRegisterPet extends JDialog {
         jPanelDialogContainer.add(cancelAction);
 
         add(jPanelDialogContainer, BorderLayout.CENTER);
-
     }
 
     public Pet createNewPet(){
         setVisible(false);
-        return new Pet(jtfName.getText(),
-                (Size)jcSize.getSelectedItem(),
-                (Gender)jcGender.getSelectedItem(),
-                Integer.parseInt(jsAge.getValue().toString()));
+        return new Pet(jtfName.getText(),(Size)jcSize.getSelectedItem(),
+                (Gender)jcGender.getSelectedItem(),Integer.parseInt(jsAge.getValue().toString()),
+                Integer.parseInt(jtfIdOwner.getText()),jtfNameOwner.getText(),jtfNumberContact.getText());
     }
 
 }

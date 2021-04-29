@@ -63,13 +63,11 @@ public class JDRegisterDoctor extends JDialog {
 
         buttonAddDoctor = new JButton();
         buttonAddDoctor = new view.RoundedJButton(15, 15, MyUtilities.setRepairLetter(HandlerLanguage.languageProperties.getProperty( ConstantGUI.T_JD_ADD_DOCTOR)), Color.decode("#337AB7"), Color.WHITE, EVENTS.C_ADD_NEW_DOCTOR.toString(), myPresenter);
-        buttonAddDoctor.setActionCommand(EVENTS.C_ADD_DOCTOR.toString());
         buttonAddDoctor.addActionListener(myPresenter);
         jPanelDialogContainer.add(buttonAddDoctor);
 
         cancelAction = new JButton();
         cancelAction = new view.RoundedJButton(15, 15, HandlerLanguage.languageProperties.getProperty( ConstantGUI.T_JD_CANCEL ), Color.decode("#337AB7"), Color.WHITE, EVENTS.C_CANCEL.toString(), myPresenter);
-        cancelAction.setActionCommand(EVENTS.C_CANCEL.toString());
         cancelAction.addActionListener(myPresenter);
         jPanelDialogContainer.add(cancelAction);
 

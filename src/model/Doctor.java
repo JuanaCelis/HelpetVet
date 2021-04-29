@@ -44,6 +44,11 @@ public class Doctor {
         return birthday;
     }
 
+    public Object[] toObjectVector() {
+        return new Object[] {getId(),getName(),getLastName(), getBirthday(),
+                getCategoryEspeciality()};
+    }
+
     /**
      * Recibe la cita asignada al doctor
      * @param Cita del doctor

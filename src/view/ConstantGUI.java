@@ -68,6 +68,7 @@ public class ConstantGUI {
     public static final String T_JD_GET_AGE_PET = "JD_get_Age_pet";
     public static final String T_JD_REGISTER_PET = "JD_button_register_pet";
     public static final String T_JD_CANCEL = "JD_button_cancel";
+    public static final String T_JD_NUMBER_CONTACT = "JD_number_contact";
     //Llaves lengaje jdialog registrar cita
     public static final String T_TITTLE_SCHEDULE_APPOINTMENT = "Tittle_register_appointment";
     public static final String T_GET_ID_OWNER = "JD_get_id_owner_appointment";
