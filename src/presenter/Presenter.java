@@ -35,6 +35,7 @@ public class Presenter implements ActionListener {
         vetManager = new VetManager();
         fileManager = new FileManager();
         readFile();
+        testDoctors();
         loadConfiguration();
         mainWindow = new JFrameMainWindow(this);
 
@@ -92,6 +93,8 @@ public class Presenter implements ActionListener {
         loadLanguage();
     }
 
+
+
     public void changeToSpanish() throws IOException{
         HandlerLanguage.language = SPANISH_PATH;
         saveConfig();
@@ -102,16 +105,21 @@ public class Presenter implements ActionListener {
         mainWindow.changeLanguage();
     }
 
-    public void showTableDoctor(){
+    public void showPanelTable(){
         mainWindow.showPanelTable();
         showListOfDoctors(vetManager.getDoctorManager().getDoctors());
     }
 
     public void showDoctors(){
+        clearTable();
         ArrayList<Doctor> doctorTemp = vetManager.getDoctorManager().getDoctors();
         for (int i = 0; i < doctorTemp.size(); i++) {
             mainWindow.addToTable(doctorTemp.get(i).toObjectVector());
         }
+    }
+
+    public void clearTable() {
+        mainWindow.clearTable();
     }
 
     public void showTableMedicine(){
@@ -125,14 +133,6 @@ public class Presenter implements ActionListener {
 
     public void showListOfDoctors(ArrayList<Doctor> doctorList){
         mainWindow.showListOfDoctors(doctorList);
-    }
-
-    /**
-     * crea un Doctor con los datos obtenidos por el Dialog Register Doct
-     * @return Doctor nuevo
-     */
-    public void createDoctor(){
-        vetManager.getDoctorManager().addDoctor(jdRegisterDoc.createDoctor());
     }
 
     public void createPet(){
@@ -169,6 +169,13 @@ public class Presenter implements ActionListener {
         return LocalDate.of(Integer.parseInt(tempData[0]),Integer.parseInt(tempData[1]),Integer.parseInt(tempData[2]));
     }
 
+    public void testDoctors(){
+        for (int i = 0; i < vetManager.getDoctorManager().getDoctors().size(); i++) {
+            System.out.println(vetManager.getDoctorManager().getDoctors().get(i).getName() +" ");
+        }
+        System.out.println("==========================");
+    }
+
     @Override
     public void actionPerformed(ActionEvent e) {
 
@@ -197,9 +204,9 @@ public class Presenter implements ActionListener {
                 break;
 
             case C_ADD_NEW_DOCTOR:
-                createDoctor();
+                vetManager.getDoctorManager().addDoctor(jdRegisterDoc.createDoctor());
                 jdRegisterDoc.dispose();
-
+                testDoctors();
                 break;
 
             case C_SCHEDULE_APPOINTMENT:
@@ -215,13 +222,25 @@ public class Presenter implements ActionListener {
                 break;
 
             case C_SHOW_TABLE_MEDICINE_RARE:
-                showTableMedicine();
+                showPanelTable();
                 break;
 
             case C_SHOW_LIST_OF_DOCTORS:
-                showTableDoctor();
+                showPanelTable();
                 //showListOfDoctors(vetManager.getDoctors());
                 showDoctors();
+//                showPanelTable();
+                break;
+
+            case C_SHOW_HOMEPAGE:
+                mainWindow.showHomePage();
+
+            case C_NEXT_IMAGE_BANNER:
+                mainWindow.changeImageBannerNext();
+                break;
+
+            case C_BACK_IMAGE_BANNER:
+                mainWindow.changeImageBannerBack();
                 break;
 
         }

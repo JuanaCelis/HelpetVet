@@ -4,6 +4,13 @@ public class ConstantGUI {
 
     public static final String LOGO_HELPET = "/img/logo_helpet.png";
 
+
+    //Banner Header
+    public static final String BANNER_CENTER = "/img/imagen_banner_one.png";
+    public static final String BANER_RIGHT = "/img/doctor_pet.png";
+    public static final String BUTTON_BACK = "/img/boton_izquierda.png";
+    public static final String BUTTON_NEXT = "/img/boton_derecha.png";
+
     //Botones header
     public static final String NEW_USER = "/img/new_user.png";
     public static final String NEW_DOCTOR = "/img/new_doctor.png";
@@ -24,6 +31,9 @@ public class ConstantGUI {
     //Colores
     public static final String COLOR_DARK_BLUE = "#094f71";
     public static final String COLOR_SKY_BLUE = "#00C4CC";
+    public static final String COLOR_BANNER_BLUE = "#81CEF5";
+    public static final String COLOR_TITTLE_SERVICE = "#34bacf";
+    public static final String COLOR_GRAY_SERVICE = "#91959c";
 
 
     //Llaves lenguage
@@ -81,5 +91,22 @@ public class ConstantGUI {
     public static final String T_BUTTON_APPOINTMENT_BY_CATEGORY_TABLE = "Report_Appointment_category_table";
     public static final String T_BUTTON_SHOW_LIST_OF_DOCTOR_TABLE = "Report_list_of_doctor_table";
 
+    //FUENTES
+    public static final String  FONT_OPEN_SANS_LIGHT = "resources/Fonts/OpenSans-Light.ttf";
+    public static final String  FONT_ROBOTO_LIGHT = "resources/Fonts/Roboto-Light.ttf";
+    public static final String  FONT_UBUNTU_LIGHT = "resources/Fonts/Ubuntu-Light.ttf";
 
+    //Imagenes servicios
+
+    public static final String DOCTOR_IMAGE_SERVICE = "/img/excelentes_profesionales.jpg";
+    public static final String MEDICINE_IMAGE_SERVICE = "/img/medicamentos_imagen.jpg";
+    public static final String INSTALACIONES_IMAGE_SERVICE = "/img/quirofano-1.jpeg";
+
+    //Llaves multilenguaje servicios helpet
+    public static final String T_SERVICE_EXCELLENT_PROFESSIONALS = "service_helpet_professionals";
+    public static final String T_SERVICE_MEDICINE = "service_medicine";
+    public static final String T_SERVICE_FACILITIES = "service_facilities";
+    public static final String T_SERVICE_ANSWER = "service_answer";
+    public static final String T_SERVICE_TITTLE = "service_tittle";
 }
+

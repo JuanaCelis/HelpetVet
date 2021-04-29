@@ -32,6 +32,8 @@ public class JPButtonsHeader extends JPanel {
         jlIconHelpet = new JButton();
         ImageIcon temp = new ImageIcon(new ImageIcon(getClass().getResource(ConstantGUI.LOGO_HELPET)).getImage());
         MyUtilities.setMainElementsButton(jlIconHelpet,temp,0,50,20,10);
+        jlIconHelpet.addActionListener(myPresenter);
+        jlIconHelpet.setActionCommand(EVENTS.C_SHOW_HOMEPAGE.toString());
         this.add(jlIconHelpet);
     }
 

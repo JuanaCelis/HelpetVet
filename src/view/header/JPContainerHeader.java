@@ -11,6 +11,7 @@ public class JPContainerHeader extends JPanel {
 
     private JPButtonsHeader jpButtons;
     private JPButtonsLanguages jpButtonsLanguages;
+    private  JPBanner jpBanner;
 
     private Presenter myPresenter;
 
@@ -28,8 +29,17 @@ public class JPContainerHeader extends JPanel {
         jpButtons = new JPButtonsHeader(myPresenter);
         this.add(jpButtons);
 
+        jpBanner = new JPBanner(myPresenter);
+        this.add(jpBanner);
 
+    }
 
+    public void changeImageBannerNext(){
+        jpBanner.changeImageBannerNext();
+    }
+
+    public void changeImageBannerBack(){
+       jpBanner.changeImageBannerBack();
     }
 
     public void changeLanguage(){

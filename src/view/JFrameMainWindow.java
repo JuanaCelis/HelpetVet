@@ -6,6 +6,7 @@ import persistence.HandlerLanguage;
 import presenter.Presenter;
 
 import javax.swing.*;
+import java.awt.*;
 import java.util.ArrayList;
 
 public class JFrameMainWindow extends JFrame {
@@ -56,6 +57,18 @@ public class JFrameMainWindow extends JFrame {
         mainPanel.showTableOfAppoinmentAssingnedByDate(appointentList);
     }
 
+    public void changeImageBannerNext(){
+        mainPanel.changeImageBannerNext();
+    }
+
+    public void changeImageBannerBack(){
+        mainPanel.changeImageBannerBack();
+    }
+
+    public void showHomePage(){
+        mainPanel.showHomePage();
+    }
+
     public void changeLanguage() {
         this.setTitle( HandlerLanguage.languageProperties.getProperty(ConstantGUI.T_MAIN_WINDOW ));
         mainPanel.changeLanguage();
@@ -63,5 +76,9 @@ public class JFrameMainWindow extends JFrame {
 
     public void addToTable(Object [] cyclist){
         mainPanel.addToTable(cyclist);
+    }
+
+    public void clearTable() {
+        mainPanel.clearTable();
     }
 }
