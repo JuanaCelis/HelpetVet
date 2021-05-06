@@ -1,6 +1,9 @@
 package model;
 
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.LinkedHashSet;
+import java.util.LinkedList;
 
 public class PetManager {
 
@@ -29,8 +32,10 @@ public class PetManager {
     }
 
     public void addPet(Pet pet){
-        pet.setId(petsList.size()+1);
-        petsList.add(pet);
+        if (!petsList.contains(pet)){
+            pet.setId(petsList.size()+1);
+            petsList.add(pet);
+        }
     }
 
     public ArrayList<Pet> getPetsList() {

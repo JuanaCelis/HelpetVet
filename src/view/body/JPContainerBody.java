@@ -17,6 +17,7 @@ public class JPContainerBody extends JPanel {
     private JPTableElements jpTableElements;
     private JPHelpetServices jpHelpetServices;
 
+
     public JPContainerBody(Presenter presenter) {
         this.setLayout(new BorderLayout());
         myPresenter = presenter;
@@ -29,6 +30,7 @@ public class JPContainerBody extends JPanel {
         jpButtonsReportsGraphics = new JPButtonsReportsGraphics(myPresenter);
         jpButtonsReportsTable = new JPButtonsReportsTable(myPresenter);
         jpHelpetServices = new JPHelpetServices(myPresenter);
+
 
         this.add(jpHelpetServices,BorderLayout.PAGE_START);
 
@@ -82,11 +84,12 @@ public class JPContainerBody extends JPanel {
         jpHelpetServices.changeLanguage();
     }
 
-    public void addToTable(Object [] cyclist){
-        jpTableElements.addToTable(cyclist);
+    public void addTable(Object [] element){
+        jpTableElements.addTable(element);
     }
 
     public void clearTable() {
         jpTableElements.clearTable();
     }
+
 }

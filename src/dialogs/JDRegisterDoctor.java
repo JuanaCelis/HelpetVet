@@ -63,12 +63,10 @@ public class JDRegisterDoctor extends JDialog {
 
         buttonAddDoctor = new JButton();
         buttonAddDoctor = new view.RoundedJButton(15, 15, MyUtilities.setRepairLetter(HandlerLanguage.languageProperties.getProperty( ConstantGUI.T_JD_ADD_DOCTOR)), Color.decode("#337AB7"), Color.WHITE, EVENTS.C_ADD_NEW_DOCTOR.toString(), myPresenter);
-        buttonAddDoctor.addActionListener(myPresenter);
         jPanelDialogContainer.add(buttonAddDoctor);
 
         cancelAction = new JButton();
         cancelAction = new view.RoundedJButton(15, 15, HandlerLanguage.languageProperties.getProperty( ConstantGUI.T_JD_CANCEL ), Color.decode("#337AB7"), Color.WHITE, EVENTS.C_CANCEL.toString(), myPresenter);
-        cancelAction.addActionListener(myPresenter);
         jPanelDialogContainer.add(cancelAction);
 
         add(jPanelDialogContainer, BorderLayout.CENTER);
@@ -83,5 +81,4 @@ public class JDRegisterDoctor extends JDialog {
                 MyUtilities.parseDateToLocalDate(jDBirthDate.getDate()),
                 (CategoryEspeciality)jcCategory.getSelectedItem());
     }
-
 }

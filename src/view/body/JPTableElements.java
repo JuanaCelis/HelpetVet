@@ -66,7 +66,7 @@ public class JPTableElements extends JPanel {
 
     }
 
-    public void showTableDoctors(ArrayList<Doctor> doctorsList){
+    public void showTableDoctors(ArrayList<Doctor> doctorList){
 //        clearTable();
         headerDoctors = new String[]{MyUtilities.setRepairLetter(HandlerLanguage.languageProperties.getProperty( ConstantGUI.T_JD_GET_ID)),
                 MyUtilities.setRepairLetter(HandlerLanguage.languageProperties.getProperty( ConstantGUI.T_JD_GET_NAME)),
@@ -76,6 +76,10 @@ public class JPTableElements extends JPanel {
 
         defaultTable.setColumnIdentifiers(headerDoctors);
 
+    }
+
+    public void addTable(Object [] element){
+        defaultTable.addRow(element);
     }
 
 
@@ -90,8 +94,8 @@ public class JPTableElements extends JPanel {
         defaultTable.setRowCount(0);
     }
 
-    public void addToTable(Object [] cyclist){
-        defaultTable.addRow(cyclist);
+    public void addToTable(Object [] element){
+        defaultTable.addRow(element);
     }
 
     public void changeLanguage(){

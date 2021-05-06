@@ -76,12 +76,10 @@ public class JDRegisterPet extends JDialog {
 
         buttonRegisterPet = new JButton();
         buttonRegisterPet = new view.RoundedJButton(15, 15, HandlerLanguage.languageProperties.getProperty( ConstantGUI.T_JD_REGISTER_PET ), Color.decode("#337AB7"), Color.WHITE, EVENTS.C_ADD_NEW_PET.toString(), myPresenter);
-        buttonRegisterPet.addActionListener(myPresenter);
         jPanelDialogContainer.add(buttonRegisterPet);
 
         cancelAction = new JButton();
         cancelAction = new view.RoundedJButton(15, 15, HandlerLanguage.languageProperties.getProperty( ConstantGUI.T_JD_CANCEL ), Color.decode("#337AB7"), Color.WHITE, EVENTS.C_CANCEL.toString(), myPresenter);
-        cancelAction.addActionListener(myPresenter);
         jPanelDialogContainer.add(cancelAction);
 
         add(jPanelDialogContainer, BorderLayout.CENTER);
