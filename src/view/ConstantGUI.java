@@ -2,7 +2,7 @@ package view;
 
 public class ConstantGUI {
 
-    public static final String LOGO_HELPET = "/img/logo_helpet.png";
+    public static final String LOGO_HELPET = "/img/helpet_logo.png";
 
 
     //Banner Header
@@ -108,5 +108,16 @@ public class ConstantGUI {
     public static final String T_SERVICE_FACILITIES = "service_facilities";
     public static final String T_SERVICE_ANSWER = "service_answer";
     public static final String T_SERVICE_TITTLE = "service_tittle";
+    public static final String TEXT_INFO_HELPET = "<html>Tel: 8 7436764<br>Cel.: 3115475000<br>Dir.: Calle 12 # 09 - 73 Tunja <br>Boyaca<br>Web: https://helpet.com.co<br>E- mail:helpet@helpet.com.co<br>clientes@helpet.com.co</html>";
+
+    //FOOTER IMG
+
+    public static final String FACEBOOK_IMG = "/img/facebook.png";
+    public static final String TWITTER_IMG = "/img/twitter.png";
+    public static final String PHONE_CALL_IMG = "/img/phone-call.png";
+    public static final String ICON_UBICATION = "/img/ubicacion.png";
+    public static final String ICON_CELLPHONE = "/img/cel_movil.png";
+    public static final String EMAIL_IMG = "/img/email.png";
+    public static final String LOGO_HELPET_FOOTER = "/img/helpe_logo_footer.png";
 }
 
