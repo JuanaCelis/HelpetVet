@@ -31,7 +31,9 @@ public class DoctorManager {
      * Agrega un doctor a la lista
      */
     public void addDoctor(Doctor doctor){
-        doctors.add(doctor);
+        if (!doctors.contains(doctor)){
+            doctors.add(doctor);
+        }
     }
 
     /**

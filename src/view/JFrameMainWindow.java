@@ -74,8 +74,8 @@ public class JFrameMainWindow extends JFrame {
         mainPanel.changeLanguage();
     }
 
-    public void addToTable(Object [] cyclist){
-        mainPanel.addToTable(cyclist);
+    public void addTable(Object [] element){
+        mainPanel.addTable(element);
     }
 
     public void clearTable() {

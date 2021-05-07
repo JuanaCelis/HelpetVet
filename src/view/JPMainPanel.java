@@ -82,11 +82,12 @@ public class JPMainPanel extends JPanel {
         jpcontainerBody.changeLanguage();
     }
 
-    public void addToTable(Object [] cyclist){
-        jpcontainerBody.addToTable(cyclist);
+    public void addTable(Object [] element){
+        jpcontainerBody.addTable(element);
     }
 
     public void clearTable() {
         jpcontainerBody.clearTable();
     }
+
 }
