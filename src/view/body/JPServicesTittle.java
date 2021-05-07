@@ -2,7 +2,7 @@ package view.body;
 
 import persistence.HandlerLanguage;
 import presenter.Presenter;
-import utilities.MyUtilities;
+import utilities.*;
 import utilities.UploaderFontsResource;
 import view.ConstantGUI;
 
