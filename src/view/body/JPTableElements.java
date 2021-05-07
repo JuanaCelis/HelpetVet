@@ -4,12 +4,14 @@ import model.Appointment;
 import model.Doctor;
 import model.Medicine;
 
+import model.Pet;
 import utilities.*;
 import persistence.HandlerLanguage;
 import view.ConstantGUI;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableRowSorter;
 import java.awt.*;
 import java.util.ArrayList;
 
@@ -18,7 +20,7 @@ public class JPTableElements extends JPanel {
     private DefaultTableModel defaultTable;
     private JTable tableElements;
     private JScrollPane scrollTable;
-    private String [] headersMedicine,headersAppointment,headerDoctors;
+    private String [] headersMedicine,headersAppointment,headerDoctors, headerPets;
 
     public JPTableElements(){
         this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
@@ -43,6 +45,9 @@ public class JPTableElements extends JPanel {
         tableElements.setFillsViewportHeight(true);
         tableElements.setRowHeight(40);
 
+        TableRowSorter<DefaultTableModel> sorter = new TableRowSorter<>(defaultTable);
+        tableElements.setRowSorter(sorter);
+
         scrollTable = new JScrollPane(tableElements);
         scrollTable.setForeground(Color.WHITE);
         scrollTable.setAlignmentX(LEFT_ALIGNMENT);
@@ -50,9 +55,15 @@ public class JPTableElements extends JPanel {
     }
 
     public void showTableOfAppoinmentAssingnedByDate(ArrayList<Appointment> listAppointment){
-        clearTable();
-        headersAppointment = new String[]{};
-        loadAppointmentToList(listAppointment);
+//        clearTable();
+        headersMedicine = new String[]{MyUtilities.setRepairLetter(HandlerLanguage.languageProperties.getProperty( ConstantGUI.T_GET_CATEGORY)),
+                MyUtilities.setRepairLetter(HandlerLanguage.languageProperties.getProperty( ConstantGUI.T_GET_NAMEPET)),
+                MyUtilities.setRepairLetter(HandlerLanguage.languageProperties.getProperty( ConstantGUI.T_DATE_APPOINTMENT)),
+                MyUtilities.setRepairLetter(HandlerLanguage.languageProperties.getProperty( ConstantGUI.T_JD_ID_PET)),
+                MyUtilities.setRepairLetter(HandlerLanguage.languageProperties.getProperty( ConstantGUI.T_GET_ID_OWNER)),
+                MyUtilities.setRepairLetter(HandlerLanguage.languageProperties.getProperty( ConstantGUI.T_GET_NAME_OWNER)),
+        };
+        defaultTable.setColumnIdentifiers(headersMedicine);
     }
 
     public void showTableMedicines(ArrayList<Medicine> medicineArrayList){
@@ -78,11 +89,20 @@ public class JPTableElements extends JPanel {
 
     }
 
+    public void showTablePetsOwners(ArrayList<Pet> petList){
+        headerPets = new String[]{
+                MyUtilities.setRepairLetter(HandlerLanguage.languageProperties.getProperty( ConstantGUI.T_GET_ID_OWNER)),
+                MyUtilities.setRepairLetter(HandlerLanguage.languageProperties.getProperty( ConstantGUI.T_GET_NAME_OWNER)),
+                MyUtilities.setRepairLetter(HandlerLanguage.languageProperties.getProperty( ConstantGUI.T_GET_NAMEPET)),
+                MyUtilities.setRepairLetter(HandlerLanguage.languageProperties.getProperty( ConstantGUI.T_JD_GET_AGE_PET)),
+                MyUtilities.setRepairLetter(HandlerLanguage.languageProperties.getProperty( ConstantGUI.T_JD_SIZE_PET))
+        };
+        defaultTable.setColumnIdentifiers(headerPets);
+    }
+
     public void addTable(Object [] element){
         defaultTable.addRow(element);
     }
-
-
 
     private void loadAppointmentToList(ArrayList<Appointment> appointmentsList){
         for (Appointment appointment: appointmentsList) {
@@ -92,10 +112,6 @@ public class JPTableElements extends JPanel {
 
     public void clearTable() {
         defaultTable.setRowCount(0);
-    }
-
-    public void addToTable(Object [] element){
-        defaultTable.addRow(element);
     }
 
     public void changeLanguage(){
@@ -109,6 +125,14 @@ public class JPTableElements extends JPanel {
                 MyUtilities.setRepairLetter(HandlerLanguage.languageProperties.getProperty( ConstantGUI.T_JD_GET_LASTNAME)),
                 MyUtilities.setRepairLetter(HandlerLanguage.languageProperties.getProperty( ConstantGUI.T_JD_GET_BIRTHDATE)),
                 MyUtilities.setRepairLetter(HandlerLanguage.languageProperties.getProperty( ConstantGUI.T_JD_GET_CATEGORY))};
+
+        headerPets = new String[]{
+                MyUtilities.setRepairLetter(HandlerLanguage.languageProperties.getProperty( ConstantGUI.T_GET_ID_OWNER)),
+                MyUtilities.setRepairLetter(HandlerLanguage.languageProperties.getProperty( ConstantGUI.T_GET_NAME_OWNER)),
+                MyUtilities.setRepairLetter(HandlerLanguage.languageProperties.getProperty( ConstantGUI.T_GET_NAMEPET)),
+                MyUtilities.setRepairLetter(HandlerLanguage.languageProperties.getProperty( ConstantGUI.T_JD_GET_AGE_PET)),
+                MyUtilities.setRepairLetter(HandlerLanguage.languageProperties.getProperty( ConstantGUI.T_JD_SIZE_PET))
+        };
     }
 
 }

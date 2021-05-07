@@ -87,4 +87,8 @@ public class Pet {
     public void setNumberContact(String numberContact) {
         this.numberContact = numberContact;
     }
+
+    public Object[] toObjectVector() {
+        return new Object[]{getOwnerId(),getOwnerName(),getName(),getAge(),getSize()};
+    }
 }

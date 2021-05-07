@@ -9,9 +9,20 @@ public class AppointmentManager {
     private ArrayList<Appointment> appointmentList;
 
 
-    public AppointmentManager(ArrayList<Appointment> appointmentList) {
-        // this.resultAppointmentList = new ArrayList<>();
-        this.appointmentList = appointmentList;
+    public AppointmentManager() {
+         this.appointmentList = new ArrayList<>();
+    }
+
+    public void addAppointment(Appointment appointment){
+        int idPet = 1;
+        if (!appointmentList.contains(appointment)){
+            appointment.setIdPet(idPet++);
+            appointmentList.add(appointment);
+        }
+    }
+
+    public void deleteAppointment(){
+
     }
 
     /**
@@ -43,8 +54,8 @@ public class AppointmentManager {
     }
 
     /**
-     * Asigna la Doctor a la cita 
-     * 
+     * Asigna la Doctor a la cita
+     *
      */
     public Appointment assingDoctorForAppointment(Doctor doctor){
         Appointment appointmentResult = null;

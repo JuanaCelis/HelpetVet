@@ -3,6 +3,7 @@ package view;
 import model.Appointment;
 import model.Doctor;
 import model.Medicine;
+import model.Pet;
 import presenter.Presenter;
 import view.body.JPContainerBody;
 import view.footer.JPContainerFooter;
@@ -53,6 +54,10 @@ public class JPMainPanel extends JPanel {
 
     public void showListOfDoctors(ArrayList<Doctor> doctorList){
         jpcontainerBody.showListOfDoctors(doctorList);
+    }
+
+    public void showTablePetsOwners(ArrayList<Pet> petList){
+        jpcontainerBody.showTablePetsOwners(petList);
     }
 
 

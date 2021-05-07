@@ -1,6 +1,8 @@
 package presenter;
 
 
+import com.sun.deploy.net.MessageHeader;
+
 public enum EVENTS {
 
     C_DIALOG_REGISTER_PET,
@@ -20,5 +22,5 @@ public enum EVENTS {
     C_BACK_IMAGE_BANNER,
     C_NEXT_IMAGE_BANNER,
     C_SHOW_HOMEPAGE,
-
+    C_ADD_NEW_APPOINTMENT
 }

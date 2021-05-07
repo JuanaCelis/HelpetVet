@@ -3,6 +3,7 @@ package view.body;
 import model.Appointment;
 import model.Doctor;
 import model.Medicine;
+import model.Pet;
 import presenter.Presenter;
 
 import javax.swing.*;
@@ -65,6 +66,7 @@ public class JPContainerBody extends JPanel {
         revalidate();
     }
 
+
     public void showMedicineRaresTable(ArrayList<Medicine> medicineList){
         jpTableElements.showTableMedicines(medicineList);
     }
@@ -75,6 +77,10 @@ public class JPContainerBody extends JPanel {
 
     public void showTableOfAppoinmentAssingnedByDate(ArrayList<Appointment>appointentList){
         jpTableElements.showTableOfAppoinmentAssingnedByDate(appointentList);
+    }
+
+    public void showTablePetsOwners(ArrayList<Pet> petList){
+        jpTableElements.showTablePetsOwners(petList);
     }
 
     public void changeLanguage(){
