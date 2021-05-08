@@ -33,23 +33,23 @@ public class JPpenultimate extends JPanel{
 		panelYInfoHelpet.setBackground(Color.decode("#00365b"));
 		panelYInfoHelpet.setBorder(BorderFactory.createEmptyBorder(10,0,0,200));
 
-		jmbTelephone = new JPModelJLabels("Tel: 8 7436764", ConstantGUI.PHONE_CALL_IMG);
+		jmbTelephone = new JPModelJLabels("Tel: 1 234567", ConstantGUI.PHONE_CALL_IMG);
 		jmbTelephone.setCursor(new Cursor(Cursor.TEXT_CURSOR));
 		panelYInfoHelpet.add(jmbTelephone);
 
-		jmbcellPhone = new JPModelJLabels("Cel.: 3115475000", ConstantGUI.ICON_CELLPHONE);
+		jmbcellPhone = new JPModelJLabels("Cel.: 3209104956", ConstantGUI.ICON_CELLPHONE);
 		jmbcellPhone.setCursor(new Cursor(Cursor.TEXT_CURSOR));
 		panelYInfoHelpet.add(jmbcellPhone);
 
-		jmbEmail = new JPModelJLabels("serviware@serviware.com.co", ConstantGUI.EMAIL_IMG);
+		jmbEmail = new JPModelJLabels("juana.celis@uptc.edu.co", ConstantGUI.EMAIL_IMG);
 		jmbEmail.setCursor(new Cursor(Cursor.TEXT_CURSOR));
 		panelYInfoHelpet.add(jmbEmail);
 
-		jmbEmailTwo = new JPModelJLabels("clientes@serviware.com.co", ConstantGUI.EMAIL_IMG);
+		jmbEmailTwo = new JPModelJLabels("julian.ardila@uptc.edu.co", ConstantGUI.EMAIL_IMG);
 		jmbEmailTwo.setCursor(new Cursor(Cursor.TEXT_CURSOR));
 		panelYInfoHelpet.add(jmbEmailTwo);
 
-		jmbLocation = new JPModelJLabels("Calle 12 # 09  73 Tunja  Boyacá", ConstantGUI.ICON_UBICATION);
+		jmbLocation = new JPModelJLabels("Carrera 12 # 03 - 02 Tunja, Boyaca", ConstantGUI.ICON_UBICATION);
 		jmbLocation.setCursor(new Cursor(Cursor.TEXT_CURSOR));
 		panelYInfoHelpet.add(jmbLocation);
 

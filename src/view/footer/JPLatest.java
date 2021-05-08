@@ -21,8 +21,8 @@ public class JPLatest extends JPanel{
 
 	private void initComponents() {
 		addJLCopyRight();
-		addIconFb();
-		addIconTw();
+		//addIconFb();
+		//addIconTw();
 		
 	}
 
@@ -41,7 +41,7 @@ public class JPLatest extends JPanel{
 
 	private void addJLCopyRight() {
 		
-		JLabel jlInfoServiware = new JLabel("COPYRIGHT � 2021 HELPET S.A.S");
+		JLabel jlInfoServiware = new JLabel("HELPET VET POR JULIAN ARDILA Y JUANA CELIS © TODOS LOS DERECHOS RESERVADOS");
 		jlInfoServiware.setForeground(Color.WHITE);
 		
 		try {
@@ -52,7 +52,7 @@ public class JPLatest extends JPanel{
 		}
 		
 		jlInfoServiware.setCursor(new Cursor(Cursor.TEXT_CURSOR));
-		jlInfoServiware.setBorder(BorderFactory.createEmptyBorder(0,0,0,780));
+		jlInfoServiware.setBorder(BorderFactory.createEmptyBorder(0,0,0,0));
 		add(jlInfoServiware);
 		
 	}

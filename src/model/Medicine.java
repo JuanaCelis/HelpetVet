@@ -2,47 +2,50 @@ package model;
 
 public class Medicine {
 
-    private String name;
-    private double price;
-    private double amount;
-    private CategoryMedicine categoryMedicine;
+    private String descriptionProduct;
+    private MedicineClass medicineClass;
+    private String presentation;
+    private Species species;
 
-    public Medicine(String name, double price, double amout, CategoryMedicine categoryMedicine) {
-        this.name = name;
-        this.price = price;
-        this.amount = amout;
-        this.categoryMedicine = categoryMedicine;
+    public Medicine(String descriptionProduct, MedicineClass medicineClass, String presentation, Species species) {
+        this.descriptionProduct = descriptionProduct;
+        this.medicineClass = medicineClass;
+        this.presentation = presentation;
+        this.species = species;
     }
 
-    public String getName() {
-        return name;
+    public Medicine() {
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public String getDescriptionProduct() {
+        return descriptionProduct;
     }
 
-    public double getPrice() {
-        return price;
+    public void setDescriptionProduct(String descriptionProduct) {
+        this.descriptionProduct = descriptionProduct;
     }
 
-    public void setPrice(double price) {
-        this.price = price;
+    public MedicineClass getMedicineClass() {
+        return medicineClass;
     }
 
-    public double getAmount() {
-        return amount;
+    public void setMedicineClass(MedicineClass medicineClass) {
+        this.medicineClass = medicineClass;
     }
 
-    public void setAmount(double amount) {
-        this.amount = amount;
+    public String getPresentation() {
+        return presentation;
     }
 
-    public CategoryMedicine getCategoryMedicine() {
-        return categoryMedicine;
+    public void setPresentation(String presentation) {
+        this.presentation = presentation;
     }
 
-    public void setCategoryMedicine(CategoryMedicine categoryMedicine) {
-        this.categoryMedicine = categoryMedicine;
+    public Species getSpecies() {
+        return species;
+    }
+
+    public void setSpecies(Species species) {
+        this.species = species;
     }
 }
