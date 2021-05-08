@@ -3,18 +3,15 @@ package model;
 public class Medicine {
 
     private String descriptionProduct;
-    private MedicineClass medicineClass;
+    private String medicineClass;
     private String presentation;
-    private Species species;
+    private String species;
 
-    public Medicine(String descriptionProduct, MedicineClass medicineClass, String presentation, Species species) {
+    public Medicine(String descriptionProduct, String medicineClass, String presentation, String species) {
         this.descriptionProduct = descriptionProduct;
         this.medicineClass = medicineClass;
         this.presentation = presentation;
         this.species = species;
-    }
-
-    public Medicine() {
     }
 
     public String getDescriptionProduct() {
@@ -25,11 +22,11 @@ public class Medicine {
         this.descriptionProduct = descriptionProduct;
     }
 
-    public MedicineClass getMedicineClass() {
+    public String getMedicineClass() {
         return medicineClass;
     }
 
-    public void setMedicineClass(MedicineClass medicineClass) {
+    public void setMedicineClass(String medicineClass) {
         this.medicineClass = medicineClass;
     }
 
@@ -41,11 +38,21 @@ public class Medicine {
         this.presentation = presentation;
     }
 
-    public Species getSpecies() {
+    public String getSpecies() {
         return species;
     }
 
-    public void setSpecies(Species species) {
+    public void setSpecies(String species) {
         this.species = species;
+    }
+
+    @Override
+    public String toString() {
+        return "Medicine{" +
+                "nombre='" + descriptionProduct + '\'' +
+                ", clase='" + medicineClass + '\'' +
+                ", presentacion='" + presentation + '\'' +
+                ", especie='" + species + '\'' +
+                '}';
     }
 }

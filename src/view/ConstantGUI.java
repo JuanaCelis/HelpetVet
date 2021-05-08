@@ -79,6 +79,7 @@ public class ConstantGUI {
     public static final String T_GET_CATEGORY = "JD_get_category_appointment";
     public static final String T_DATE_APPOINTMENT = "JD_get_date_appointment";
     public static final String T_JD_REGISTER_APPOINTMENT = "JB_Register_new_appointment";
+    public static final String T_JD_SELECT_CATEGORY = "JB_Select_category";
 
     //Header tabla medicamentos
     public static final String T_HEADER_PRODUCT_DESCRIPTION = "header_description_medicine";
@@ -91,6 +92,10 @@ public class ConstantGUI {
     public static final String T_BUTTON_PETS_OWNER_TABLE = "Report_Pet_Owner_Table";
     public static final String T_BUTTON_APPOINTMENT_BY_CATEGORY_TABLE = "Report_Appointment_category_table";
     public static final String T_BUTTON_SHOW_LIST_OF_DOCTOR_TABLE = "Report_list_of_doctor_table";
+
+    //Llaves lenguaje JDialog select category
+
+    public static final String T_TITTLE_JD_SELECT_CATEGORY = "Tittle_select_category";
 
     //FUENTES
     public static final String  FONT_OPEN_SANS_LIGHT = "resources/Fonts/OpenSans-Light.ttf";
