@@ -33,7 +33,6 @@ public class PetManager {
 
     public void addPet(Pet pet){
         if (!petsList.contains(pet)){
-            pet.setId(petsList.size()+1);
             petsList.add(pet);
         }
     }

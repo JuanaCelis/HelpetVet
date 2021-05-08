@@ -108,4 +108,8 @@ public class Appointment {
     public void setDateAppointment(LocalDate dateAppointment) {
         this.dateAppointment = dateAppointment;
     }
+
+    public Object[] toObjectVector() {
+        return new Object[]{getCategory()+"",getNamePet(),getDateAppointment(),getIdPet(),getIdOwner(),getNameOwner()};
+    }
 }

@@ -92,8 +92,6 @@ public class Presenter implements ActionListener {
         loadLanguage();
     }
 
-
-
     public void changeToSpanish() throws IOException{
         HandlerLanguage.language = SPANISH_PATH;
         saveConfig();
@@ -104,26 +102,26 @@ public class Presenter implements ActionListener {
         mainWindow.changeLanguage();
     }
 
+    //Tablas
     public void clearTable() {
         mainWindow.clearTable();
     }
 
     public void showTableMedicine(){
         mainWindow.showPanelTable();
-//        showMedicineRaresTable(vetManager.getMedicinesList());
     }
 
     public void showMedicineRaresTable(ArrayList<Medicine> medicineList){
         mainWindow.showMedicineRaresTable(medicineList);
     }
 
-    public void showListOfDoctors(ArrayList<Doctor> doctorList){
-        mainWindow.showListOfDoctors(doctorList);
-    }
-
     public void showPanelTable(){
         mainWindow.showPanelTable();
         showListOfDoctors(vetManager.getDoctors());
+    }
+
+    public void showListOfDoctors(ArrayList<Doctor> doctorList){
+        mainWindow.showListOfDoctors(doctorList);
     }
 
     public void showDoctors(){
@@ -132,6 +130,42 @@ public class Presenter implements ActionListener {
         for (int i = 0; i < doctorTemp.size(); i++) {
             addTable(doctorTemp.get(i).toObjectVector());
         }
+    }
+
+    public void showPanelTablePets(){
+        mainWindow.showPanelTable();
+        showTablePetsOwners(vetManager.getPetsList());
+    }
+
+    public void showTablePetsOwners(ArrayList<Pet> petList){
+        mainWindow.showTablePetsOwners(petList);
+    }
+
+    public void showPetsAndOwners(){
+        clearTable();
+        ArrayList<Pet> doctorTemp = vetManager.getPetsList();
+        for (int i = 0; i < doctorTemp.size(); i++) {
+            addTable(doctorTemp.get(i).toObjectVector());
+        }
+    }
+
+    public void showTableAppointment(){
+        mainWindow.showPanelTable();
+        showTableOfAppoinmentAssingnedByDate(vetManager.appointmenList());
+    }
+
+    public void showTableOfAppoinmentAssingnedByDate(ArrayList<Appointment> appointmentList){
+        mainWindow.showTableOfAppoinmentAssingnedByDate(appointmentList);
+    }
+
+    public void showAppointments(){
+        clearTable();
+
+        ArrayList<Appointment> appointmentTemp = vetManager.appointmenList();
+        for (int i = 0; i < appointmentTemp.size(); i++) {
+            addTable(appointmentTemp.get(i).toObjectVector());
+        }
+        System.out.println(appointmentTemp.get(0).getNamePet());
     }
 
     public void addTable(Object [] element){
@@ -146,12 +180,6 @@ public class Presenter implements ActionListener {
         System.out.println(temp.getName() +" " + temp.getId());
     }
 
-    public void testPets(){
-        for (int i = 0; i < vetManager.getPetsList().size(); i++) {
-            System.out.println( vetManager.getPetsList().get(i).getId() +""+  vetManager.getPetsList().get(i).getName());
-        }
-        System.out.println(vetManager.getPetsList().size());
-    }
 
     /**
      * Lee el archivo de Doctor.vet
@@ -174,14 +202,6 @@ public class Presenter implements ActionListener {
         return LocalDate.of(Integer.parseInt(tempData[0]),Integer.parseInt(tempData[1]),Integer.parseInt(tempData[2]));
     }
 
-    public void testDoctors(){
-        for (int i = 0; i < vetManager.getDoctors().size(); i++) {
-            System.out.println(vetManager.getDoctors().get(i).getName() +" ");
-        }
-        System.out.println("==========================");
-    }
-
-
     @Override
     public void actionPerformed(ActionEvent e) {
 
@@ -201,7 +221,6 @@ public class Presenter implements ActionListener {
 
             case C_ADD_NEW_PET:
                 createPet();
-//                testPets();
                 break;
 
             case C_DIALOG_REGISTER_DOC:
@@ -211,11 +230,19 @@ public class Presenter implements ActionListener {
             case C_ADD_NEW_DOCTOR:
                 vetManager.addDoctor(jdRegisterDoc.createDoctor());
                 jdRegisterDoc.dispose();
-                testDoctors();
                 break;
 
             case C_SCHEDULE_APPOINTMENT:
                 jdScheduleAppointment = new JDScheduleAppointment(this);
+                break;
+
+            case C_ADD_NEW_APPOINTMENT:
+                vetManager.addAppointment(jdScheduleAppointment.createAppointment());
+                break;
+
+            case C_SHOW_LIST_APPOINTMENT:
+                showTableAppointment();
+                showAppointments();
                 break;
 
             case C_SHOW_PANEL_GRAPHICS:
@@ -232,12 +259,16 @@ public class Presenter implements ActionListener {
                 break;
 
             case C_SHOW_LIST_OF_DOCTORS:
+                clearTable();
                 showPanelTable();
                 showDoctors();
                 break;
 
             case C_SHOW_LIST_OF_PETS_AND_OWNER:
-                showPanelTable();
+                clearTable();
+                showPanelTablePets();
+                showPetsAndOwners();
+                break;
 
             case C_SHOW_HOMEPAGE:
                 mainWindow.showHomePage();

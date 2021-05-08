@@ -1,6 +1,7 @@
 package dialogs;
 
 import com.toedter.calendar.JDateChooser;
+import model.Appointment;
 import model.CategoryEspeciality;
 import persistence.HandlerLanguage;
 import presenter.EVENTS;
@@ -66,8 +67,7 @@ public class JDScheduleAppointment extends JDialog {
         jPanelDialogContainer.add(jDateAppointment);
 
         buttonRegisterAppointment = new JButton();
-        buttonRegisterAppointment = new view.RoundedJButton(15, 15, HandlerLanguage.languageProperties.getProperty( ConstantGUI.T_JD_REGISTER_APPOINTMENT), Color.decode("#337AB7"), Color.WHITE, EVENTS.C_ADD_NEW_DOCTOR.toString(), myPresenter);
-        buttonRegisterAppointment.addActionListener(myPresenter);
+        buttonRegisterAppointment = new view.RoundedJButton(15, 15, HandlerLanguage.languageProperties.getProperty( ConstantGUI.T_JD_REGISTER_APPOINTMENT), Color.decode("#337AB7"), Color.WHITE, EVENTS.C_ADD_NEW_APPOINTMENT.toString(), myPresenter);
         jPanelDialogContainer.add(buttonRegisterAppointment);
 
         cancelAction = new JButton();
@@ -76,6 +76,14 @@ public class JDScheduleAppointment extends JDialog {
         jPanelDialogContainer.add(cancelAction);
 
         add(jPanelDialogContainer, BorderLayout.CENTER);
+    }
+
+    public Appointment createAppointment(){
+        setVisible(false);
+        return new Appointment(jtfIdOwner.getText(),jtfLastNameOwner.getText(),
+                jtfNameOwner.getText(),jtfNamePet.getText(),
+                (CategoryEspeciality)category.getSelectedItem(),
+                MyUtilities.parseDateToLocalDate(jDateAppointment.getDate()));
     }
 
 }

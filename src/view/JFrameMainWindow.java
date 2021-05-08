@@ -2,6 +2,7 @@ package view;
 import model.Appointment;
 import model.Doctor;
 import model.Medicine;
+import model.Pet;
 import persistence.HandlerLanguage;
 import presenter.Presenter;
 
@@ -47,6 +48,10 @@ public class JFrameMainWindow extends JFrame {
 
     public void showListOfDoctors(ArrayList<Doctor> doctorList){
         mainPanel.showListOfDoctors(doctorList);
+    }
+
+    public void showTablePetsOwners(ArrayList<Pet> petList){
+        mainPanel.showTablePetsOwners(petList);
     }
 
     public void showMedicineRaresTable(ArrayList<Medicine> medicineList){

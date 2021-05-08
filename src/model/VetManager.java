@@ -9,11 +9,13 @@ public class VetManager {
     private String country;
     private PetManager petManager;
     private DoctorManager doctorManager;
+    private AppointmentManager appointmentManager;
     private ArrayList<Medicine> medicinesList;
 
     public VetManager() {
         this.doctorManager = new DoctorManager();
         this.petManager = new PetManager();
+        this.appointmentManager = new AppointmentManager();
     }
 
     public void addPet(Pet pet){
@@ -33,5 +35,16 @@ public class VetManager {
 
     public ArrayList<Doctor> getDoctors() {
         return doctorManager.getDoctors();
+    }
+
+    /**
+     * Apointment
+     */
+    public void addAppointment(Appointment appointment){
+        appointmentManager.addAppointment(appointment);
+    }
+
+    public ArrayList<Appointment> appointmenList(){
+        return appointmentManager.getAppointmentList();
     }
 }
