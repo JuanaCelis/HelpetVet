@@ -4,8 +4,12 @@ import model.Appointment;
 import model.Doctor;
 import model.Medicine;
 import model.Pet;
+import persistence.HandlerLanguage;
 import presenter.Presenter;
 import view.body.reportsGraphics.AppointmentForCategory;
+import utilities.MyUtilities;
+import view.ConstantGUI;
+
 
 import javax.swing.*;
 import java.awt.*;
@@ -80,6 +84,11 @@ public class JPContainerBody extends JPanel {
 
     public void showMedicineRaresTable(ArrayList<Medicine> medicineList){
         jpTableElements.showTableMedicines(medicineList);
+    }
+
+    public void showTableMedicines(ArrayList<Medicine> medicineArrayList){
+        jpTableElements.showTableMedicines(medicineArrayList);
+
     }
 
     public void showListOfDoctors(ArrayList<Doctor> doctorList){

@@ -66,6 +66,10 @@ public class JFrameMainWindow extends JFrame {
         mainPanel.showTableOfAppoinmentAssingnedByDate(appointentList);
     }
 
+    public void showTableMedicines(ArrayList<Medicine> medicineArrayList){
+        mainPanel.showTableMedicines(medicineArrayList);
+
+    }
     public void changeImageBannerNext(){
         mainPanel.changeImageBannerNext();
     }
