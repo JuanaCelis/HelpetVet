@@ -46,6 +46,10 @@ public class Medicine {
         this.species = species;
     }
 
+    public Object[] toObjectVector() {
+        return new Object[] {getDescriptionProduct(),getMedicineClass(),getPresentation(),getSpecies()};
+    }
+
     @Override
     public String toString() {
         return "Medicine{" +

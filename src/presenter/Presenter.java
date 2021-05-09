@@ -4,8 +4,10 @@ import dialogs.JDRegisterDoctor;
 import dialogs.JDRegisterPet;
 import dialogs.JDScheduleAppointment;
 import model.*;
+import org.json.simple.DeserializationException;
 import persistence.FileManager;
 import persistence.HandlerLanguage;
+import persistence.JsonManager;
 import view.JFrameMainWindow;
 
 import javax.swing.*;
@@ -23,6 +25,7 @@ public class Presenter implements ActionListener {
     private static final String PATH_FILE = "resources/archives/Doctors.vet";
 
     private VetManager vetManager;
+    private MedicineManager medicineManager;
     private JFrameMainWindow mainWindow;
     private JDRegisterPet jdRegisterPet;
     private JDRegisterDoctor jdRegisterDoc;
@@ -32,12 +35,23 @@ public class Presenter implements ActionListener {
     private HandlerLanguage config;
 
     public Presenter() throws IOException {
-        vetManager = new VetManager();
         fileManager = new FileManager();
+        vetManager = new VetManager();
+        medicineManager = new MedicineManager();
+        readMedicineOfApi();
         readFile();
         loadConfiguration();
         mainWindow = new JFrameMainWindow(this);
+    }
 
+    public void readMedicineOfApi(){
+        try {
+            medicineManager.setMedicinesList(new JsonManager().getMedicineList());
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (DeserializationException e) {
+            e.printStackTrace();
+        }
     }
 
     private void loadConfiguration() {
@@ -107,14 +121,6 @@ public class Presenter implements ActionListener {
         mainWindow.clearTable();
     }
 
-    public void showTableMedicine(){
-        mainWindow.showPanelTable();
-    }
-
-    public void showMedicineRaresTable(ArrayList<Medicine> medicineList){
-        mainWindow.showMedicineRaresTable(medicineList);
-    }
-
     public void showPanelTable(){
         mainWindow.showPanelTable();
         showListOfDoctors(vetManager.getDoctors());
@@ -132,13 +138,33 @@ public class Presenter implements ActionListener {
         }
     }
 
+    private void showMedicines() {
+        clearTable();
+        ArrayList<Medicine> medicinesTemp = medicineManager.getMedicinesList();
+        for (int i = 0; i < medicinesTemp.size(); i++) {
+            addTable(medicinesTemp.get(i).toObjectVector());
+        }
+    }
+
     public void showPanelTablePets(){
         mainWindow.showPanelTable();
         showTablePetsOwners(vetManager.getPetsList());
     }
 
+
+    private void showPanelTableMedicine() {
+        mainWindow.showPanelTable();
+        showTableMedicine(medicineManager.getMedicinesList());
+        System.out.println("Entro a showPanelTableMedicine");
+
+    }
+
     public void showTablePetsOwners(ArrayList<Pet> petList){
         mainWindow.showTablePetsOwners(petList);
+    }
+
+    public void showTableMedicine(ArrayList<Medicine>medicinesList){
+        mainWindow.showTableMedicines(medicinesList);
     }
 
     public void showPetsAndOwners(){
@@ -254,8 +280,9 @@ public class Presenter implements ActionListener {
                 break;
 
             case C_SHOW_TABLE_MEDICINE_RARE:
-                mainWindow.showPanelTable();
-                showTableMedicine();
+                clearTable();
+                showPanelTableMedicine();
+                showMedicines();
                 break;
 
             case C_SHOW_LIST_OF_DOCTORS:
@@ -282,6 +309,7 @@ public class Presenter implements ActionListener {
                 break;
 
         }
-
     }
+
+
 }

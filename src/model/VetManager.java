@@ -10,12 +10,14 @@ public class VetManager {
     private PetManager petManager;
     private DoctorManager doctorManager;
     private AppointmentManager appointmentManager;
+    private MedicineManager medicineManager;
     private ArrayList<Medicine> medicinesList;
 
     public VetManager() {
         this.doctorManager = new DoctorManager();
         this.petManager = new PetManager();
         this.appointmentManager = new AppointmentManager();
+        this.medicineManager = new MedicineManager();
     }
 
     public void addPet(Pet pet){
@@ -36,6 +38,18 @@ public class VetManager {
     public ArrayList<Doctor> getDoctors() {
         return doctorManager.getDoctors();
     }
+
+    /**
+     * Medicine
+     */
+    public void addMedicine(Medicine medicine){
+        medicineManager.addMedicine(medicine);
+    }
+
+    public ArrayList<Medicine> getMedicine() {
+        return medicineManager.getMedicinesList();
+    }
+
 
     /**
      * Apointment

@@ -56,18 +56,18 @@ public class JPTableElements extends JPanel {
 
     public void showTableOfAppoinmentAssingnedByDate(ArrayList<Appointment> listAppointment){
 //        clearTable();
-        headersMedicine = new String[]{MyUtilities.setRepairLetter(HandlerLanguage.languageProperties.getProperty( ConstantGUI.T_GET_CATEGORY)),
+        headersAppointment = new String[]{MyUtilities.setRepairLetter(HandlerLanguage.languageProperties.getProperty( ConstantGUI.T_GET_CATEGORY)),
                 MyUtilities.setRepairLetter(HandlerLanguage.languageProperties.getProperty( ConstantGUI.T_GET_NAMEPET)),
                 MyUtilities.setRepairLetter(HandlerLanguage.languageProperties.getProperty( ConstantGUI.T_DATE_APPOINTMENT)),
                 MyUtilities.setRepairLetter(HandlerLanguage.languageProperties.getProperty( ConstantGUI.T_JD_ID_PET)),
                 MyUtilities.setRepairLetter(HandlerLanguage.languageProperties.getProperty( ConstantGUI.T_GET_ID_OWNER)),
                 MyUtilities.setRepairLetter(HandlerLanguage.languageProperties.getProperty( ConstantGUI.T_GET_NAME_OWNER)),
         };
-        defaultTable.setColumnIdentifiers(headersMedicine);
+        defaultTable.setColumnIdentifiers(headersAppointment);
     }
 
     public void showTableMedicines(ArrayList<Medicine> medicineArrayList){
-        clearTable();
+        //clearTable();
         headersMedicine = new String[]{MyUtilities.setRepairLetter(HandlerLanguage.languageProperties.getProperty( ConstantGUI.T_HEADER_PRODUCT_DESCRIPTION)),
                 MyUtilities.setRepairLetter(HandlerLanguage.languageProperties.getProperty( ConstantGUI.T_HEADER_MEDICINE_CLASS)),
                 MyUtilities.setRepairLetter(HandlerLanguage.languageProperties.getProperty( ConstantGUI.T_HEADER_PRESENTATION_MEDICINE)),
@@ -75,9 +75,18 @@ public class JPTableElements extends JPanel {
 
         defaultTable.setColumnIdentifiers(headersMedicine);
 
+        //loadMedicineToList(medicineArrayList);
+
+    }
+
+    private void loadMedicineToList(ArrayList<Medicine> medicineArrayList) {
+        for (Medicine medicine : medicineArrayList) {
+            defaultTable.addRow(medicine.toObjectVector());
+        }
     }
 
     public void showTableDoctors(ArrayList<Doctor> doctorList){
+
 //        clearTable();
         headerDoctors = new String[]{MyUtilities.setRepairLetter(HandlerLanguage.languageProperties.getProperty( ConstantGUI.T_JD_GET_ID)),
                 MyUtilities.setRepairLetter(HandlerLanguage.languageProperties.getProperty( ConstantGUI.T_JD_GET_NAME)),

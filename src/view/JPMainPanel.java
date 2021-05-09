@@ -69,6 +69,11 @@ public class JPMainPanel extends JPanel {
         jpcontainerBody.showTableOfAppoinmentAssingnedByDate(appointentList);
     }
 
+    public void showTableMedicines(ArrayList<Medicine> medicineArrayList){
+        jpcontainerBody.showTableMedicines(medicineArrayList);
+
+    }
+
     public void changeImageBannerNext(){
         jpcontainerHeader.changeImageBannerNext();
     }
