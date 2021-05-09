@@ -56,12 +56,12 @@ public class JPTableElements extends JPanel {
 
     public void showTableOfAppoinmentAssingnedByDate(ArrayList<Appointment> listAppointment){
 //        clearTable();
-        headersMedicine = new String[]{MyUtilities.setRepairLetter(HandlerLanguage.languageProperties.getProperty( ConstantGUI.T_GET_CATEGORY)),
-                MyUtilities.setRepairLetter(HandlerLanguage.languageProperties.getProperty( ConstantGUI.T_GET_NAMEPET)),
-                MyUtilities.setRepairLetter(HandlerLanguage.languageProperties.getProperty( ConstantGUI.T_DATE_APPOINTMENT)),
-                MyUtilities.setRepairLetter(HandlerLanguage.languageProperties.getProperty( ConstantGUI.T_JD_ID_PET)),
-                MyUtilities.setRepairLetter(HandlerLanguage.languageProperties.getProperty( ConstantGUI.T_GET_ID_OWNER)),
-                MyUtilities.setRepairLetter(HandlerLanguage.languageProperties.getProperty( ConstantGUI.T_GET_NAME_OWNER)),
+        headersMedicine = new String[]{HandlerLanguage.languageProperties.getProperty( ConstantGUI.T_GET_CATEGORY),
+                HandlerLanguage.languageProperties.getProperty( ConstantGUI.T_GET_NAMEPET),
+                HandlerLanguage.languageProperties.getProperty( ConstantGUI.T_DATE_APPOINTMENT),
+                HandlerLanguage.languageProperties.getProperty( ConstantGUI.T_JD_ID_PET),
+                HandlerLanguage.languageProperties.getProperty( ConstantGUI.T_GET_ID_OWNER),
+                HandlerLanguage.languageProperties.getProperty( ConstantGUI.T_GET_NAME_OWNER),
         };
         defaultTable.setColumnIdentifiers(headersMedicine);
     }
@@ -79,11 +79,11 @@ public class JPTableElements extends JPanel {
 
     public void showTableDoctors(ArrayList<Doctor> doctorList){
 //        clearTable();
-        headerDoctors = new String[]{MyUtilities.setRepairLetter(HandlerLanguage.languageProperties.getProperty( ConstantGUI.T_JD_GET_ID)),
-                MyUtilities.setRepairLetter(HandlerLanguage.languageProperties.getProperty( ConstantGUI.T_JD_GET_NAME)),
-                MyUtilities.setRepairLetter(HandlerLanguage.languageProperties.getProperty( ConstantGUI.T_JD_GET_LASTNAME)),
-                MyUtilities.setRepairLetter(HandlerLanguage.languageProperties.getProperty( ConstantGUI.T_JD_GET_BIRTHDATE)),
-                MyUtilities.setRepairLetter(HandlerLanguage.languageProperties.getProperty( ConstantGUI.T_JD_GET_CATEGORY))};
+        headerDoctors = new String[]{HandlerLanguage.languageProperties.getProperty( ConstantGUI.T_JD_GET_ID),
+                HandlerLanguage.languageProperties.getProperty( ConstantGUI.T_JD_GET_NAME),
+                HandlerLanguage.languageProperties.getProperty( ConstantGUI.T_JD_GET_LASTNAME),
+                HandlerLanguage.languageProperties.getProperty( ConstantGUI.T_JD_GET_BIRTHDATE),
+                HandlerLanguage.languageProperties.getProperty( ConstantGUI.T_JD_GET_CATEGORY)};
 
         defaultTable.setColumnIdentifiers(headerDoctors);
 
@@ -91,11 +91,11 @@ public class JPTableElements extends JPanel {
 
     public void showTablePetsOwners(ArrayList<Pet> petList){
         headerPets = new String[]{
-                MyUtilities.setRepairLetter(HandlerLanguage.languageProperties.getProperty( ConstantGUI.T_GET_ID_OWNER)),
-                MyUtilities.setRepairLetter(HandlerLanguage.languageProperties.getProperty( ConstantGUI.T_GET_NAME_OWNER)),
-                MyUtilities.setRepairLetter(HandlerLanguage.languageProperties.getProperty( ConstantGUI.T_GET_NAMEPET)),
-                MyUtilities.setRepairLetter(HandlerLanguage.languageProperties.getProperty( ConstantGUI.T_JD_GET_AGE_PET)),
-                MyUtilities.setRepairLetter(HandlerLanguage.languageProperties.getProperty( ConstantGUI.T_JD_SIZE_PET))
+                HandlerLanguage.languageProperties.getProperty( ConstantGUI.T_GET_ID_OWNER),
+                HandlerLanguage.languageProperties.getProperty( ConstantGUI.T_GET_NAME_OWNER),
+                HandlerLanguage.languageProperties.getProperty( ConstantGUI.T_GET_NAMEPET),
+                HandlerLanguage.languageProperties.getProperty( ConstantGUI.T_JD_GET_AGE_PET),
+                HandlerLanguage.languageProperties.getProperty( ConstantGUI.T_JD_SIZE_PET)
         };
         defaultTable.setColumnIdentifiers(headerPets);
     }

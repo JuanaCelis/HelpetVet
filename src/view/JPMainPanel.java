@@ -52,6 +52,10 @@ public class JPMainPanel extends JPanel {
         jpcontainerBody.showPanelTable();
     }
 
+    public void showGraphic(){
+        jpcontainerBody.showGraphic();
+    }
+
     public void showListOfDoctors(ArrayList<Doctor> doctorList){
         jpcontainerBody.showListOfDoctors(doctorList);
     }

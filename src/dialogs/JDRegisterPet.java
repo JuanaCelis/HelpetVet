@@ -53,7 +53,7 @@ public class JDRegisterPet extends JDialog {
         jPanelDialogContainer.add(jcGender);
 
         jcSize = new JComboBox<>(Size.values());
-        jcSize.setBorder(BorderFactory.createTitledBorder(MyUtilities.setRepairLetter(HandlerLanguage.languageProperties.getProperty( ConstantGUI.T_JD_SIZE_PET ))));
+        jcSize.setBorder(BorderFactory.createTitledBorder(HandlerLanguage.languageProperties.getProperty( ConstantGUI.T_JD_SIZE_PET )));
         jcSize.setBackground(Color.WHITE);
         jPanelDialogContainer.add(jcSize);
 
@@ -63,15 +63,15 @@ public class JDRegisterPet extends JDialog {
         jPanelDialogContainer.add(jsAge);
 
         jtfIdOwner = new JTextField();
-        jtfIdOwner.setBorder(BorderFactory.createTitledBorder(MyUtilities.setRepairLetter(HandlerLanguage.languageProperties.getProperty( ConstantGUI.T_GET_ID_OWNER))));
+        jtfIdOwner.setBorder(BorderFactory.createTitledBorder(HandlerLanguage.languageProperties.getProperty( ConstantGUI.T_GET_ID_OWNER)));
         jPanelDialogContainer.add(jtfIdOwner);
 
         jtfNameOwner = new JTextField();
-        jtfNameOwner.setBorder(BorderFactory.createTitledBorder(MyUtilities.setRepairLetter(HandlerLanguage.languageProperties.getProperty( ConstantGUI.T_GET_NAME_OWNER))));
+        jtfNameOwner.setBorder(BorderFactory.createTitledBorder(HandlerLanguage.languageProperties.getProperty( ConstantGUI.T_GET_NAME_OWNER)));
         jPanelDialogContainer.add(jtfNameOwner);
 
         jtfNumberContact = new JTextField();
-        jtfNumberContact.setBorder(BorderFactory.createTitledBorder(MyUtilities.setRepairLetter(HandlerLanguage.languageProperties.getProperty( ConstantGUI.T_JD_NUMBER_CONTACT))));
+        jtfNumberContact.setBorder(BorderFactory.createTitledBorder(HandlerLanguage.languageProperties.getProperty( ConstantGUI.T_JD_NUMBER_CONTACT)));
         jPanelDialogContainer.add(jtfNumberContact);
 
         buttonRegisterPet = new JButton();

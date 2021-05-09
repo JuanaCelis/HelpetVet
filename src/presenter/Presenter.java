@@ -3,10 +3,14 @@ package presenter;
 import dialogs.JDRegisterDoctor;
 import dialogs.JDRegisterPet;
 import dialogs.JDScheduleAppointment;
+import dialogs.filters.JDialogAppointmentByCategory;
+import dialogs.filters.JDialogDoctorsByCategory;
+import dialogs.filters.JDialogPetsBySize;
 import model.*;
 import persistence.FileManager;
 import persistence.HandlerLanguage;
 import view.JFrameMainWindow;
+import view.body.reportsGraphics.AppointmentForCategory;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -26,7 +30,12 @@ public class Presenter implements ActionListener {
     private JFrameMainWindow mainWindow;
     private JDRegisterPet jdRegisterPet;
     private JDRegisterDoctor jdRegisterDoc;
+
     private JDScheduleAppointment jdScheduleAppointment;
+    private JDialogPetsBySize jDialogPetsBySize;
+    private JDialogDoctorsByCategory jDialogDoctorsByCategory;
+
+    private JDialogAppointmentByCategory jDialogAppointmentByCategory;
     private FileManager fileManager;
 
     private HandlerLanguage config;
@@ -128,7 +137,11 @@ public class Presenter implements ActionListener {
         clearTable();
         ArrayList<Doctor> doctorTemp = vetManager.getDoctors();
         for (int i = 0; i < doctorTemp.size(); i++) {
-            addTable(doctorTemp.get(i).toObjectVector());
+            if (jDialogDoctorsByCategory.getSelectCategory() == doctorTemp.get(i).getCategoryEspeciality()){
+                addTable(doctorTemp.get(i).toObjectVector());
+            }else if (jDialogDoctorsByCategory.getSelectCategory() == CategoryEspeciality.NONE){
+                addTable(doctorTemp.get(i).toObjectVector());
+            }
         }
     }
 
@@ -143,9 +156,13 @@ public class Presenter implements ActionListener {
 
     public void showPetsAndOwners(){
         clearTable();
-        ArrayList<Pet> doctorTemp = vetManager.getPetsList();
-        for (int i = 0; i < doctorTemp.size(); i++) {
-            addTable(doctorTemp.get(i).toObjectVector());
+        ArrayList<Pet> petsList = vetManager.getPetsList();
+        for (int i = 0; i < petsList.size(); i++) {
+            if (petsList.get(i).getSize() == jDialogPetsBySize.getSelectCategory()){
+                addTable(petsList.get(i).toObjectVector());
+            }else if (jDialogPetsBySize.getSelectCategory()== Size.NONE){
+                addTable(petsList.get(i).toObjectVector());
+            }
         }
     }
 
@@ -160,10 +177,11 @@ public class Presenter implements ActionListener {
 
     public void showAppointments(){
         clearTable();
-
         ArrayList<Appointment> appointmentTemp = vetManager.appointmenList();
         for (int i = 0; i < appointmentTemp.size(); i++) {
-            addTable(appointmentTemp.get(i).toObjectVector());
+            if (appointmentTemp.get(i).getCategory() == jDialogAppointmentByCategory.getSelectCategory()){
+                addTable(appointmentTemp.get(i).toObjectVector());
+            }
         }
         System.out.println(appointmentTemp.get(0).getNamePet());
     }
@@ -200,6 +218,10 @@ public class Presenter implements ActionListener {
     public LocalDate splitDate(String date){
         String tempData [] = date.split(",");
         return LocalDate.of(Integer.parseInt(tempData[0]),Integer.parseInt(tempData[1]),Integer.parseInt(tempData[2]));
+    }
+
+    public void showGraphic(){
+        mainWindow.showGraphic();
     }
 
     @Override
@@ -241,6 +263,10 @@ public class Presenter implements ActionListener {
                 break;
 
             case C_SHOW_LIST_APPOINTMENT:
+                jDialogAppointmentByCategory = new JDialogAppointmentByCategory(this);
+                break;
+
+            case C_SHOW_TABLE_APPOINTMENT_BY_CATEGORY:
                 showTableAppointment();
                 showAppointments();
                 break;
@@ -259,12 +285,19 @@ public class Presenter implements ActionListener {
                 break;
 
             case C_SHOW_LIST_OF_DOCTORS:
+                jDialogDoctorsByCategory = new JDialogDoctorsByCategory(this);
+                break;
+            case C_SHOW_TABLE_DOCTORS_BY_CATEGORY:
                 clearTable();
                 showPanelTable();
                 showDoctors();
                 break;
 
             case C_SHOW_LIST_OF_PETS_AND_OWNER:
+                jDialogPetsBySize = new JDialogPetsBySize(this);
+                break;
+
+            case C_SHOW_TABLE_PETS_BY_CATEGORY:
                 clearTable();
                 showPanelTablePets();
                 showPetsAndOwners();
@@ -279,6 +312,10 @@ public class Presenter implements ActionListener {
 
             case C_BACK_IMAGE_BANNER:
                 mainWindow.changeImageBannerBack();
+                break;
+
+            case C_SHOW_GRAPHICS_ONE:
+                showGraphic();
                 break;
 
         }

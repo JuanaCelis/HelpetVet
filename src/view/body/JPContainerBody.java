@@ -5,6 +5,7 @@ import model.Doctor;
 import model.Medicine;
 import model.Pet;
 import presenter.Presenter;
+import view.body.reportsGraphics.AppointmentForCategory;
 
 import javax.swing.*;
 import java.awt.*;
@@ -17,6 +18,8 @@ public class JPContainerBody extends JPanel {
     private JPButtonsReportsTable jpButtonsReportsTable;
     private JPTableElements jpTableElements;
     private JPHelpetServices jpHelpetServices;
+
+    private AppointmentForCategory appointmentForCategory;
 
 
     public JPContainerBody(Presenter presenter) {
@@ -63,6 +66,14 @@ public class JPContainerBody extends JPanel {
         this.removeAll();
         this.repaint();
         this.add(jpTableElements,BorderLayout.PAGE_START);
+        revalidate();
+    }
+
+    public void showGraphic(){
+        this.removeAll();
+        this.repaint();
+        appointmentForCategory = new AppointmentForCategory();
+        this.add(appointmentForCategory,BorderLayout.PAGE_START);
         revalidate();
     }
 

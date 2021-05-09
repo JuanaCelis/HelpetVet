@@ -1,4 +1,4 @@
-package dialogs;
+package dialogs.filters;
 
 import model.CategoryEspeciality;
 import persistence.HandlerLanguage;

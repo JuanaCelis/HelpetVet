@@ -44,7 +44,6 @@ public class JsonManager {
             //String temp [] = jsonArrayDatas.get(i).toString().split(", (?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)", -1);
             //medicineManager.addMedicine(new Medicine(temp[8], temp[9],temp[10], temp[11]));
 
-
         }
         for (int i = 0; i < medicineManager.getMedicinesList().size(); i++) {
             System.out.println(medicineManager.getMedicinesList().toString() + "\n");

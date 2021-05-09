@@ -39,7 +39,7 @@ public class JPButtonsReportsGraphics extends JPanel {
         panelTittle.setLayout(new BorderLayout());
         panelTittle.setBackground(Color.decode(ConstantGUI.COLOR_SKY_BLUE));
 
-        jlTittleGraphicsReports = new JLabel(MyUtilities.setRepairLetter(HandlerLanguage.languageProperties.getProperty(ConstantGUI.T_JLABEL_TITTLE_GRAPHIC_REPORTS)));
+        jlTittleGraphicsReports = new JLabel(HandlerLanguage.languageProperties.getProperty(ConstantGUI.T_JLABEL_TITTLE_GRAPHIC_REPORTS));
         jlTittleGraphicsReports.setForeground(Color.WHITE);
         jlTittleGraphicsReports.setBorder(BorderFactory.createEmptyBorder(30,0,30,100));
         //jlTittleGraphicsReports.setAlignmentX(Component.LEFT_ALIGNMENT);
@@ -61,14 +61,14 @@ public class JPButtonsReportsGraphics extends JPanel {
 
         jbAverageCategory = new JButton();
         ImageIcon tempAverageCategory = new ImageIcon(new ImageIcon(getClass().getResource(ConstantGUI.BUTTON_GENERAL_REPORTS)).getImage());
-        MyUtilities.setTextAndIconButtons(jbAverageCategory, MyUtilities.setRepairLetter(HandlerLanguage.languageProperties.getProperty(ConstantGUI.T_BUTTON_AVERAGE_CATEGORY)), tempAverageCategory, 0,0,0,0);
-        //jbAverageCategory.addActionListener(myPresenter);
-        //jbAverageCategory.setActionCommand(EVENTS.C_DIALOG_REGISTER_DOC.toString());
+        MyUtilities.setTextAndIconButtons(jbAverageCategory, HandlerLanguage.languageProperties.getProperty(ConstantGUI.T_BUTTON_AVERAGE_CATEGORY), tempAverageCategory, 0,0,0,0);
+        jbAverageCategory.addActionListener(myPresenter);
+        jbAverageCategory.setActionCommand(EVENTS.C_SHOW_GRAPHICS_ONE.toString());
         panelButtonsRepGraphics.add(jbAverageCategory);
 
         jbDocsCategory = new JButton();
         ImageIcon tempDocsCategory = new ImageIcon(new ImageIcon(getClass().getResource(ConstantGUI.BUTTON_GENERAL_REPORTS)).getImage());
-        MyUtilities.setTextAndIconButtons(jbDocsCategory, MyUtilities.setRepairLetter(HandlerLanguage.languageProperties.getProperty(ConstantGUI.T_BUTTON_DOCS_BY_CATEGORY)), tempDocsCategory, 0,0,0,0);
+        MyUtilities.setTextAndIconButtons(jbDocsCategory, HandlerLanguage.languageProperties.getProperty(ConstantGUI.T_BUTTON_DOCS_BY_CATEGORY), tempDocsCategory, 0,0,0,0);
         //jbDocsCategory.addActionListener(myPresenter);
         //jbDocsCategory.setActionCommand(EVENTS.C_DIALOG_REGISTER_DOC.toString());
         panelButtonsRepGraphics.add(jbDocsCategory);
@@ -105,7 +105,7 @@ public class JPButtonsReportsGraphics extends JPanel {
     }
 
     public void changeLanguage(){
-        jlTittleGraphicsReports.setText(HandlerLanguage.languageProperties.getProperty(ConstantGUI.T_JLABEL_TITTLE_GRAPHIC_REPORTS));
+        jlTittleGraphicsReports.setText((HandlerLanguage.languageProperties.getProperty(ConstantGUI.T_JLABEL_TITTLE_GRAPHIC_REPORTS)));
         jbAverageCategory.setText(HandlerLanguage.languageProperties.getProperty(ConstantGUI.T_BUTTON_AVERAGE_CATEGORY));
         jbDocsCategory.setText(HandlerLanguage.languageProperties.getProperty(ConstantGUI.T_BUTTON_DOCS_BY_CATEGORY));
         jbPetsPerMonth.setText(HandlerLanguage.languageProperties.getProperty(ConstantGUI.T_BUTTON_PETS_PER_MONTH));

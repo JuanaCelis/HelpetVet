@@ -46,6 +46,10 @@ public class JFrameMainWindow extends JFrame {
         mainPanel.showPanelTable();
     }
 
+    public void showGraphic(){
+        mainPanel.showGraphic();
+    }
+
     public void showListOfDoctors(ArrayList<Doctor> doctorList){
         mainPanel.showListOfDoctors(doctorList);
     }
