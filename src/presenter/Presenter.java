@@ -155,8 +155,6 @@ public class Presenter implements ActionListener {
     private void showPanelTableMedicine() {
         mainWindow.showPanelTable();
         showTableMedicine(medicineManager.getMedicinesList());
-        System.out.println("Entro a showPanelTableMedicine");
-
     }
 
     public void showTablePetsOwners(ArrayList<Pet> petList){
