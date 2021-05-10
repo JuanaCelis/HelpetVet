@@ -7,8 +7,8 @@ import persistence.HandlerLanguage;
 import presenter.Presenter;
 
 import javax.swing.*;
-import java.awt.*;
 import java.util.ArrayList;
+import java.util.List;
 
 public class JFrameMainWindow extends JFrame {
 
@@ -44,6 +44,10 @@ public class JFrameMainWindow extends JFrame {
 
     public void showPanelTable(){
         mainPanel.showPanelTable();
+    }
+
+    public void showGraphicAppointmentCategory(List<Double> doubles){
+        mainPanel.showGraphicAppointmentCategory(doubles);
     }
 
     public void showListOfDoctors(ArrayList<Doctor> doctorList){

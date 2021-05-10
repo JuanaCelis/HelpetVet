@@ -1,9 +1,6 @@
 package model;
 
 import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.LinkedHashSet;
-import java.util.LinkedList;
 
 public class PetManager {
 
@@ -19,16 +16,6 @@ public class PetManager {
      */
     public int getTotalPets(){
         return petsList.size();
-    }
-
-    /**
-     * Establece el ID no repetidos para las mascotas
-     */
-    public void setIdPets(){
-        int idPet = 1;
-        for (int i = 0; i < petsList.size(); i++) {
-            petsList.get(i).setId((idPet++));
-        }
     }
 
     public void addPet(Pet pet){

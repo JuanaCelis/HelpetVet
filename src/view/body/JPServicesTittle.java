@@ -30,7 +30,7 @@ public class JPServicesTittle extends JPanel {
 
     private void addTittle() {
 
-        jlTittleServices = new JLabel(MyUtilities.setRepairLetter(HandlerLanguage.languageProperties.getProperty(ConstantGUI.T_SERVICE_TITTLE)));
+        jlTittleServices = new JLabel(HandlerLanguage.languageProperties.getProperty(ConstantGUI.T_SERVICE_TITTLE));
         jlTittleServices.setForeground(Color.decode(ConstantGUI.COLOR_TITTLE_SERVICE));
         jlTittleServices.setBorder(BorderFactory.createEmptyBorder(40,550,10,0));
         try {
@@ -44,7 +44,7 @@ public class JPServicesTittle extends JPanel {
 
     private void addAnswerTittle() {
 
-        jlTittleAnswer = new JLabel(MyUtilities.setRepairLetter(HandlerLanguage.languageProperties.getProperty(ConstantGUI.T_SERVICE_ANSWER)));
+        jlTittleAnswer = new JLabel(HandlerLanguage.languageProperties.getProperty(ConstantGUI.T_SERVICE_ANSWER));
         jlTittleAnswer.setForeground(Color.decode(ConstantGUI.COLOR_GRAY_SERVICE));
         jlTittleAnswer.setBorder(BorderFactory.createEmptyBorder(10,350,30,0));
         try {

@@ -6,12 +6,15 @@ import model.Medicine;
 import model.Pet;
 import persistence.HandlerLanguage;
 import presenter.Presenter;
+import view.body.reportsGraphics.AppointmentForCategory;
 import utilities.MyUtilities;
 import view.ConstantGUI;
+
 
 import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
+import java.util.List;
 
 public class JPContainerBody extends JPanel {
 
@@ -20,6 +23,8 @@ public class JPContainerBody extends JPanel {
     private JPButtonsReportsTable jpButtonsReportsTable;
     private JPTableElements jpTableElements;
     private JPHelpetServices jpHelpetServices;
+
+    private AppointmentForCategory appointmentForCategory;
 
 
     public JPContainerBody(Presenter presenter) {
@@ -66,6 +71,14 @@ public class JPContainerBody extends JPanel {
         this.removeAll();
         this.repaint();
         this.add(jpTableElements,BorderLayout.PAGE_START);
+        revalidate();
+    }
+
+    public void showGraphicAppointmentCategory(List<Double> doubles){
+        this.removeAll();
+        this.repaint();
+        appointmentForCategory = new AppointmentForCategory(doubles);
+        this.add(appointmentForCategory,BorderLayout.PAGE_START);
         revalidate();
     }
 

@@ -66,14 +66,14 @@ public class JPButtonsReportsTable extends JPanel {
 
         jbReportPetsAndOwner = new JButton();
         ImageIcon tempPetsAndOwner = new ImageIcon(new ImageIcon(getClass().getResource(ConstantGUI.BUTTON_PETS_OWNER_TABLE)).getImage());
-        MyUtilities.setTextAndIconButtons(jbReportPetsAndOwner, MyUtilities.setRepairLetter(HandlerLanguage.languageProperties.getProperty(ConstantGUI.T_BUTTON_PETS_OWNER_TABLE)), tempPetsAndOwner, 0,0,0,0);
+        MyUtilities.setTextAndIconButtons(jbReportPetsAndOwner, HandlerLanguage.languageProperties.getProperty(ConstantGUI.T_BUTTON_PETS_OWNER_TABLE), tempPetsAndOwner, 0,0,0,0);
         jbReportPetsAndOwner.addActionListener(myPresenter);
         jbReportPetsAndOwner.setActionCommand(EVENTS.C_SHOW_LIST_OF_PETS_AND_OWNER.toString());
         panelButtonsRepTables.add(jbReportPetsAndOwner);
 
         jbAppointmentByCategory = new JButton();
         ImageIcon tempAppointmentByCategory = new ImageIcon(new ImageIcon(getClass().getResource(ConstantGUI.BUTTON_APPOINTMENT_BY_CATEGORY_TABLE)).getImage());
-        MyUtilities.setTextAndIconButtons(jbAppointmentByCategory, MyUtilities.setRepairLetter(HandlerLanguage.languageProperties.getProperty(ConstantGUI.T_BUTTON_APPOINTMENT_BY_CATEGORY_TABLE)), tempAppointmentByCategory, 0,0,0,0);
+        MyUtilities.setTextAndIconButtons(jbAppointmentByCategory, HandlerLanguage.languageProperties.getProperty(ConstantGUI.T_BUTTON_APPOINTMENT_BY_CATEGORY_TABLE), tempAppointmentByCategory, 0,0,0,0);
         jbAppointmentByCategory.addActionListener(myPresenter);
         jbAppointmentByCategory.setActionCommand(EVENTS.C_SHOW_LIST_APPOINTMENT.toString());
         panelButtonsRepTables.add(jbAppointmentByCategory);
@@ -90,10 +90,10 @@ public class JPButtonsReportsTable extends JPanel {
     }
 
     public void changeLanguage(){
-        jlTittleTableReports.setText(MyUtilities.setRepairLetter(HandlerLanguage.languageProperties.getProperty(ConstantGUI.T_JLABEL_TITTLE_TABLE_REPORT)));
-        jbReportMedicine.setText(MyUtilities.setRepairLetter(HandlerLanguage.languageProperties.getProperty(ConstantGUI.T_BUTTON_REPORT_MEDICINE_TABLE)));
-        jbReportPetsAndOwner.setText(MyUtilities.setRepairLetter(HandlerLanguage.languageProperties.getProperty(ConstantGUI.T_BUTTON_PETS_OWNER_TABLE)));
-        jbAppointmentByCategory.setText(MyUtilities.setRepairLetter(HandlerLanguage.languageProperties.getProperty(ConstantGUI.T_BUTTON_APPOINTMENT_BY_CATEGORY_TABLE)));
-        jbShowListOfDoctors.setText(MyUtilities.setRepairLetter(HandlerLanguage.languageProperties.getProperty(ConstantGUI.T_BUTTON_SHOW_LIST_OF_DOCTOR_TABLE)));
+        jlTittleTableReports.setText(HandlerLanguage.languageProperties.getProperty(ConstantGUI.T_JLABEL_TITTLE_TABLE_REPORT));
+        jbReportMedicine.setText(HandlerLanguage.languageProperties.getProperty(ConstantGUI.T_BUTTON_REPORT_MEDICINE_TABLE));
+        jbReportPetsAndOwner.setText(HandlerLanguage.languageProperties.getProperty(ConstantGUI.T_BUTTON_PETS_OWNER_TABLE));
+        jbAppointmentByCategory.setText(HandlerLanguage.languageProperties.getProperty(ConstantGUI.T_BUTTON_APPOINTMENT_BY_CATEGORY_TABLE));
+        jbShowListOfDoctors.setText(HandlerLanguage.languageProperties.getProperty(ConstantGUI.T_BUTTON_SHOW_LIST_OF_DOCTOR_TABLE));
     }
 }
