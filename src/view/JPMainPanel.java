@@ -12,6 +12,7 @@ import view.header.JPContainerHeader;
 import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
+import java.util.List;
 
 public class JPMainPanel extends JPanel {
 
@@ -52,8 +53,8 @@ public class JPMainPanel extends JPanel {
         jpcontainerBody.showPanelTable();
     }
 
-    public void showGraphic(){
-        jpcontainerBody.showGraphic();
+    public void showGraphicAppointmentCategory(List<Double> doubles){
+        jpcontainerBody.showGraphicAppointmentCategory(doubles);
     }
 
     public void showListOfDoctors(ArrayList<Doctor> doctorList){

@@ -1,7 +1,7 @@
 package model;
 
 import java.util.ArrayList;
-import java.util.LinkedList;
+import java.util.List;
 
 public class VetManager {
 
@@ -60,5 +60,9 @@ public class VetManager {
 
     public ArrayList<Appointment> appointmenList(){
         return appointmentManager.getAppointmentList();
+    }
+
+    public List<Double> percentageCategoriesAppointment(){
+        return appointmentManager.percentageCategoriesAppointment();
     }
 }

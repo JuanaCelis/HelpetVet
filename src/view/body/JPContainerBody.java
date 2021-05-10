@@ -14,6 +14,7 @@ import view.ConstantGUI;
 import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
+import java.util.List;
 
 public class JPContainerBody extends JPanel {
 
@@ -73,10 +74,10 @@ public class JPContainerBody extends JPanel {
         revalidate();
     }
 
-    public void showGraphic(){
+    public void showGraphicAppointmentCategory(List<Double> doubles){
         this.removeAll();
         this.repaint();
-        appointmentForCategory = new AppointmentForCategory();
+        appointmentForCategory = new AppointmentForCategory(doubles);
         this.add(appointmentForCategory,BorderLayout.PAGE_START);
         revalidate();
     }

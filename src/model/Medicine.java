@@ -1,5 +1,7 @@
 package model;
 
+import java.util.Locale;
+
 public class Medicine {
 
     private String descriptionProduct;

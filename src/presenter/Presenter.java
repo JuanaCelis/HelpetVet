@@ -12,7 +12,6 @@ import persistence.FileManager;
 import persistence.HandlerLanguage;
 import persistence.JsonManager;
 import view.JFrameMainWindow;
-import view.body.reportsGraphics.AppointmentForCategory;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -207,6 +206,8 @@ public class Presenter implements ActionListener {
         for (int i = 0; i < appointmentTemp.size(); i++) {
             if (appointmentTemp.get(i).getCategory() == jDialogAppointmentByCategory.getSelectCategory()){
                 addTable(appointmentTemp.get(i).toObjectVector());
+            }else if (jDialogAppointmentByCategory.getSelectCategory() == CategoryEspeciality.NONE){
+                addTable(appointmentTemp.get(i).toObjectVector());
             }
         }
         System.out.println(appointmentTemp.get(0).getNamePet());
@@ -246,8 +247,8 @@ public class Presenter implements ActionListener {
         return LocalDate.of(Integer.parseInt(tempData[0]),Integer.parseInt(tempData[1]),Integer.parseInt(tempData[2]));
     }
 
-    public void showGraphic(){
-        mainWindow.showGraphic();
+    public void showGraphicAppointmentCategory(){
+        mainWindow.showGraphicAppointmentCategory(vetManager.percentageCategoriesAppointment());
     }
 
     @Override
@@ -342,7 +343,7 @@ public class Presenter implements ActionListener {
                 break;
 
             case C_SHOW_GRAPHICS_ONE:
-                showGraphic();
+                showGraphicAppointmentCategory();
                 break;
 
         }
