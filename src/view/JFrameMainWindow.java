@@ -50,6 +50,10 @@ public class JFrameMainWindow extends JFrame {
         mainPanel.showGraphicAppointmentCategory(doubles);
     }
 
+    public void frequenPetsBySize(ArrayList<Double> doubles){
+        mainPanel.frequenPetsBySize(doubles);
+    }
+
     public void showListOfDoctors(ArrayList<Doctor> doctorList){
         mainPanel.showListOfDoctors(doctorList);
     }

@@ -70,7 +70,7 @@ public class JPButtonsReportsGraphics extends JPanel {
         ImageIcon tempDocsCategory = new ImageIcon(new ImageIcon(getClass().getResource(ConstantGUI.BUTTON_GENERAL_REPORTS)).getImage());
         MyUtilities.setTextAndIconButtons(jbDocsCategory, HandlerLanguage.languageProperties.getProperty(ConstantGUI.T_BUTTON_DOCS_BY_CATEGORY), tempDocsCategory, 0,0,0,0);
         //jbDocsCategory.addActionListener(myPresenter);
-        //jbDocsCategory.setActionCommand(EVENTS.C_DIALOG_REGISTER_DOC.toString());
+        //jbDocsCategory.setActionCommand(EVENTS.C_SHOW_GRAPHICS_TWO.toString());
         panelButtonsRepGraphics.add(jbDocsCategory);
 
         jbPetsPerMonth = new JButton();
@@ -83,8 +83,8 @@ public class JPButtonsReportsGraphics extends JPanel {
         jbFrequentPets = new JButton();
         ImageIcon tempFrequentPets = new ImageIcon(new ImageIcon(getClass().getResource(ConstantGUI.BUTTON_GENERAL_REPORTS)).getImage());
         MyUtilities.setTextAndIconButtons(jbFrequentPets, HandlerLanguage.languageProperties.getProperty(ConstantGUI.T_BUTTON_FREQUENT_PETS), tempFrequentPets, 0,0,0,0);
-        //jbFrequentPets.addActionListener(myPresenter);
-        //jbFrequentPets.setActionCommand(EVENTS.C_DIALOG_REGISTER_DOC.toString());
+        jbFrequentPets.addActionListener(myPresenter);
+        jbFrequentPets.setActionCommand(EVENTS.C_SHOW_GRAPHICS_TWO.toString());
         panelButtonsRepGraphics.add(jbFrequentPets);
 
         jbRatingVet = new JButton();

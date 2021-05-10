@@ -65,4 +65,11 @@ public class VetManager {
     public List<Double> percentageCategoriesAppointment(){
         return appointmentManager.percentageCategoriesAppointment();
     }
+
+    /**
+     * Mascotas
+     */
+    public ArrayList<Double> frequentPets(){
+        return petManager.frequentPets();
+    }
 }

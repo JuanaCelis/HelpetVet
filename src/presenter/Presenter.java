@@ -5,6 +5,7 @@ import dialogs.JDRegisterPet;
 import dialogs.JDScheduleAppointment;
 import dialogs.filters.JDialogAppointmentByCategory;
 import dialogs.filters.JDialogDoctorsByCategory;
+import dialogs.filters.JDialogMedicineBySpecie;
 import dialogs.filters.JDialogPetsBySize;
 import model.*;
 import org.json.simple.DeserializationException;
@@ -36,8 +37,9 @@ public class Presenter implements ActionListener {
     private JDScheduleAppointment jdScheduleAppointment;
     private JDialogPetsBySize jDialogPetsBySize;
     private JDialogDoctorsByCategory jDialogDoctorsByCategory;
-
     private JDialogAppointmentByCategory jDialogAppointmentByCategory;
+    private JDialogMedicineBySpecie jDialogMedicineBySpecie;
+
     private FileManager fileManager;
 
     private HandlerLanguage config;
@@ -154,7 +156,11 @@ public class Presenter implements ActionListener {
         clearTable();
         ArrayList<Medicine> medicinesTemp = medicineManager.getMedicinesList();
         for (int i = 0; i < medicinesTemp.size(); i++) {
-            addTable(medicinesTemp.get(i).toObjectVector());
+            if (jDialogMedicineBySpecie.getSelectCategory().toString().toLowerCase().contains(medicinesTemp.get(i).getSpecies().toLowerCase())){
+                addTable(medicinesTemp.get(i).toObjectVector());
+            }else if(jDialogMedicineBySpecie.getSelectCategory() == Specie.NONE){
+                addTable(medicinesTemp.get(i).toObjectVector());
+            }
         }
     }
 
@@ -167,8 +173,6 @@ public class Presenter implements ActionListener {
     private void showPanelTableMedicine() {
         mainWindow.showPanelTable();
         showTableMedicine(medicineManager.getMedicinesList());
-        System.out.println("Entro a showPanelTableMedicine");
-
     }
 
     public void showTablePetsOwners(ArrayList<Pet> petList){
@@ -251,6 +255,10 @@ public class Presenter implements ActionListener {
         mainWindow.showGraphicAppointmentCategory(vetManager.percentageCategoriesAppointment());
     }
 
+    public void frequentPets(){
+        mainWindow.frequenPetsBySize(vetManager.frequentPets());
+    }
+
     @Override
     public void actionPerformed(ActionEvent e) {
 
@@ -307,6 +315,10 @@ public class Presenter implements ActionListener {
                 break;
 
             case C_SHOW_TABLE_MEDICINE_RARE:
+                jDialogMedicineBySpecie = new JDialogMedicineBySpecie(this);
+                break;
+
+            case C_SHOW_TABLE_MEDICINE_BY_SPECIE:
                 clearTable();
                 showPanelTableMedicine();
                 showMedicines();
@@ -344,6 +356,10 @@ public class Presenter implements ActionListener {
 
             case C_SHOW_GRAPHICS_ONE:
                 showGraphicAppointmentCategory();
+                break;
+
+            case C_SHOW_GRAPHICS_TWO:
+                frequentPets();
                 break;
 
         }

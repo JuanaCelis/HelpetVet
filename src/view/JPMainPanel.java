@@ -57,6 +57,10 @@ public class JPMainPanel extends JPanel {
         jpcontainerBody.showGraphicAppointmentCategory(doubles);
     }
 
+    public void frequenPetsBySize(ArrayList<Double> doubles){
+        jpcontainerBody.frequenPetsBySize(doubles);
+    }
+
     public void showListOfDoctors(ArrayList<Doctor> doctorList){
         jpcontainerBody.showListOfDoctors(doctorList);
     }

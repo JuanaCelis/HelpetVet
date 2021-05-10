@@ -9,6 +9,7 @@ import presenter.Presenter;
 import view.body.reportsGraphics.AppointmentForCategory;
 import utilities.MyUtilities;
 import view.ConstantGUI;
+import view.body.reportsGraphics.FrequenPetsBySize;
 
 
 import javax.swing.*;
@@ -25,6 +26,7 @@ public class JPContainerBody extends JPanel {
     private JPHelpetServices jpHelpetServices;
 
     private AppointmentForCategory appointmentForCategory;
+    private FrequenPetsBySize frequenPetsBySize;
 
 
     public JPContainerBody(Presenter presenter) {
@@ -81,6 +83,16 @@ public class JPContainerBody extends JPanel {
         this.add(appointmentForCategory,BorderLayout.PAGE_START);
         revalidate();
     }
+
+    public void frequenPetsBySize(ArrayList<Double> doubles){
+        this.removeAll();
+        this.repaint();
+        frequenPetsBySize = new FrequenPetsBySize(doubles);
+        this.add(frequenPetsBySize,BorderLayout.PAGE_START);
+        revalidate();
+    }
+
+
 
 
     public void showMedicineRaresTable(ArrayList<Medicine> medicineList){
