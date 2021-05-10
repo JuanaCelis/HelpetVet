@@ -37,27 +37,27 @@ public class AppointmentForCategory extends JPanel {
         int longFive = (int) (imaging*400/major);
         int longSix = (int) (wildlife*400/major);
 
-        g.setColor(Color.CYAN);
+        g.setColor(Color.decode("#004AAD"));
         g.fillRect(150,70,longOne,35);
         g.drawString("Cirugia",30,100);
 
-        g.setColor(Color.LIGHT_GRAY);
+        g.setColor(Color.decode("#03989E"));
         g.fillRect(150,120,longTwo,35);
         g.drawString("Oncología",30,150);
 
-        g.setColor(Color.BLUE);
+        g.setColor(Color.decode("#1735BD"));
         g.fillRect(150,180,longThree,35);
         g.drawString("Fisoperapia",30,210);
 
-        g.setColor(Color.BLUE);
+        g.setColor(Color.decode("#1768BD"));
         g.fillRect(150,240,longFour,35);
         g.drawString("Rehabilitacion",30,270);
 
-        g.setColor(Color.MAGENTA);
+        g.setColor(Color.decode("#072340"));
         g.fillRect(150,300,longFive,35);
-        g.drawString("imagen",30,300);
+        g.drawString("Imagen",30,300);
 
-        g.setColor(Color.pink);
+        g.setColor(Color.decode("#3274B8"));
         g.fillRect(150,350,longSix,35);
         g.drawString("Fauna",30,350);
 
