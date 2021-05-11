@@ -54,6 +54,22 @@ public class JFrameMainWindow extends JFrame {
         mainPanel.frequenPetsBySize(doubles);
     }
 
+    public void doctorsByCategoryGraphic(ArrayList<Double> doubles){
+        mainPanel.doctorsByCategoryGraphic(doubles);
+    }
+
+    public void petsForMounth(ArrayList<Integer> doubles){
+        mainPanel.petsForMounth(doubles);
+    }
+
+    public void typesOfMedicines(ArrayList<Double> values){
+        mainPanel.typesOfMedicines(values);
+    }
+
+    public void reportGender(ArrayList<Integer> values){
+        mainPanel.reportGender(values);
+    }
+
     public void showListOfDoctors(ArrayList<Doctor> doctorList){
         mainPanel.showListOfDoctors(doctorList);
     }

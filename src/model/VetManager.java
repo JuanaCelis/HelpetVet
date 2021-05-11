@@ -66,10 +66,32 @@ public class VetManager {
         return appointmentManager.percentageCategoriesAppointment();
     }
 
+    public ArrayList<Integer> getMonths(){
+        return appointmentManager.getMonths();
+    }
+
     /**
      * Mascotas
      */
     public ArrayList<Double> frequentPets(){
         return petManager.frequentPets();
+    }
+
+    public ArrayList<Integer> getPercentageGender(){
+       return petManager.getPercentageGender();
+    }
+
+    /**
+     * Doctores
+     */
+    public ArrayList<Double> percentageDoctorForCategory(){
+        return doctorManager.percentageDoctorForCategory();
+    }
+
+    /**
+     * Medicina
+     */
+    public ArrayList<Double> typesOfMedicines(){
+        return medicineManager.typesOfMedicines();
     }
 }

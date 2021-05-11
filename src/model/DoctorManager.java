@@ -49,21 +49,6 @@ public class DoctorManager {
     }
 
     /**
-     * Asigna la cita a los doctores  
-     */
-    public Doctor assingAppointmentForDoctor(Appointment appointment){
-        Doctor doctorResult = null;
-        for (Doctor doctor : doctors) {
-            if (appointment.getCategory() == doctor.getCategoryEspeciality()) {
-                doctor.setIdAppointment(appointment);
-                doctorResult = doctor;
-                break;
-            }
-        }
-        return doctorResult;
-    }
-
-    /**
      * Se obtienen los doctores registrados
      * @return ArrayList de doctores
      */
@@ -78,4 +63,28 @@ public class DoctorManager {
     public AppointmentManager getAppointmentManager() {
         return appointmentManager;
     }
+
+    public ArrayList<Double> percentageDoctorForCategory(){
+        ArrayList<Double> list = new ArrayList<>();
+
+        list.add((double)numberDoctorsCategorys(CategoryEspeciality.SURGERY));
+        list.add((double)numberDoctorsCategorys(CategoryEspeciality.PHISIOTHERAPY));
+        list.add((double)numberDoctorsCategorys(CategoryEspeciality.ONCOLOGY));
+        list.add((double)numberDoctorsCategorys(CategoryEspeciality.REHABILITATION));
+        list.add((double)numberDoctorsCategorys(CategoryEspeciality.IMAGING));
+        list.add((double)numberDoctorsCategorys(CategoryEspeciality.WILDLIFE));
+
+        return list;
+    }
+
+    public int numberDoctorsCategorys(CategoryEspeciality especiality){
+        int result = 0;
+        for (int i = 0; i < doctors.size(); i++) {
+            if (doctors.get(i).getCategoryEspeciality() == especiality){
+                result++;
+            }
+        }
+        return result;
+    }
+
 }

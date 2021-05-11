@@ -6,10 +6,9 @@ import model.Medicine;
 import model.Pet;
 import persistence.HandlerLanguage;
 import presenter.Presenter;
-import view.body.reportsGraphics.AppointmentForCategory;
+import view.body.reportsGraphics.*;
 import utilities.MyUtilities;
 import view.ConstantGUI;
-import view.body.reportsGraphics.FrequenPetsBySize;
 
 
 import javax.swing.*;
@@ -27,6 +26,10 @@ public class JPContainerBody extends JPanel {
 
     private AppointmentForCategory appointmentForCategory;
     private FrequenPetsBySize frequenPetsBySize;
+    private DoctorsByCategoryGraphic doctorsByCategoryGraphic;
+    private PetsForMounth petsForMounth;
+    private TypesOfMedicines typesOfMedicines;
+    private ReportGender reportGender;
 
 
     public JPContainerBody(Presenter presenter) {
@@ -92,7 +95,37 @@ public class JPContainerBody extends JPanel {
         revalidate();
     }
 
+    public void doctorsByCategoryGraphic(ArrayList<Double> doubles){
+        this.removeAll();
+        this.repaint();
+        doctorsByCategoryGraphic = new DoctorsByCategoryGraphic(doubles);
+        this.add(doctorsByCategoryGraphic,BorderLayout.PAGE_START);
+        revalidate();
+    }
 
+    public void petsForMounth(ArrayList<Integer> doubles){
+        this.removeAll();
+        this.repaint();
+        petsForMounth = new PetsForMounth(doubles);
+        this.add(petsForMounth,BorderLayout.PAGE_START);
+        revalidate();
+    }
+
+    public void typesOfMedicines(ArrayList<Double> values){
+        this.removeAll();
+        this.repaint();
+        typesOfMedicines = new TypesOfMedicines(values);
+        this.add(typesOfMedicines,BorderLayout.PAGE_START);
+        revalidate();
+    }
+
+    public void reportGender(ArrayList<Integer> values){
+        this.removeAll();
+        this.repaint();
+        reportGender = new ReportGender(values);
+        this.add(reportGender,BorderLayout.PAGE_START);
+        revalidate();
+    }
 
 
     public void showMedicineRaresTable(ArrayList<Medicine> medicineList){

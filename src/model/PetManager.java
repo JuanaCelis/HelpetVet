@@ -1,5 +1,7 @@
 package model;
 
+import java.time.LocalDate;
+import java.time.Month;
 import java.util.ArrayList;
 
 public class PetManager {
@@ -49,6 +51,22 @@ public class PetManager {
             }
         }
         return result;
+    }
+
+    public ArrayList<Integer> getPercentageGender(){
+        ArrayList<Integer> list = new ArrayList<>();
+        int male = 0;
+        int female = 0;
+        for (int i = 0; i < petsList.size(); i++) {
+            if(petsList.get(i).getGender() == Gender.MALE){
+                male++;
+            }else {
+                female++;
+            }
+        }
+        list.add(male);
+        list.add(female);
+        return list;
     }
 
     //Datos quemados

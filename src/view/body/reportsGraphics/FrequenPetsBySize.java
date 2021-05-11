@@ -9,7 +9,7 @@ public class FrequenPetsBySize extends JPanel {
     private ArrayList<Double> values;
 
     public FrequenPetsBySize(ArrayList<Double> values) {
-        setPreferredSize(new Dimension(100,550));
+        setPreferredSize(new Dimension(100,240));
         setVisible(true);
         this.values = values;
     }
@@ -25,19 +25,19 @@ public class FrequenPetsBySize extends JPanel {
         double longTwo = sizeMedium * 400/sum;
         double longThree = sizeLittle * 400/sum;
 
-        g.setColor(Color.BLUE);
-        g.fillRect(50,250, (int) longOne,50);
+        g.setColor(Color.decode("#072340"));
+        g.fillRect(50,100, (int) longOne,50);
         g.setColor(Color.white);
-        g.drawString("Big " + (int)sizeBig+ "%",55,270);
+        g.drawString("Big " + (int)sizeBig+ "%",55,130);
 
-        g.setColor(Color.GREEN);
-        g.fillRect((int) (50+longOne),250, (int) longTwo,50);
+        g.setColor(Color.decode("#3274B8"));
+        g.fillRect((int) (50+longOne),100, (int) longTwo,50);
         g.setColor(Color.white);
-        g.drawString("Medium " + (int)sizeMedium +"%", (int) (55+longOne),270);
+        g.drawString("Medium " + (int)sizeMedium +"%", (int) (55+longOne),130);
 
-        g.setColor(Color.RED);
-        g.fillRect((int) (50+longOne+longTwo),250, (int) longThree,50);
+        g.setColor(Color.decode("#1735BD"));
+        g.fillRect((int) (50+longOne+longTwo),100, (int) longThree,50);
         g.setColor(Color.white);
-        g.drawString("Little " + (int)sizeLittle+"%", (int) (55+longOne+longTwo),270);
+        g.drawString("Little " + (int)sizeLittle+"%", (int) (55+longOne+longTwo),130);
     }
 }

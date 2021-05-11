@@ -61,6 +61,22 @@ public class JPMainPanel extends JPanel {
         jpcontainerBody.frequenPetsBySize(doubles);
     }
 
+    public void doctorsByCategoryGraphic(ArrayList<Double> doubles){
+        jpcontainerBody.doctorsByCategoryGraphic(doubles);
+    }
+
+    public void petsForMounth(ArrayList<Integer> doubles){
+        jpcontainerBody.petsForMounth(doubles);
+    }
+
+    public void typesOfMedicines(ArrayList<Double> values){
+        jpcontainerBody.typesOfMedicines(values);
+    }
+
+    public void reportGender(ArrayList<Integer> values){
+        jpcontainerBody.reportGender(values);
+    }
+
     public void showListOfDoctors(ArrayList<Doctor> doctorList){
         jpcontainerBody.showListOfDoctors(doctorList);
     }

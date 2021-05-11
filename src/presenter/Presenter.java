@@ -52,6 +52,7 @@ public class Presenter implements ActionListener {
         readFile();
         loadConfiguration();
         mainWindow = new JFrameMainWindow(this);
+        test();
     }
 
     public void readMedicineOfApi(){
@@ -71,7 +72,6 @@ public class Presenter implements ActionListener {
         try{
             config.loadLanguage();
         }catch(IOException e){
-            //JOptionPane.showMessageDialog(jfMainWindow, e.getMessage());
             System.out.println(e.getMessage());
         }
     }
@@ -259,6 +259,28 @@ public class Presenter implements ActionListener {
         mainWindow.frequenPetsBySize(vetManager.frequentPets());
     }
 
+    public void doctorsByCategoryGraphic(){
+        mainWindow.doctorsByCategoryGraphic(vetManager.percentageDoctorForCategory());
+    }
+
+    public void petsForMonthGraphic(){
+        mainWindow.petsForMounth(vetManager.getMonths());
+    }
+
+    public void typesOfMedicines(){
+        mainWindow.typesOfMedicines(medicineManager.typesOfMedicines());
+    }
+
+    public void reportGender(){
+        mainWindow.reportGender(vetManager.getPercentageGender());
+    }
+
+    public void test(){
+        for (int i = 0; i < medicineManager.typesOfMedicines().size(); i++) {
+            System.out.println(medicineManager.typesOfMedicines().get(i).toString());
+        }
+    }
+
     @Override
     public void actionPerformed(ActionEvent e) {
 
@@ -362,6 +384,20 @@ public class Presenter implements ActionListener {
                 frequentPets();
                 break;
 
+            case C_SHOW_GRAPHICS_THREE:
+                doctorsByCategoryGraphic();
+                break;
+
+            case C_SHOW_GRAPHICS_FOUR:
+                petsForMonthGraphic();
+                break;
+
+            case C_SHOW_GRAPHICS_FIVE:
+                typesOfMedicines();
+                break;
+            case C_SHOW_GRAPHICS_SIX:
+                reportGender();
+                break;
         }
     }
 

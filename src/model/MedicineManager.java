@@ -21,4 +21,26 @@ public class MedicineManager {
     public void setMedicinesList(ArrayList<Medicine> medicinesList) {
         this.medicinesList = medicinesList;
     }
+
+    public ArrayList<Double> typesOfMedicines(){
+        ArrayList<Double> list = new ArrayList<>();
+
+        list.add((double) countTypesMedicines("VACUNA"));
+        list.add((double) countTypesMedicines("Antibióticos"));
+        list.add((double) countTypesMedicines("Antiparasitarios"));
+        list.add((double) countTypesMedicines("Antiinflamatorios"));
+        list.add((double) countTypesMedicines("Desinfectantes"));
+
+        return list;
+    }
+
+    public int countTypesMedicines(String criterion){
+        int result = 0;
+        for (int i = 0; i < medicinesList.size(); i++) {
+            if (medicinesList.get(i).getMedicineClass().contains(criterion)){
+                result++;
+            }
+        }
+        return result;
+    }
 }

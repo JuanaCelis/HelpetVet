@@ -9,12 +9,11 @@ import view.ConstantGUI;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
-import java.lang.ref.PhantomReference;
 
 public class JPButtonsReportsGraphics extends JPanel {
 
     private JPanel panelButtonsRepGraphics, panelTittle;
-    private JButton jbAverageCategory, jbDocsCategory,jbPetsPerMonth, jbFrequentPets, jbRatingVet, jbReportMedicine;
+    private JButton jbAverageCategory, jbDocsCategory,jbPetsPerMonth, jbFrequentPets, jbGenderPets, jbReportMedicine;
     private JLabel jlTittleGraphicsReports, jlTittleTablesReports;
 
     private Presenter myPresenter;
@@ -69,15 +68,15 @@ public class JPButtonsReportsGraphics extends JPanel {
         jbDocsCategory = new JButton();
         ImageIcon tempDocsCategory = new ImageIcon(new ImageIcon(getClass().getResource(ConstantGUI.BUTTON_GENERAL_REPORTS)).getImage());
         MyUtilities.setTextAndIconButtons(jbDocsCategory, HandlerLanguage.languageProperties.getProperty(ConstantGUI.T_BUTTON_DOCS_BY_CATEGORY), tempDocsCategory, 0,0,0,0);
-        //jbDocsCategory.addActionListener(myPresenter);
-        //jbDocsCategory.setActionCommand(EVENTS.C_SHOW_GRAPHICS_TWO.toString());
+        jbDocsCategory.addActionListener(myPresenter);
+        jbDocsCategory.setActionCommand(EVENTS.C_SHOW_GRAPHICS_THREE.toString());
         panelButtonsRepGraphics.add(jbDocsCategory);
 
         jbPetsPerMonth = new JButton();
         ImageIcon tempPetsPerMonth = new ImageIcon(new ImageIcon(getClass().getResource(ConstantGUI.BUTTON_GENERAL_REPORTS)).getImage());
         MyUtilities.setTextAndIconButtons(jbPetsPerMonth, HandlerLanguage.languageProperties.getProperty(ConstantGUI.T_BUTTON_PETS_PER_MONTH), tempPetsPerMonth, 0,0,0,0);
-        //jbPetsPerMonth.addActionListener(myPresenter);
-        //jbPetsPerMonth.setActionCommand(EVENTS.C_DIALOG_REGISTER_DOC.toString());
+        jbPetsPerMonth.addActionListener(myPresenter);
+        jbPetsPerMonth.setActionCommand(EVENTS.C_SHOW_GRAPHICS_FOUR.toString());
         panelButtonsRepGraphics.add(jbPetsPerMonth);
 
         jbFrequentPets = new JButton();
@@ -87,18 +86,18 @@ public class JPButtonsReportsGraphics extends JPanel {
         jbFrequentPets.setActionCommand(EVENTS.C_SHOW_GRAPHICS_TWO.toString());
         panelButtonsRepGraphics.add(jbFrequentPets);
 
-        jbRatingVet = new JButton();
+        jbGenderPets = new JButton();
         ImageIcon tempRatingVet = new ImageIcon(new ImageIcon(getClass().getResource(ConstantGUI.BUTTON_GENERAL_REPORTS)).getImage());
-        MyUtilities.setTextAndIconButtons(jbRatingVet, HandlerLanguage.languageProperties.getProperty(ConstantGUI.T_BUTTON_RATING_VET), tempRatingVet, 0,0,0,0);
-        //jbRatingVet.addActionListener(myPresenter);
-        //jbRatingVet.setActionCommand(EVENTS.C_DIALOG_REGISTER_DOC.toString());
-        panelButtonsRepGraphics.add(jbRatingVet);
+        MyUtilities.setTextAndIconButtons(jbGenderPets, HandlerLanguage.languageProperties.getProperty(ConstantGUI.T_BUTTON_RATING_VET), tempRatingVet, 0,0,0,0);
+        jbGenderPets.addActionListener(myPresenter);
+        jbGenderPets.setActionCommand(EVENTS.C_SHOW_GRAPHICS_SIX.toString());
+        panelButtonsRepGraphics.add(jbGenderPets);
 
         jbReportMedicine = new JButton();
         ImageIcon tempReportMedicine = new ImageIcon(new ImageIcon(getClass().getResource(ConstantGUI.BUTTON_GENERAL_REPORTS)).getImage());
         MyUtilities.setTextAndIconButtons(jbReportMedicine, HandlerLanguage.languageProperties.getProperty(ConstantGUI.T_BUTTON_REPORT_MEDICINE), tempReportMedicine, 0,0,0,0);
-        //jbReportMedicine.addActionListener(myPresenter);
-        //jbReportMedicine.setActionCommand(EVENTS.C_DIALOG_REGISTER_DOC.toString());
+        jbReportMedicine.addActionListener(myPresenter);
+        jbReportMedicine.setActionCommand(EVENTS.C_SHOW_GRAPHICS_FIVE.toString());
         panelButtonsRepGraphics.add(jbReportMedicine);
 
         this.add(panelButtonsRepGraphics);
@@ -110,7 +109,7 @@ public class JPButtonsReportsGraphics extends JPanel {
         jbDocsCategory.setText(HandlerLanguage.languageProperties.getProperty(ConstantGUI.T_BUTTON_DOCS_BY_CATEGORY));
         jbPetsPerMonth.setText(HandlerLanguage.languageProperties.getProperty(ConstantGUI.T_BUTTON_PETS_PER_MONTH));
         jbFrequentPets.setText(HandlerLanguage.languageProperties.getProperty(ConstantGUI.T_BUTTON_FREQUENT_PETS));
-        jbRatingVet.setText(HandlerLanguage.languageProperties.getProperty(ConstantGUI.T_BUTTON_RATING_VET));
+        jbGenderPets.setText(HandlerLanguage.languageProperties.getProperty(ConstantGUI.T_BUTTON_RATING_VET));
         jbReportMedicine.setText(HandlerLanguage.languageProperties.getProperty(ConstantGUI.T_BUTTON_REPORT_MEDICINE));
     }
 
