@@ -9,7 +9,7 @@ public class TypesOfMedicines extends JPanel {
 
     private ArrayList<Double> values;
     private ArrayList<Double> grades;
-    private ArrayList<Double> percentages;
+    private ArrayList<Integer> percentages;
 
     public TypesOfMedicines(ArrayList<Double> values) {
         setPreferredSize(new Dimension(500,350));
@@ -51,7 +51,7 @@ public class TypesOfMedicines extends JPanel {
         g.drawString("Ainti-Inflamatories " + percentages.get(3)+"%",50,175);
 
         g.setColor(Color.decode("#3274B8"));
-        g.fillArc(350,70,220,220,(int)gVaccine+(int)gAntibiotics+(int)gAntiparasitics+(int)gAintiInflamatories, (int)gDesifectants);
+        g.fillArc(350,70,220,220,(int)gVaccine+(int)gAntibiotics+(int)gAntiparasitics+(int)gAintiInflamatories, (int)gDesifectants+3);
         g.fillRect(20,190,20,20);
         g.drawString("Desifectants " + percentages.get(4)+"%",50,205);
 
@@ -69,7 +69,7 @@ public class TypesOfMedicines extends JPanel {
         percentages = new ArrayList<>();
         double sum = sum();
         for (int i = 0; i < values.size(); i++) {
-            percentages.add((values.get(i)*100/sum));
+            percentages.add((int) (values.get(i)*100/sum));
         }
     }
 

@@ -19,7 +19,7 @@ public class JFrameMainWindow extends JFrame {
         myPresenter = presenter;
         setExtendedState(MAXIMIZED_BOTH);
         setSize(600, 400);
-        //setIconImage(new ImageIcon(getClass().getResource(ConstantsGUI.LOGO_PAGE)).getImage());
+        setIconImage(new ImageIcon(getClass().getResource(ConstantGUI.VET_PET_ICON)).getImage());
         setTitle(HandlerLanguage.languageProperties.getProperty(ConstantGUI.T_MAIN_WINDOW ));
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         initComponents();
@@ -68,6 +68,14 @@ public class JFrameMainWindow extends JFrame {
 
     public void reportGender(ArrayList<Integer> values){
         mainPanel.reportGender(values);
+    }
+
+    public void buttonsCrud(){
+        mainPanel.buttonsCrud();
+    }
+
+    public void setCommandButton(String command){
+        mainPanel.setCommandButton(command);
     }
 
     public void showListOfDoctors(ArrayList<Doctor> doctorList){

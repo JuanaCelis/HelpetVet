@@ -7,7 +7,6 @@ import java.util.List;
 
 public class AppointmentManager {
 
-    // private ArrayList<AppointmentResult> resultAppointmentList;
     private ArrayList<Appointment> appointmentList;
 
 
@@ -17,15 +16,19 @@ public class AppointmentManager {
     }
 
     public void addAppointment(Appointment appointment){
-        int idPet = 1;
+        int count = appointmentList.size()+1;
         if (!appointmentList.contains(appointment)){
-            appointment.setIdPet(idPet++);
+            appointment.setIdPet(count++);
             appointmentList.add(appointment);
         }
     }
 
-    public void deleteAppointment(){
-
+    public void deleteAppointment(int idPet){
+        for (int i = 0; i < appointmentList.size(); i++) {
+            if (appointmentList.get(i).getIdPet() == idPet){
+                appointmentList.remove(i);
+            }
+        }
     }
 
     /**
@@ -55,23 +58,6 @@ public class AppointmentManager {
         }
         return result;
     }
-
-    /**
-     * Asigna la Doctor a la cita
-     *
-     */
-    public Appointment assingDoctorForAppointment(Doctor doctor){
-        Appointment appointmentResult = null;
-        for (Appointment appointment : appointmentList) {
-            if (appointment.getCategory() == doctor.getCategoryEspeciality()) {
-                appointment.setDoctor(doctor);;
-                appointmentResult = appointment;
-                break;
-            }
-        }
-        return appointmentResult;
-    }
-    
 
     public void registerNewAppointment(Appointment appointment){
         
@@ -123,16 +109,16 @@ public class AppointmentManager {
      * Datos quemados
      */
     public void testDatas(){
-        appointmentList.add(new Appointment("17321","Gomez","Cristina","Ema",CategoryEspeciality.SURGERY, LocalDate.of(2021,01,13)));
-        appointmentList.add(new Appointment("10932","Ardila","Julian","Winny",CategoryEspeciality.SURGERY, LocalDate.of(2021,01,23)));
-        appointmentList.add(new Appointment("13862","Sanchez","Yulieth","Manchita",CategoryEspeciality.PHISIOTHERAPY, LocalDate.of(2021,06,13)));
-        appointmentList.add(new Appointment("14582","Perez","Isabella","Max",CategoryEspeciality.WILDLIFE, LocalDate.of(2021,06,18)));
-        appointmentList.add(new Appointment("12476","Ortiz","Selena","Tobi",CategoryEspeciality.SURGERY, LocalDate.of(2021,05,27)));
-        appointmentList.add(new Appointment("154216","Calderon","Catalina","Bash",CategoryEspeciality.REHABILITATION, LocalDate.of(2021,07,20)));
-        appointmentList.add(new Appointment("124234","Calderon","Ramiro","Mota",CategoryEspeciality.SURGERY, LocalDate.of(2021,07,20)));
-        appointmentList.add(new Appointment("143218","Gualdron","Silvia","linux",CategoryEspeciality.REHABILITATION, LocalDate.of(2021,8,20)));
-        appointmentList.add(new Appointment("132116","Mondragon","Guillermo","Chispas",CategoryEspeciality.IMAGING, LocalDate.of(2021,8,7)));
-        appointmentList.add(new Appointment("133426","Mondragon","Jorge","Candy",CategoryEspeciality.IMAGING, LocalDate.of(2021,8,15)));
+        addAppointment(new Appointment("17321","Gomez","Cristina","Ema",CategoryEspeciality.SURGERY, LocalDate.of(2021,01,13)));
+        addAppointment(new Appointment("10932","Ardila","Julian","Winny",CategoryEspeciality.SURGERY, LocalDate.of(2021,01,23)));
+        addAppointment(new Appointment("13862","Sanchez","Yulieth","Manchita",CategoryEspeciality.PHISIOTHERAPY, LocalDate.of(2021,06,13)));
+        addAppointment(new Appointment("14582","Perez","Isabella","Max",CategoryEspeciality.WILDLIFE, LocalDate.of(2021,06,18)));
+        addAppointment(new Appointment("12476","Ortiz","Selena","Tobi",CategoryEspeciality.SURGERY, LocalDate.of(2021,05,27)));
+        addAppointment(new Appointment("154216","Calderon","Catalina","Bash",CategoryEspeciality.REHABILITATION, LocalDate.of(2021,07,20)));
+        addAppointment(new Appointment("124234","Calderon","Ramiro","Mota",CategoryEspeciality.SURGERY, LocalDate.of(2021,07,20)));
+        addAppointment(new Appointment("143218","Gualdron","Silvia","linux",CategoryEspeciality.REHABILITATION, LocalDate.of(2021,8,20)));
+        addAppointment(new Appointment("132116","Mondragon","Guillermo","Chispas",CategoryEspeciality.IMAGING, LocalDate.of(2021,8,7)));
+        addAppointment(new Appointment("133426","Mondragon","Jorge","Candy",CategoryEspeciality.IMAGING, LocalDate.of(2021,8,15)));
     }
 
 }

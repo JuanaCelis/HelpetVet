@@ -70,6 +70,10 @@ public class VetManager {
         return appointmentManager.getMonths();
     }
 
+    public void deleteAppointment(int idPet){
+        appointmentManager.deleteAppointment(idPet);
+    }
+
     /**
      * Mascotas
      */
@@ -81,11 +85,19 @@ public class VetManager {
        return petManager.getPercentageGender();
     }
 
+    public void deletePet(int idOwner){
+        petManager.deletePet(idOwner);
+    }
+
     /**
      * Doctores
      */
     public ArrayList<Double> percentageDoctorForCategory(){
         return doctorManager.percentageDoctorForCategory();
+    }
+
+    public void deleteDoctor(String idDoctor){
+        doctorManager.deleteDoctor(idDoctor);
     }
 
     /**
@@ -94,4 +106,6 @@ public class VetManager {
     public ArrayList<Double> typesOfMedicines(){
         return medicineManager.typesOfMedicines();
     }
+
+
 }

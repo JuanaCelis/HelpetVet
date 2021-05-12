@@ -11,11 +11,7 @@ public class DoctorManager {
         doctors = new ArrayList<>();
     }
 
-    /**
-     * Crear Clase con los listas de doctores y citas
-     * @param Arraylist lista doctores
-     * @param Arraylist lsitas citas
-     */
+
     public DoctorManager(ArrayList<Doctor> doctors){
         this.doctors = doctors;
     }
@@ -42,7 +38,7 @@ public class DoctorManager {
      */
     public void deleteDoctor(String idDoctor){
         for (int i = 0; i < doctors.size(); i++) {
-            if(doctors.get(i).getId() == idDoctor){
+            if(doctors.get(i).getId().equalsIgnoreCase(idDoctor)){
                 doctors.remove(i);
             }
         }

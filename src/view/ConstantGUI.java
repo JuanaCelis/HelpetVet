@@ -107,6 +107,7 @@ public class ConstantGUI {
     public static final String DOCTOR_IMAGE_SERVICE = "/img/excelentes_profesionales.jpg";
     public static final String MEDICINE_IMAGE_SERVICE = "/img/medicamentos_imagen.jpg";
     public static final String INSTALACIONES_IMAGE_SERVICE = "/img/quirofano-1.jpeg";
+    public static final String REMOVE_CRUD = "/img/delete.png";
 
     //Llaves multilenguaje servicios helpet
     public static final String T_SERVICE_EXCELLENT_PROFESSIONALS = "service_helpet_professionals";
@@ -115,7 +116,6 @@ public class ConstantGUI {
     public static final String T_SERVICE_ANSWER = "service_answer";
     public static final String T_SERVICE_TITTLE = "service_tittle";
     public static final String TEXT_INFO_HELPET = "<html>Tel: 8 7436764<br>Cel.: 3115475000<br>Dir.: Calle 12 # 09 - 73 Tunja <br>Boyaca<br>Web: https://helpet.com.co<br>E- mail:helpet@helpet.com.co<br>clientes@helpet.com.co</html>";
-
     //FOOTER IMG
 
     public static final String FACEBOOK_IMG = "/img/facebook.png";
@@ -125,5 +125,10 @@ public class ConstantGUI {
     public static final String ICON_CELLPHONE = "/img/cel_movil.png";
     public static final String EMAIL_IMG = "/img/email.png";
     public static final String LOGO_HELPET_FOOTER = "/img/helpe_logo_footer.png";
+    public static final String ID_PET_DELETE = "id_pet_delete";
+    public static final String NAME_MEDICINE_DELETE = "name_medicine_delete";
+    public static final String ID_DOCTOR_DELETE = "id_doctor_delete";
+    public static final String ID_OWNER_DELETE = "id_owner_delete";
+    public static final String VET_PET_ICON = "/img/vetPetLogo.png";
 }
 

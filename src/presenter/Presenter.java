@@ -12,6 +12,7 @@ import org.json.simple.DeserializationException;
 import persistence.FileManager;
 import persistence.HandlerLanguage;
 import persistence.JsonManager;
+import view.ConstantGUI;
 import view.JFrameMainWindow;
 
 import javax.swing.*;
@@ -52,7 +53,6 @@ public class Presenter implements ActionListener {
         readFile();
         loadConfiguration();
         mainWindow = new JFrameMainWindow(this);
-        test();
     }
 
     public void readMedicineOfApi(){
@@ -275,10 +275,12 @@ public class Presenter implements ActionListener {
         mainWindow.reportGender(vetManager.getPercentageGender());
     }
 
-    public void test(){
-        for (int i = 0; i < medicineManager.typesOfMedicines().size(); i++) {
-            System.out.println(medicineManager.typesOfMedicines().get(i).toString());
-        }
+    public void buttonsCrud(){
+        mainWindow.buttonsCrud();
+    }
+
+    public void setCommandButton(String command){
+        mainWindow.setCommandButton(command);
     }
 
     @Override
@@ -326,6 +328,14 @@ public class Presenter implements ActionListener {
             case C_SHOW_TABLE_APPOINTMENT_BY_CATEGORY:
                 showTableAppointment();
                 showAppointments();
+                buttonsCrud();
+                setCommandButton(EVENTS.C_DELETE_PPOINTMENT.toString());
+                break;
+
+            case C_DELETE_PPOINTMENT:
+                vetManager.deleteAppointment(Integer.parseInt(JOptionPane.showInputDialog(HandlerLanguage.languageProperties.getProperty(ConstantGUI.ID_PET_DELETE))));
+                clearTable();
+                showAppointments();
                 break;
 
             case C_SHOW_PANEL_GRAPHICS:
@@ -344,14 +354,31 @@ public class Presenter implements ActionListener {
                 clearTable();
                 showPanelTableMedicine();
                 showMedicines();
+                buttonsCrud();
+                setCommandButton(EVENTS.C_DELETE_MEDICINE.toString());
+                break;
+
+            case C_DELETE_MEDICINE:
+                medicineManager.deleteMedicine(JOptionPane.showInputDialog(HandlerLanguage.languageProperties.getProperty(ConstantGUI.NAME_MEDICINE_DELETE)));
+                clearTable();
+                showMedicines();
                 break;
 
             case C_SHOW_LIST_OF_DOCTORS:
                 jDialogDoctorsByCategory = new JDialogDoctorsByCategory(this);
                 break;
+
             case C_SHOW_TABLE_DOCTORS_BY_CATEGORY:
                 clearTable();
                 showPanelTable();
+                showDoctors();
+                buttonsCrud();
+                setCommandButton(EVENTS.C_DELETE_DOCTOR.toString());
+                break;
+
+            case C_DELETE_DOCTOR:
+                vetManager.deleteDoctor(JOptionPane.showInputDialog(HandlerLanguage.languageProperties.getProperty(ConstantGUI.ID_DOCTOR_DELETE)));
+                clearTable();
                 showDoctors();
                 break;
 
@@ -362,6 +389,14 @@ public class Presenter implements ActionListener {
             case C_SHOW_TABLE_PETS_BY_CATEGORY:
                 clearTable();
                 showPanelTablePets();
+                showPetsAndOwners();
+                buttonsCrud();
+                setCommandButton(EVENTS.C_DELETE_PET.toString());
+                break;
+
+            case C_DELETE_PET:
+                vetManager.deletePet(Integer.parseInt(JOptionPane.showInputDialog(HandlerLanguage.languageProperties.getProperty(ConstantGUI.ID_OWNER_DELETE))));
+                clearTable();
                 showPetsAndOwners();
                 break;
 

@@ -21,22 +21,22 @@ public class FrequenPetsBySize extends JPanel {
         double sizeLittle = values.get(2);
 
         double sum = sizeBig + sizeMedium + sizeLittle;
-        double longOne = sizeBig * 400/sum;
-        double longTwo = sizeMedium * 400/sum;
-        double longThree = sizeLittle * 400/sum;
+        double longOne = sizeBig * 600/sum;
+        double longTwo = sizeMedium * 600/sum;
+        double longThree = sizeLittle * 600/sum;
 
         g.setColor(Color.decode("#072340"));
-        g.fillRect(50,100, (int) longOne,50);
+        g.fillRect(50,100, (int) longOne,60);
         g.setColor(Color.white);
         g.drawString("Big " + (int)sizeBig+ "%",55,130);
 
         g.setColor(Color.decode("#3274B8"));
-        g.fillRect((int) (50+longOne),100, (int) longTwo,50);
+        g.fillRect((int) (50+longOne),100, (int) longTwo,60);
         g.setColor(Color.white);
         g.drawString("Medium " + (int)sizeMedium +"%", (int) (55+longOne),130);
 
         g.setColor(Color.decode("#1735BD"));
-        g.fillRect((int) (50+longOne+longTwo),100, (int) longThree,50);
+        g.fillRect((int) (50+longOne+longTwo),100, (int) longThree,60);
         g.setColor(Color.white);
         g.drawString("Little " + (int)sizeLittle+"%", (int) (55+longOne+longTwo),130);
     }

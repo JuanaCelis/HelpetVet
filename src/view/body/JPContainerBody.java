@@ -31,6 +31,8 @@ public class JPContainerBody extends JPanel {
     private TypesOfMedicines typesOfMedicines;
     private ReportGender reportGender;
 
+    private JButton delete;
+
 
     public JPContainerBody(Presenter presenter) {
         this.setLayout(new BorderLayout());
@@ -48,8 +50,6 @@ public class JPContainerBody extends JPanel {
 
         this.add(jpHelpetServices,BorderLayout.PAGE_START);
 
-        //this.add(jpButtonsReportsGraphics,BorderLayout.PAGE_START);
-        //jpTableElements = new JPTableElements();
     }
 
     public void showHomePage(){
@@ -77,6 +77,18 @@ public class JPContainerBody extends JPanel {
         this.repaint();
         this.add(jpTableElements,BorderLayout.PAGE_START);
         revalidate();
+    }
+
+    public void setCommandButton(String command){
+        delete.setActionCommand(command);
+    }
+
+    public void buttonsCrud(){
+        delete = new JButton();
+        ImageIcon temp = new ImageIcon(new ImageIcon(getClass().getResource(ConstantGUI.REMOVE_CRUD)).getImage());
+        MyUtilities.setMainElementsButton(delete,temp,0,0,0,0);
+        delete.addActionListener(myPresenter);
+        this.add(delete);
     }
 
     public void showGraphicAppointmentCategory(List<Double> doubles){

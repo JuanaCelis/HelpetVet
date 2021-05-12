@@ -27,6 +27,14 @@ public class PetManager {
         }
     }
 
+    public void deletePet(int idOwner){
+        for (int i = 0; i < petsList.size(); i++) {
+            if (petsList.get(i).getOwnerId() == idOwner){
+                petsList.remove(i);
+            }
+        }
+    }
+
     public ArrayList<Pet> getPetsList() {
         return petsList;
     }

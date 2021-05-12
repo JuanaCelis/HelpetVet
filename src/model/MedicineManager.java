@@ -14,6 +14,14 @@ public class MedicineManager {
         medicinesList.add(medicine);
     }
 
+    public void deleteMedicine(String description){
+        for (int i = 0; i < medicinesList.size(); i++) {
+            if (medicinesList.get(i).getDescriptionProduct().equalsIgnoreCase(description)){
+                medicinesList.remove(i);
+            }
+        }
+    }
+
     public ArrayList<Medicine> getMedicinesList() {
         return medicinesList;
     }

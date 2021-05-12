@@ -77,6 +77,14 @@ public class JPMainPanel extends JPanel {
         jpcontainerBody.reportGender(values);
     }
 
+    public void buttonsCrud(){
+        jpcontainerBody.buttonsCrud();
+    }
+
+    public void setCommandButton(String command){
+        jpcontainerBody.setCommandButton(command);
+    }
+
     public void showListOfDoctors(ArrayList<Doctor> doctorList){
         jpcontainerBody.showListOfDoctors(doctorList);
     }

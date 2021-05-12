@@ -9,7 +9,7 @@ public class AppointmentForCategory extends JPanel {
     private List<Double> values;
 
     public AppointmentForCategory(List<Double> doubles) {
-        setPreferredSize(new Dimension(100,550));
+        setPreferredSize(new Dimension(100,460));
         setVisible(true);
         this.values = doubles;
     }
@@ -38,28 +38,28 @@ public class AppointmentForCategory extends JPanel {
         int longSix = (int) (wildlife * 400 / major);
 
         g.setColor(Color.decode("#004AAD"));
-        g.fillRect(150, 70, longOne, 35);
-        g.drawString("Cirugia", 30, 100);
+        g.fillRect(165, 70, longOne, 35);
+        g.drawString("Surgery: "+ surgery+"%", 30, 100);
 
         g.setColor(Color.decode("#03989E"));
-        g.fillRect(150, 120, longTwo, 35);
-        g.drawString("Oncología", 30, 150);
+        g.fillRect(165, 120, longTwo, 35);
+        g.drawString("Oncology: "+oncology+"%", 30, 150);
 
         g.setColor(Color.decode("#1735BD"));
-        g.fillRect(150, 180, longThree, 35);
-        g.drawString("Fisoperapia", 30, 210);
+        g.fillRect(165, 180, longThree, 35);
+        g.drawString("Physiotherapy: "+phisiotherapy+"%", 30, 210);
 
         g.setColor(Color.decode("#1768BD"));
-        g.fillRect(150, 240, longFour, 35);
-        g.drawString("Rehabilitacion", 30, 270);
+        g.fillRect(165, 240, longFour, 35);
+        g.drawString("Rehabilitation: "+rehabilitation+"%", 30, 270);
 
         g.setColor(Color.decode("#072340"));
-        g.fillRect(150, 300, longFive, 35);
-        g.drawString("Imagen", 30, 330);
+        g.fillRect(165, 300, longFive, 35);
+        g.drawString("Imagin: "+imaging+"%", 30, 330);
 
         g.setColor(Color.decode("#3274B8"));
-        g.fillRect(150, 350, longSix, 35);
-        g.drawString("Fauna", 30, 380);
+        g.fillRect(165, 360, longSix, 35);
+        g.drawString("Wildlife: "+wildlife+"%", 30, 390);
     }
 
     public double getMajorValue(double valueOne, double valueTwo, double valueThree){
